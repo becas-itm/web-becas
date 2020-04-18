@@ -5,9 +5,10 @@ import { AppFooter } from 'ui/components/AppFooter';
 export function ThreeRowTemplate({ header, className = '', ...restProps }) {
   return (
     <div className="min-h-screen flex flex-col">
+      <div className="h-1 w-full bg-primary" />
       <div>{header}</div>
-      <div {...restProps} className={`h-full flex-1 ${className}`} />
-      <div>
+      <div {...restProps} className={`h-full flex-1 ${className} px-3`} />
+      <div className="mt-8">
         <AppFooter />
       </div>
     </div>
