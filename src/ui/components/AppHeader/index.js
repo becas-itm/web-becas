@@ -1,1 +1,1 @@
-export { AppHeader, Bar, Actions } from './AppHeader';
+export { default } from './AppHeader';
