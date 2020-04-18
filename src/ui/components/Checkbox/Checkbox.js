@@ -4,7 +4,6 @@ import './Checkbox.scss';
 
 export function Checkbox({ className, children, ...restProps }) {
   return (
-    // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label className={`Checkbox ${className || ''}`}>
       <input
         {...restProps}
