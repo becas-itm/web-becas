@@ -24,6 +24,8 @@
     "eslint-plugin-prettier": "^3.1.2",
     "formik": "^2.1.4",
     "http-proxy-middleware": "^1.0.3",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.1.5",
     "match-sorter": "^4.1.0",
     "node-sass": "^4.13.1",
     "prettier": "^2.0.4",
@@ -46,6 +48,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:staged": "CI=true react-scripts test --bail --findRelatedTests --colors",
     "eject": "react-scripts eject",
     "build:styles": "tailwindcss build src/ui/styles/tailwind.css -o src/ui/styles/styles.css",
     "build:icons": "node src/ui/components/Icon/buildIcons",
@@ -53,11 +56,24 @@
     "storybook": "start-storybook -p 9009 -s public",
     "build:storybook": "build-storybook -s public"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "eslint --fix",
+      "yarn test:staged"
+    ]
+  },
   "eslintConfig": {
     "extends": [
+      "eslint:recommended",
       "react-app",
       "plugin:cypress/recommended",
-      "plugin:prettier/recommended"
+      "plugin:prettier/recommended",
+      "prettier/react"
     ],
     "rules": {
       "prettier/prettier": "error"
@@ -80,6 +96,7 @@
     "@storybook/addon-links": "^5.3.18",
     "@storybook/addons": "^5.3.18",
     "@storybook/preset-create-react-app": "^2.1.1",
-    "@storybook/react": "^5.3.18"
+    "@storybook/react": "^5.3.18",
+    "cross-env": "^7.0.2"
   }
 }
