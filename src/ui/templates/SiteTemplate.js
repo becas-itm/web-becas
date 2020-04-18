@@ -16,9 +16,7 @@ const links = [
   { text: 'Buscar', href: '/buscar' },
 ];
 
-export function SiteTemplate(props) {
-  const menu = useHamburguer();
-
+function RedirectSearchBar() {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -28,9 +26,15 @@ export function SiteTemplate(props) {
     }
   };
 
-  const searchBar = (
-    <SearchBar onChange={handleSearch} placeholder="Buscar beca" />
-  );
+  return <SearchBar onChange={handleSearch} placeholder="Buscar beca" />;
+}
+
+export function SiteTemplate({ searchBar, ...restProps }) {
+  const menu = useHamburguer();
+
+  if (!searchBar) {
+    searchBar = <RedirectSearchBar />;
+  }
 
   return (
     <ThreeRowTemplate
@@ -82,7 +86,7 @@ export function SiteTemplate(props) {
           </header>
         </div>
       }
-      {...props}
+      {...restProps}
     />
   );
 }
