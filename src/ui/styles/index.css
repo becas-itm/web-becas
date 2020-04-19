@@ -19,6 +19,9 @@
   --white: #fff;
 }
 
+body {
+  -webkit-tap-highlight-color: transparent;
+}
 
 input[type='search'] {
   padding: 0;
