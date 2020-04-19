@@ -3,6 +3,10 @@ import CountryFlag from 'ui/components/CountryFlag';
 import { Listbox, ListboxOption } from 'ui/components/Listbox';
 
 export default function LanguageFilter({ value, onChange }) {
+  if (!value) {
+    value = '*';
+  }
+
   return (
     <Listbox
       value={value}

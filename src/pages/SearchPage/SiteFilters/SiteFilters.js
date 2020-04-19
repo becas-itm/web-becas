@@ -1,5 +1,7 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import { useFormik } from 'formik';
+import isEqual from 'react-fast-compare';
 import { checkboxGroup } from 'utils/forms';
 
 import { Checkbox } from 'ui/components/Checkbox';
@@ -9,36 +11,34 @@ import Combobox, { CountryComboboxMenu } from 'ui/components/CountryCombobox';
 
 import LanguageFilter from './LanguageFilter';
 
-export const DEFAULT_FILTERS = {
-  page: 1,
-  term: '',
+const DEFAULT_FILTERS = Object.freeze({
   country: '',
-  language: '*',
+  language: '',
   fundingType: ['COMPLETE', 'PARTIAL'],
   academicLevel: ['UNDERGRADUATE', 'POSTGRADUATE', 'OTHERS'],
-};
+});
 
-/**
- * Picks only the filter values Formik uses.
- *
- * Since `enableReinitialize` is set to `true`, it will reset
- * the form if any filter changes, causing unnecessary re-renders.
- * By hand-picking those values we avoid them.
- */
-function pickValues(values) {
-  const { country, language, fundingType, academicLevel } = values;
-  return { country, language, fundingType, academicLevel };
-}
-
-export default function SiteFilters({ filters, onSubmit, onReset }) {
-  const initialValues = pickValues(filters);
-  const form = useFormik({ onSubmit, initialValues, enableReinitialize: true });
+const SiteFilters = React.memo(function SiteFilters({
+  values,
+  onSubmit,
+  onReset,
+}) {
+  const form = useFormik({
+    onSubmit,
+    initialValues: values,
+  });
 
   const academicLevelProps = checkboxGroup('academicLevel', form);
   const fundingTypeProps = checkboxGroup('fundingType', form);
 
+  const handleReset = event => {
+    event.preventDefault();
+    form.setValues(DEFAULT_FILTERS);
+    onReset(DEFAULT_FILTERS);
+  };
+
   return (
-    <form onSubmit={form.handleSubmit} onReset={onReset} id="filters">
+    <form onSubmit={form.handleSubmit} onReset={handleReset} id="filters">
       <h4 className="text-sm font-semibold color-gray-500 uppercase">
         Tipo de beca
       </h4>
@@ -125,4 +125,18 @@ export default function SiteFilters({ filters, onSubmit, onReset }) {
       </div>
     </form>
   );
-}
+},
+isEqual);
+
+SiteFilters.propTypes = {
+  values: propTypes.exact({
+    country: propTypes.string.isRequired,
+    language: propTypes.string.isRequired,
+    fundingType: propTypes.arrayOf(propTypes.string.isRequired).isRequired,
+    academicLevel: propTypes.arrayOf(propTypes.string.isRequired).isRequired,
+  }).isRequired,
+};
+
+export { DEFAULT_FILTERS };
+
+export default SiteFilters;

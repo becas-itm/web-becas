@@ -4,10 +4,14 @@ import Pagination from 'ui/components/Pagination';
 import NotFoundGhost from 'ui/components/NotFoundGhost';
 import { SettingsBackupRestore } from 'ui/components/Icon';
 
+import { get } from 'utils/api';
+import { useQuery } from 'react-query';
+
 import ScholarshipPreview from './ScholarshipPreview';
 
-export default function SearchResults({ results, onPage, onResetFilters }) {
-  const { results: scholarships, ...pagination } = results;
+export default function SearchResults({ searchUrl, onPage }) {
+  const { data } = useQuery(searchUrl, get, { suspense: true });
+  const { results: scholarships, ...pagination } = data || { results: [] };
 
   if (scholarships.length === 0) {
     return (
@@ -15,7 +19,7 @@ export default function SearchResults({ results, onPage, onResetFilters }) {
         title="Sin resultados de búsqueda"
         description="Prueba usando un término más general, o bien"
       >
-        <Button onClick={onResetFilters} outline type="reset" form="filters">
+        <Button outline type="reset" form="filters">
           Restablece los filtros <SettingsBackupRestore className="ml-2" />
         </Button>
       </NotFoundGhost>
