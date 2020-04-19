@@ -11,10 +11,7 @@ import HamburguerMenu, {
   useHamburguer,
 } from 'ui/components/HamburguerMenu';
 
-const links = [
-  { text: 'Inicio', href: '/' },
-  { text: 'Buscar', href: '/buscar' },
-];
+import links from 'utils/siteLinks';
 
 function RedirectSearchBar() {
   const navigate = useNavigate();

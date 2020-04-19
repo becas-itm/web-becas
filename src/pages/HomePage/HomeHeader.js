@@ -9,10 +9,7 @@ import HamburguerMenu, {
   useHamburguer,
 } from 'ui/components/HamburguerMenu';
 
-const links = [
-  { text: 'Inicio', href: '/' },
-  { text: 'Buscar', href: '/buscar' },
-];
+import links from 'utils/siteLinks';
 
 export function HomeHeader() {
   const menu = useHamburguer();
