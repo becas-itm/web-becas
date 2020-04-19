@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import propTypes from 'prop-types';
 
@@ -9,7 +10,6 @@ export const SIZE = Object.freeze({
 
 function Avatar({ size, style, className, ...restProps }) {
   return (
-    // eslint-disable-next-line jsx-a11y/alt-text
     <img
       {...restProps}
       style={{ ...style, width: size, height: size }}
