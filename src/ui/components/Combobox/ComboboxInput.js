@@ -9,7 +9,6 @@ export function ComboboxInput(props) {
   const {
     isOpen,
     inputValue,
-    selectedItem,
     getInputProps,
     clearSelection,
     getToggleButtonProps,
@@ -23,7 +22,7 @@ export function ComboboxInput(props) {
         {...props}
         {...getInputProps({ ref: setReferenceElement })}
         endIcon={
-          selectedItem || inputValue ? (
+          inputValue ? (
             <button
               onClick={event => {
                 event.preventDefault();
