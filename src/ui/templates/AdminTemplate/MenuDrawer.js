@@ -8,11 +8,11 @@ import Dialog, { Title, KIND, CloseBtn } from 'ui/components/Dialog';
 
 function MenuItem({ to, children }) {
   return (
-    <li className="h-12 px-2" style={{ paddingTop: 2, paddingBottom: 2 }}>
+    <li>
       <NavLink
         to={to}
-        activeClassName="-selected"
-        className="MenuDrawer-Item flex items-center rounded px-2 w-full h-full"
+        activeClassName="bg-blue-50 text-primary font-semibold -selected"
+        className="MenuDrawer-Item flex items-center rounded px-2 mx-2 my-1 h-12 hover:underline"
       >
         {children}
       </NavLink>

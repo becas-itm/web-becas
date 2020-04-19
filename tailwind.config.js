@@ -54,7 +54,7 @@ module.exports = {
       black: '#000000',
       white: '#FFFFFF',
       error: '#B00020',
-      primary: '#0B77D8',
+      primary: 'hsl(213, 83%, 44%)',
       transparent: 'transparent',
     },
     borderColor: theme => ({
