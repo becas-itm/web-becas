@@ -40,7 +40,7 @@ export default function HomePage() {
 
             <div className="mt-6">
               ¿Conoces alguna beca?{' '}
-              <Link to="#" className="underline hover:text-primary">
+              <Link to="#" className="underline text-primary">
                 ¡Compártela!
               </Link>
             </div>
