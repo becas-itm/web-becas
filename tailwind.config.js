@@ -62,7 +62,7 @@ module.exports = {
       default: 'rgba(0, 0, 0, 0.12)',
     }),
     boxShadow: {
-      outline: '0 0 1px 1px rgba(0, 0, 0, 0.12)',
+      outline: '0 0 0 1px rgba(0, 0, 0, 0.12)',
       sm: '0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)',
       default: '0px 5px 10px rgba(0, 0, 0, 0.12)',
       lg: '0px 10px 20px rgba(0, 0, 0, 0.25)',
