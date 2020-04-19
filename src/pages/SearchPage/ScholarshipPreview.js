@@ -1,13 +1,12 @@
 import React from 'react';
 import { format } from 'date-fns';
 import propTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import locale from 'date-fns/locale/es';
 
+import { Event } from 'ui/components/Icon';
 import LinkButton from 'ui/components/LinkButton';
 import EntityAvatar from 'ui/components/EntityAvatar';
-import { Event, ArrowForward } from 'ui/components/Icon';
-
-import './ScholarshipPreview.css';
 
 function formatDeadline(date) {
   const FORMAT = `d 'de' MMMM 'de' yyyy`;
@@ -22,35 +21,44 @@ export default function ScholarshipPreview({
   entity,
 }) {
   return (
-    <article className="bg-white border-t border-b sm:rounded sm:border mb-5">
-      <div className="relative max-w-md mx-auto my-4 sm:my-10 px-4 sm:px-0">
+    <article className="bg-white shadow rounded mb-6 lg:mb-10 py-6 sm:py-10">
+      <div className="relative max-w-md mx-auto px-4 sm:px-0">
         <EntityAvatar
           name={entity.name}
           size={60}
-          className="hidden sm:block absolute top-0 right-full mr-4 md:mr-8"
+          className="hidden md:block absolute top-0 right-full md:mr-8"
         />
-        <header>
-          {deadline && (
-            <>
-              <Event className="mr-2 text-disabled" />
-              <span>{formatDeadline(deadline)}</span>
-            </>
-          )}
-          <h1 className="text-xl font-semibold mt-1">{name}</h1>
-        </header>
-        <p className="mt-1">{description}</p>
 
-        <LinkButton
-          to={`/convocatoria/${id}`}
-          className="ScholarshipPreview__linkBtn mt-4"
-        >
-          Ver convocatoria{' '}
-          <ArrowForward className="ScholarshipPreview__linkBtnIcon ml-2" />
-        </LinkButton>
+        <h1 className="text-xl font-semibold mb-2">
+          <Link
+            to={`/convocatoria/${id}`}
+            className="underline lg:no-underline hover:underline focus:underline focus:outline-none"
+          >
+            {name}
+          </Link>
+        </h1>
+
+        <p className="mb-4 text-justify">{description}</p>
+
+        <div className="flex items-end md:items-center justify-between relative">
+          <div className="flex items-center">
+            {deadline && (
+              <>
+                <Event className="mr-2 text-disabled flex-shrink-0" />
+                <span>{formatDeadline(deadline)}</span>
+              </>
+            )}
+          </div>
+
+          <div className="hidden md:block">
+            <LinkButton to={`/convocatoria/${id}`}>Ver más</LinkButton>
+          </div>
+
+          <div className="md:hidden flex-shrink-0">
+            <EntityAvatar name={entity.name} size={48} />
+          </div>
+        </div>
       </div>
-      <footer className="px-4 sm:rounded-b bg-gray-100">
-        <div className="max-w-md mx-auto py-3">{entity.fullName}</div>
-      </footer>
     </article>
   );
 }

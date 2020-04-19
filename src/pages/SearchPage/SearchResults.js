@@ -24,10 +24,15 @@ export default function SearchResults({ results, onPage, onResetFilters }) {
 
   return (
     <div className="w-full">
-      <h2 className="text-base mb-4 px-4">
-        <span>Resultados de búsqueda</span>
+      <h2 className="text-base text-medium mb-6 px-4">
+        <span>
+          {scholarships.length > 1
+            ? `${scholarships.length} Resultados`
+            : '1 Resultado'}
+        </span>
         <span> — Página {pagination.currentPage}</span>
       </h2>
+
       {scholarships.map(scholarship => (
         <ScholarshipPreview {...scholarship} key={scholarship.id} />
       ))}
