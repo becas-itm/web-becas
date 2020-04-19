@@ -18,17 +18,25 @@ function Pagination({ onPage, page, totalPages }) {
   const buttons = calcControlButtons({ current: page, total: totalPages });
 
   return (
-    <div className="flex items-center w-full">
+    <div className="flex items-center w-full" data-testid="Pagination">
       <div className="w-10 mr-2">
         {page > 1 && totalPages > 1 && (
-          <IconButton onClick={() => onPage(1)} icon={FirstPage}>
+          <IconButton
+            onClick={() => onPage(1)}
+            icon={FirstPage}
+            data-testid="Pagination__firstButton"
+          >
             Primera página
           </IconButton>
         )}
       </div>
       <div className="w-10">
         {page > 1 && totalPages > 1 && (
-          <IconButton onClick={() => onPage(page - 1)} icon={ChevronLeft}>
+          <IconButton
+            onClick={() => onPage(page - 1)}
+            icon={ChevronLeft}
+            data-testid="Pagination__prevButton"
+          >
             Página anterior
           </IconButton>
         )}
@@ -49,14 +57,22 @@ function Pagination({ onPage, page, totalPages }) {
 
       <div className="w-10 mr-2">
         {page < totalPages && (
-          <IconButton onClick={() => onPage(page + 1)} icon={ChevronRight}>
+          <IconButton
+            onClick={() => onPage(page + 1)}
+            icon={ChevronRight}
+            data-testid="Pagination__nextButton"
+          >
             Página siguiente
           </IconButton>
         )}
       </div>
       <div className="w-10">
         {page < totalPages && (
-          <IconButton onClick={() => onPage(totalPages)} icon={LastPage}>
+          <IconButton
+            onClick={() => onPage(totalPages)}
+            icon={LastPage}
+            data-testid="Pagination__lastButton"
+          >
             Última página
           </IconButton>
         )}
