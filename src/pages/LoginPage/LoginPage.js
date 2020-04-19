@@ -8,7 +8,7 @@ export default function LoginPage() {
   const login = useLogin();
   return (
     <ThreeRowTemplate header={null}>
-      <div className="flex justify-center mt-4 sm:mt-8 lg:mt-24 px-4">
+      <div className="flex justify-center mt-12 lg:mt-20">
         <LoginCard onSubmit={login.attempt} isLoading={login.isLoading} />
       </div>
     </ThreeRowTemplate>
