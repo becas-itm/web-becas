@@ -9,7 +9,7 @@ function SearchBar({
   isLarge = false,
   clearable = true,
   defaultValue = '',
-  placeholder = 'Buscar',
+  placeholder = 'Buscar beca',
 }) {
   const inputRef = React.useRef(null);
   const [value, setValue] = React.useState(defaultValue);

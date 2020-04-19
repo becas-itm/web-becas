@@ -26,7 +26,7 @@ function RedirectSearchBar() {
     }
   };
 
-  return <SearchBar onChange={handleSearch} placeholder="Buscar beca" />;
+  return <SearchBar onChange={handleSearch} />;
 }
 
 export function SiteTemplate({ searchBar, ...restProps }) {
