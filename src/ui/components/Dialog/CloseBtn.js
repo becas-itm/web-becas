@@ -6,6 +6,7 @@ export function CloseBtn(props) {
   return (
     <IconButton
       icon={Close}
+      large={false}
       shape={SHAPE.square}
       data-reach-dialog-close=""
       {...props}

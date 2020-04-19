@@ -17,15 +17,18 @@ function IconButton({
   ...restProps
 }) {
   const classes = classNames(
-    'inline-flex focus:outline-none select-none duration-100 ease-in-out',
+    'inline-flex items-center justify-center flex-shrink-0',
+    'focus:outline-none select-none duration-100 ease-in-out',
+    'border border-transparent',
     {
-      'hover:bg-gray-200 focus:bg-gray-200 text-medium focus:text-medium active:text-medium':
+      'text-primary hover:bg-blue-50 focus:bg-blue-50 focus:border-blue-100':
         shape !== SHAPE.simple,
     },
     large ? 'p-3' : 'p-2',
     shape,
     className,
   );
+
   return (
     <button {...restProps} className={classes}>
       <Icon regular />
@@ -37,7 +40,7 @@ function IconButton({
 IconButton.defaultProps = {
   shape: SHAPE.rounded,
   type: 'button',
-  large: false,
+  large: true,
 };
 
 IconButton.propTypes = {
