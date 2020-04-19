@@ -1,10 +1,16 @@
 import React from 'react';
+import { useQuery } from 'react-query';
+
+import { get } from 'utils/api';
 import Pagination from 'ui/components/Pagination';
 import { ScholarshipPreview } from './ScholarshipPreview';
 
-export function PendingResults({ scholarships, pagination, onPage }) {
+export function PendingResults({ searchUrl, onPage }) {
+  const { data } = useQuery(searchUrl, get, { suspense: true });
+  const { results: scholarships, ...pagination } = data || { results: [] };
+
   if (scholarships.length === 0) {
-    return null;
+    return <p className="text-center pt-12">No hay becas pendientes</p>;
   }
 
   return (
