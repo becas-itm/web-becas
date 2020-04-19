@@ -87,6 +87,7 @@ module.exports = {
         medium: 'rgba(0, 0, 0, 0.7)',
         disabled: 'rgba(0, 0, 0, 0.38)',
       },
+      placeholderColor: theme => theme('textColor'),
       inset: {
         full: '100%',
       },
