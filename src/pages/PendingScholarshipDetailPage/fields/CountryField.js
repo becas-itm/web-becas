@@ -32,7 +32,7 @@ function EditableCountryField() {
           }
         }}
       >
-        <ComboboxInput placeholder="Buscar" className="placeholder-black" />
+        <ComboboxInput placeholder="Buscar" />
         <ComboboxPopover>
           <CountryComboboxMenu />
         </ComboboxPopover>

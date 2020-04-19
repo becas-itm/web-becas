@@ -66,3 +66,8 @@ describe('wide prop', () => {
     expect(container.firstChild).not.toHaveClass('w-full');
   });
 });
+
+test('inputClass prop is passed to input', () => {
+  const { getByTestId } = render(<Input inputClass="placeholder-active" />);
+  expect(getByTestId('Input')).toHaveClass('placeholder-active');
+});

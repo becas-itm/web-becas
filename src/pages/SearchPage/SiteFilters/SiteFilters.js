@@ -109,7 +109,7 @@ export default function SiteFilters({ filters, onSubmit, onReset }) {
         }
         onInputValueChange={value => form.setFieldValue('country', value)}
       >
-        <ComboboxInput placeholder="Todos" />
+        <ComboboxInput placeholder="Todos" inputClass="placeholder-active" />
         <ComboboxPopover>
           <CountryComboboxMenu />
         </ComboboxPopover>

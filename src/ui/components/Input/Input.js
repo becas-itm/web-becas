@@ -6,7 +6,7 @@ import { useFocus } from 'utils/hooks';
 import { RenderIcon } from './RenderIcon';
 
 const Input = React.forwardRef(function Input(
-  { wide, className, endIcon, RenderIcon, ...restProps },
+  { wide, className, endIcon, RenderIcon, inputClass = '', ...restProps },
   ref,
 ) {
   const [isFocused, focusHandlers] = useFocus(restProps.autoFocus);
@@ -17,7 +17,7 @@ const Input = React.forwardRef(function Input(
         ref={ref}
         {...restProps}
         {...focusHandlers(restProps)}
-        className="w-full h-full bg-transparent focus:outline-none pl-3"
+        className={`w-full h-full bg-transparent focus:outline-none pl-3 ${inputClass}`}
       />
       {endIcon ? <RenderIcon>{endIcon}</RenderIcon> : null}
     </div>
