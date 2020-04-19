@@ -42,7 +42,9 @@ export function SiteTemplate({ searchBar, ...restProps }) {
         <div className="p-4 lg:pt-10 pb-0 max-w-screen-xl mx-auto mb-8 sm:mb-12">
           <header data-testid="AppHeader">
             <div className="flex items-center justify-between">
-              <AppLogo />
+              <Link to="/" className="inline-flex items-center">
+                <AppLogo />
+              </Link>
 
               <div className="flex-1 flex items-center justify-end">
                 <div className="flex-1 flex items-center justify-center">
