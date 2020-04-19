@@ -2,9 +2,9 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { ArrowRightAlt } from 'ui/components/Icon';
-import AppHeader from 'ui/components/AppHeader/AppHeader';
 import SearchBar, { SearchBarButton } from 'ui/components/SearchBar';
 
+import { HomeHeader } from './HomeHeader';
 import { ReactComponent as ImgHero } from './imgResearching.svg';
 
 export default function HomePage() {
@@ -18,7 +18,7 @@ export default function HomePage() {
     <div>
       <div className="h-1 w-full bg-primary" />
       <div className="p-4 lg:pt-10 pb-0 max-w-screen-xl mx-auto">
-        <AppHeader />
+        <HomeHeader />
 
         <div className="max-w-md mx-auto mt-6 lg:mt-12 lg:max-w-none flex flex-wrap justify-around">
           <main className="mb-4 max-w-md">

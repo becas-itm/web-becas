@@ -14,10 +14,10 @@ const links = [
   { text: 'Buscar', href: '/buscar' },
 ];
 
-function AppHeader() {
+export function HomeHeader() {
   const menu = useHamburguer();
   return (
-    <header data-testid="AppHeader">
+    <header data-testid="HomeHeader">
       <div className="flex items-center justify-between">
         <AppLogo />
 
@@ -37,12 +37,12 @@ function AppHeader() {
           <MenuButton
             className="sm:hidden"
             {...menu.getToggleButtonProps()}
-            data-testid="AppHeader__menuButton"
+            data-testid="HomeHeader__menuButton"
           />
         </div>
       </div>
 
-      <HamburguerMenu isOpen={menu.isOpen} data-testid="AppHeader__hamburguer">
+      <HamburguerMenu isOpen={menu.isOpen} data-testid="HomeHeader__hamburguer">
         {links.map(link => (
           <MenuItem to={link.href} key={link.href}>
             {link.text}
@@ -52,5 +52,3 @@ function AppHeader() {
     </header>
   );
 }
-
-export default AppHeader;
