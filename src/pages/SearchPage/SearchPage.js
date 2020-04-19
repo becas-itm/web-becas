@@ -58,11 +58,18 @@ function SearchPage() {
             )}
           </div>
         </div>
+
         <FiltersDialog isOpen={isFiltering} onDismiss={toggleFilters}>
           <SiteFilters
             filters={filter.filters}
-            onSubmit={filter.setFilters}
-            onReset={filter.reset}
+            onSubmit={values => {
+              toggleFilters();
+              filter.setFilters(values);
+            }}
+            onReset={values => {
+              toggleFilters();
+              filter.reset();
+            }}
           />
         </FiltersDialog>
       </div>
