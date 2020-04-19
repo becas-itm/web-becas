@@ -43,14 +43,19 @@ export default function ScholarshipPreview({
         <div className="flex items-end md:items-center justify-between relative">
           <div className="flex items-center">
             {deadline && (
-              <>
-                <Event className="mr-2 text-disabled flex-shrink-0" />
-                <span>{formatDeadline(deadline)}</span>
-              </>
+              <div className="flex pr-3">
+                <Event className="text-disabled mr-2 flex-shrink-0" />
+                <div>
+                  <div className="hidden sm:block text-sm text-medium">
+                    Abierta hasta
+                  </div>
+                  <div>{formatDeadline(deadline)}</div>
+                </div>
+              </div>
             )}
           </div>
 
-          <div className="hidden md:block">
+          <div className="hidden md:block flex-shrink-0">
             <LinkButton to={`/convocatoria/${id}`}>Ver más</LinkButton>
           </div>
 
