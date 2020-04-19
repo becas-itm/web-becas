@@ -9,6 +9,7 @@ function AppLogo({ children = 'Becas' }) {
         alt="ITM"
         title="Logo ITM"
         data-testid="AppLogo__image"
+        style={{ width: 123, height: 60 }}
       />
       {children && (
         <>

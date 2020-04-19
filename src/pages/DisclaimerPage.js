@@ -4,7 +4,7 @@ import { SiteTemplate } from 'ui/templates/SiteTemplate';
 export default function DisclaimerPage() {
   return (
     <SiteTemplate>
-      <main className="max-w-screen-sm px-4 pt-6 py-10 my-6 shadow bg-white rounded sm:mx-auto sm:px-16 sm:pt-8 sm:pb-12">
+      <main className="max-w-screen-sm px-4 pt-6 py-10 shadow bg-white rounded sm:mx-auto sm:px-16 sm:pt-8 sm:pb-12">
         <h1 className="text-2xl font-semibold mb-4 sm:text-3xl">
           Convocatorias y Becas Externas
         </h1>

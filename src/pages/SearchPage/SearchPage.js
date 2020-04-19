@@ -1,8 +1,9 @@
 import React from 'react';
 
+import { Tune } from 'ui/components/Icon';
 import Spinner from 'ui/components/Spinner';
-import SiteHeader from 'ui/components/SiteHeader';
 import { SiteTemplate } from 'ui/templates/SiteTemplate';
+import SearchBar, { SearchBarButton } from 'ui/components/SearchBar';
 
 import { useToggle } from 'utils/hooks';
 import { useSearchPage } from 'utils/hooks/search';
@@ -17,22 +18,19 @@ function SearchPage() {
 
   const [isFiltering, toggleFilters] = useToggle();
 
-  const searchFilters = (
-    <SiteFilters
-      filters={filter.filters}
-      onSubmit={filter.setFilters}
-      onReset={filter.reset}
-    />
-  );
-
   return (
     <SiteTemplate
-      header={
-        <SiteHeader
-          initialTerm={filter.filters.term}
-          onSearch={filter.setTerm}
-          isInitiallySearching={false}
-          onFilterClick={toggleFilters}
+      searchBar={
+        <SearchBar
+          onChange={filter.setTerm}
+          defaultValue={filter.filters.term}
+          endIcon={
+            <div className="lg:hidden">
+              <SearchBarButton onClick={toggleFilters} icon={Tune}>
+                Abrir filtros
+              </SearchBarButton>
+            </div>
+          }
         />
       }
     >
@@ -40,7 +38,11 @@ function SearchPage() {
         <div className="container mx-auto flex mt-4 xl:px-8">
           <aside className="hidden lg:block lg:mx-4 xl:mx-0 self-start w-64">
             <h2 className="mb-5 text-base">Filtrar búsqueda</h2>
-            {searchFilters}
+            <SiteFilters
+              filters={filter.filters}
+              onSubmit={filter.setFilters}
+              onReset={filter.reset}
+            />
           </aside>
           <div className="flex-1 max-w-screen-md mx-auto">
             {search.isLoading ? (
@@ -57,7 +59,11 @@ function SearchPage() {
           </div>
         </div>
         <FiltersDialog isOpen={isFiltering} onDismiss={toggleFilters}>
-          {searchFilters}
+          <SiteFilters
+            filters={filter.filters}
+            onSubmit={filter.setFilters}
+            onReset={filter.reset}
+          />
         </FiltersDialog>
       </div>
     </SiteTemplate>

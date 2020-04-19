@@ -1,15 +1,16 @@
 import React from 'react';
 import { get } from 'utils/api';
 import { useQuery } from 'react-query';
-import { useParams } from 'react-router';
+import { useParams, useNavigate } from 'react-router';
 
 import Spinner from 'ui/components/Spinner';
 import LinkButton from 'ui/components/LinkButton';
+import IconButton from 'ui/components/IconButton';
 import CountryFlag from 'ui/components/CountryFlag';
 import EntityAvatar from 'ui/components/EntityAvatar';
 import NotFoundGhost from 'ui/components/NotFoundGhost';
 import { SiteTemplate } from 'ui/templates/SiteTemplate';
-import { Event, School, Money } from 'ui/components/Icon';
+import { Event, School, Money, ArrowBack } from 'ui/components/Icon';
 
 import {
   formatDeadline,
@@ -21,12 +22,13 @@ import { ScholarshipDetails } from './ScholarshipDetails';
 
 function ScholarshipPage() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { data, isFetching } = useQuery(`/api/search/scholarships/${id}/`, get);
 
   if (isFetching) {
     return (
       <SiteTemplate>
-        <div className="text-center mt-8">
+        <div className="text-center">
           <Spinner />
         </div>
       </SiteTemplate>
@@ -35,7 +37,7 @@ function ScholarshipPage() {
 
   if (!data) {
     return (
-      <SiteTemplate className="pt-6">
+      <SiteTemplate>
         <NotFoundGhost
           title="¡Oops!"
           description="No pudimos encontrar la beca"
@@ -48,9 +50,16 @@ function ScholarshipPage() {
 
   return (
     <SiteTemplate>
-      <main className="max-w-screen-md mx-auto p-4 bg-white shadow rounded sm:py-10 md:py-16 my-8">
+      <main className="max-w-screen-md mx-auto p-6 bg-white shadow rounded sm:py-10 md:py-12">
         <div className="max-w-xl mx-auto">
-          <h1 className="text-xl sm:text-2xl font-semibold mb-2">
+          <div className="mb-3 flex items-center">
+            <IconButton onClick={() => navigate(-1)} icon={ArrowBack}>
+              Ir atrás
+            </IconButton>
+            <div className="pl-2">Convocatoria</div>
+          </div>
+
+          <h1 className="text-xl sm:text-2xl font-semibold mb-3">
             {data.name}
           </h1>
           <div className="text-sm text-medium">Descripción</div>
