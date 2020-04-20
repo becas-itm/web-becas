@@ -12,7 +12,10 @@ import { Home, Inbox, SupervisorAccount, Menu } from 'ui/components/Icon';
 import { MenuDrawer } from './MenuDrawer';
 import './AdminTemplate.css';
 
-function AdminTemplate({ children, ...restProps }) {
+const AdminTemplate = React.memo(function AdminTemplate({
+  children,
+  ...restProps
+}) {
   const { user, signOut } = useAuth();
   const [showMenu, toggleMenu] = useToggle();
 
@@ -55,6 +58,6 @@ function AdminTemplate({ children, ...restProps }) {
       )}
     </div>
   );
-}
+});
 
 export default AdminTemplate;
