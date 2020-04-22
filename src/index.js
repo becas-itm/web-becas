@@ -8,6 +8,7 @@ import { ReactQueryConfigProvider } from 'react-query';
 import VerifyUser from 'auth/VerifyUser';
 import AuthProvider from 'auth/AuthProvider';
 import SplashScreen from 'ui/components/SplashScreen';
+import { SnackbarProvider } from 'ui/components/Snackbar';
 
 import App from './App';
 
@@ -17,13 +18,15 @@ ReactDOM.render(
   <React.StrictMode>
     <React.Suspense fallback={<SplashScreen />}>
       <ReactQueryConfigProvider config={queryConfig}>
-        <BrowserRouter>
-          <VerifyUser>
-            <AuthProvider>
-              <App />
-            </AuthProvider>
-          </VerifyUser>
-        </BrowserRouter>
+        <SnackbarProvider>
+          <BrowserRouter>
+            <VerifyUser>
+              <AuthProvider>
+                <App />
+              </AuthProvider>
+            </VerifyUser>
+          </BrowserRouter>
+        </SnackbarProvider>
       </ReactQueryConfigProvider>
     </React.Suspense>
   </React.StrictMode>,
