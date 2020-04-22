@@ -1,10 +1,11 @@
+import { FUNDINGS } from './constants';
+
 export function getFundingType(type) {
-  console.warn('DEPRECATED, import from FundingType field instead');
   switch (type) {
-    case 'COMPLETE':
+    case FUNDINGS.COMPLETE:
       return 'Completo';
 
-    case 'PARTIAL':
+    case FUNDINGS.PARTIAL:
       return 'Parcial';
 
     default:
