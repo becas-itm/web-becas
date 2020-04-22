@@ -44,6 +44,8 @@ export { SettingsBackupRestore } from './SettingsBackupRestore';
 
 export { SupervisorAccount } from './SupervisorAccount';
 
+export { Translate } from './Translate';
+
 export { Tune } from './Tune';
 
 export { Warning } from './Warning';
