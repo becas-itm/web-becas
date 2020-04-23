@@ -1,18 +1,26 @@
 import React from 'react';
-import { Formik, Form, FastField as BaseFastField } from 'formik';
+import { Formik, Form } from 'formik';
 import Button, { COLOR } from 'ui/components/Button';
 import AdminTemplate from 'ui/templates/AdminTemplate';
+import { useCreate } from './useCreate';
 import {
   NameEditable,
   DescriptionEditable,
   DeadlineEditable,
   FundingTypeEditable,
   CountryEditable,
+  AcademicLevelEditable,
+  FormikField,
 } from 'ui/components/ScholarshipFields';
 
 export default function CreatePendingScholarshipPage() {
+  const { create, isCreating } = useCreate();
+
   const handleSubmit = values => {
-    console.log('submit', values);
+    create({
+      ...values,
+      country: values.country?.code,
+    }).then(console.log('Aceptado'));
   };
 
   return (
@@ -28,9 +36,9 @@ export default function CreatePendingScholarshipPage() {
               name: '',
               description: '',
               deadline: '',
+              academicLevel: '*',
               fundingType: '*',
               country: '*',
-              entity: '',
             }}
           >
             <Form noValidate>
@@ -39,64 +47,36 @@ export default function CreatePendingScholarshipPage() {
               </h1>
 
               <div className="mb-2">
-                <BaseFastField
-                  component={({ field, form }) => (
-                    <NameEditable
-                      value={field.value.name}
-                      onChange={item => form.setFieldValue('name', item)}
-                    ></NameEditable>
-                  )}
-                />
+                <FormikField name="name">
+                  <NameEditable />
+                </FormikField>
               </div>
 
-              <BaseFastField
-                component={({ field, form }) => (
-                  <DescriptionEditable
-                    value={field.value.description}
-                    rows={6}
-                    onChange={item => form.setFieldValue('description', item)}
-                  ></DescriptionEditable>
-                )}
-              />
+              <FormikField name="description">
+                <DescriptionEditable rows={6} />
+              </FormikField>
 
-              <BaseFastField
-                component={({ field, form }) => (
-                  <DeadlineEditable
-                    value={field.value.deadline}
-                    onChange={item => form.setFieldValue('deadline', item)}
-                  ></DeadlineEditable>
-                )}
-              />
+              <FormikField name="deadline">
+                <DeadlineEditable />
+              </FormikField>
 
-              <BaseFastField
-                component={({ field, form }) => (
-                  <FundingTypeEditable
-                    value={field.value.fundingType}
-                    onChange={item => form.setFieldValue('fundingType', item)}
-                  ></FundingTypeEditable>
-                )}
-              />
+              <FormikField name="academicLevel">
+                <AcademicLevelEditable />
+              </FormikField>
 
-              <BaseFastField
-                component={({ field, form }) => (
-                  <CountryEditable
-                    value={field.value.country}
-                    onChange={item => form.setFieldValue('country', item)}
-                  ></CountryEditable>
-                )}
-              />
+              <FormikField name="fundingType">
+                <FundingTypeEditable />
+              </FormikField>
 
-              <BaseFastField
-                component={({ field, form }) => (
-                  <CountryEditable
-                    value={field.value.country}
-                    onChange={item => form.setFieldValue('country', item)}
-                  ></CountryEditable>
-                )}
-              />
+              <FormikField name="country">
+                <CountryEditable />
+              </FormikField>
+
               <div className="flex justify-end mt-6">
-                <Button color={COLOR.secondary}>Cancelar</Button>
-                <Button type="submit" className="ml-3">
+                <Button color={COLOR.secondary} disabled={isCreating}>
+                  Cancelar
+                </Button>
+                <Button type="submit" className="ml-3" isLoading={isCreating}>
                   Guardar
                 </Button>
               </div>

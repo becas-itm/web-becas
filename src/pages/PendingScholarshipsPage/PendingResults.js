@@ -4,6 +4,8 @@ import { useQuery } from 'react-query';
 import { get } from 'utils/api';
 import Pagination from 'ui/components/Pagination';
 import { ScholarshipPreview } from './ScholarshipPreview';
+import LinkButton from 'ui/components/LinkButton';
+import { Add } from 'ui/components/Icon';
 
 export function PendingResults({ searchUrl, onPage }) {
   const { data } = useQuery(searchUrl, get, { suspense: true });
@@ -19,11 +21,15 @@ export function PendingResults({ searchUrl, onPage }) {
         <h1 className="text-base sm:text-2xl">Convocatorias pendientes</h1>
       </div>
 
-      <h2 className="text-base my-4 px-4">
-        <span>Resultados de búsqueda</span>
-        <span> — Página {pagination.currentPage}</span>
-      </h2>
-
+      <div className="mb-4 flex flex-wrap items-end justify-between">
+        <h2 className="text-base my-4 px-4">
+          <span>Resultados de búsqueda</span>
+          <span> — Página {pagination.currentPage}</span>
+        </h2>
+        <LinkButton to="/admin/pendientes/crear">
+          Nuevo <Add className="ml-2" />
+        </LinkButton>
+      </div>
       {scholarships.map(scholarship => (
         <ScholarshipPreview {...scholarship} key={scholarship.id} />
       ))}

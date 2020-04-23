@@ -21,6 +21,9 @@ const PendingScholarshipsPage = lazy(() =>
 const PendingScholarshipDetailPage = lazy(() =>
   import('pages/PendingScholarshipDetailPage'),
 );
+const CreatePendingScholarshipPage = lazy(() =>
+  import('pages/CreatePendingScholarshipPage'),
+);
 
 const NotFoundPage = lazy(() => import('pages/NotFoundPage'));
 
@@ -40,6 +43,11 @@ function App() {
       <PrivateRoute path="/admin" element={<AdminPage />} />
       <PrivateRoute path="/admin/usuarios" element={<UsersPage />} />
       <PrivateRoute path="/admin/perfil" element={<ProfilePage />} />
+
+      <PrivateRoute
+        path="/admin/pendientes/crear"
+        element={<CreatePendingScholarshipPage />}
+      />
       <PrivateRoute
         path="/admin/pendientes"
         element={<PendingScholarshipsPage />}
