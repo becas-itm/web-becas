@@ -1,39 +1,35 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-
 import { useToggle } from 'utils/hooks';
+
+import { Edit } from 'ui/components/Icon';
 import IconButton from 'ui/components/IconButton';
 import Button, { COLOR } from 'ui/components/Button';
-import { ArrowBack, Edit } from 'ui/components/Icon';
+import GoBackButton from 'ui/components/GoBackButton';
 import { ScholarshipDetails } from 'pages/ScholarshipPage/ScholarshipDetails';
+
+import {
+  Entity,
+  Country,
+  Deadline,
+  Description,
+  FundingType,
+  AcademicLevel,
+} from 'ui/components/ScholarshipFields';
 
 import { DenyDialog } from './DenyDialog';
 import { useApprove } from './useScholarship';
 
-import { BaseField } from './fields/BaseField';
-import { EntityField } from './fields/EntityField';
-import { CountryField } from './fields/CountryField';
-import { DeadlineField } from './fields/DeadlineField';
-import { FundingTypeField } from './fields/FundingTypeField';
-import { AcademicLevelField } from './fields/AcademicLevelField';
-
 export default function PendingScholarship({ scholarship, onEdit }) {
   const { approve, isApproving, isApproved } = useApprove(scholarship.id);
-
-  const navigate = useNavigate();
 
   const [isDenied, toggleIsDenied] = useToggle();
   const [showDeny, toggleDenyDialog] = useToggle();
 
   return (
     <div className="relative max-w-xl mx-auto">
-      <IconButton
-        icon={ArrowBack}
-        onClick={() => navigate(-1)}
-        className="hidden md:block absolute -ml-16"
-      >
-        Atrás
-      </IconButton>
+      <div className="hidden md:block absolute -ml-16">
+        <GoBackButton />
+      </div>
 
       <IconButton
         icon={Edit}
@@ -49,27 +45,28 @@ export default function PendingScholarship({ scholarship, onEdit }) {
         </h1>
       </div>
 
-      <BaseField isMissing={!scholarship.description} name="Descripción">
-        {scholarship.description || null}
-      </BaseField>
+      <Description value={scholarship.description} />
 
       <div className="pl-8 mt-6">
-        <DeadlineField value={scholarship.deadline} />
+        <Deadline value={scholarship.deadline} />
 
         <div className="mt-4">
-          <AcademicLevelField value={scholarship.academicLevel} />
+          <AcademicLevel value={scholarship.academicLevel} />
         </div>
 
         <div className="mt-4">
-          <FundingTypeField value={scholarship.fundingType} />
+          <FundingType value={scholarship.fundingType} />
         </div>
 
         <div className="mt-4">
-          <CountryField value={scholarship.country} />
+          <Country {...(scholarship.country || {})} />
         </div>
 
         <div className="mt-4 -ml-8">
-          <EntityField value={scholarship.entity || {}} />
+          <Entity
+            name={scholarship.entity.name}
+            fullName={scholarship.entity.fullName}
+          />
         </div>
       </div>
 
