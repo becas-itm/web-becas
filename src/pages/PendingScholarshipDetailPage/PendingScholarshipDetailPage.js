@@ -11,9 +11,11 @@ import AdminTemplate from 'ui/templates/AdminTemplate';
 import { useScholarship } from './useScholarship';
 import PendingScholarship from './PendingScholarship';
 import EditableScholarship from './EditableScholarship';
+import { useSnackbar } from 'ui/components/Snackbar';
 
 function PendingScholarshipDetailPage() {
   const { id } = useParams();
+  const snack = useSnackbar();
   const { scholarship, isFetching, refetch } = useScholarship(id);
 
   const [isEditing, toggleEdit] = useToggle();
@@ -21,6 +23,7 @@ function PendingScholarshipDetailPage() {
   const handleEdit = () => {
     toggleEdit();
     refetch();
+    snack.show('Convocatoria actualizada.');
   };
 
   return (
