@@ -15,20 +15,18 @@ import App from './App';
 const queryConfig = { refetchAllOnWindowFocus: false };
 
 ReactDOM.render(
-  <React.StrictMode>
-    <React.Suspense fallback={<SplashScreen />}>
-      <ReactQueryConfigProvider config={queryConfig}>
-        <SnackbarProvider>
-          <BrowserRouter>
-            <VerifyUser>
-              <AuthProvider>
-                <App />
-              </AuthProvider>
-            </VerifyUser>
-          </BrowserRouter>
-        </SnackbarProvider>
-      </ReactQueryConfigProvider>
-    </React.Suspense>
-  </React.StrictMode>,
+  <React.Suspense fallback={<SplashScreen />}>
+    <ReactQueryConfigProvider config={queryConfig}>
+      <SnackbarProvider>
+        <BrowserRouter>
+          <VerifyUser>
+            <AuthProvider>
+              <App />
+            </AuthProvider>
+          </VerifyUser>
+        </BrowserRouter>
+      </SnackbarProvider>
+    </ReactQueryConfigProvider>
+  </React.Suspense>,
   document.getElementById('root'),
 );

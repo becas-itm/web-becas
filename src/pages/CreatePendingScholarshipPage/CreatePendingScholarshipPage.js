@@ -86,6 +86,14 @@ export default function CreatePendingScholarshipPage() {
                 )}
               />
 
+              <BaseFastField
+                component={({ field, form }) => (
+                  <CountryEditable
+                    value={field.value.country}
+                    onChange={item => form.setFieldValue('country', item)}
+                  ></CountryEditable>
+                )}
+              />
               <div className="flex justify-end mt-6">
                 <Button color={COLOR.secondary}>Cancelar</Button>
                 <Button type="submit" className="ml-3">
