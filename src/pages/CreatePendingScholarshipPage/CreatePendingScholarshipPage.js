@@ -11,6 +11,7 @@ import {
   CountryEditable,
   AcademicLevelEditable,
   FormikField,
+  LanguageEditable,
 } from 'ui/components/ScholarshipFields';
 
 export default function CreatePendingScholarshipPage() {
@@ -39,6 +40,7 @@ export default function CreatePendingScholarshipPage() {
               academicLevel: '*',
               fundingType: '*',
               country: '*',
+              language: '',
             }}
           >
             <Form noValidate>
@@ -73,6 +75,12 @@ export default function CreatePendingScholarshipPage() {
               <div className="mt-4">
                 <FormikField name="fundingType">
                   <FundingTypeEditable />
+                </FormikField>
+              </div>
+
+              <div className="mt-4">
+                <FormikField name="language">
+                  <LanguageEditable />
                 </FormikField>
               </div>
 

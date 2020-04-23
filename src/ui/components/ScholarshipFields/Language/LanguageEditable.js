@@ -21,7 +21,7 @@ export function LanguageEditable({ value, onChange }) {
         aria-labelledby="filter-language"
         className="w-full mt-2"
       >
-        <ListboxOption value="*">Cualquiera</ListboxOption>
+        <ListboxOption value="*">Seleccionar</ListboxOption>
         <ListboxOption value={LANGUAGES.SPANISH}>
           <CountryFlag code="ESP" className="mr-2" />
           <span>{getLanguageName(LANGUAGES.SPANISH)}</span>
