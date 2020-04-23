@@ -20,7 +20,7 @@ function PillStatus({ status }) {
 
 export function ScholarshipPreview({ id, name, deadline, entity, fillStatus }) {
   return (
-    <article className="bg-white border-t border-b md:rounded md:border mb-5">
+    <article className="bg-white shadow rounded border border-transparent mb-5">
       <div className="relative max-w-md mx-auto mt-4 mb-2 sm:mt-8 sm:mb-4 px-4 sm:px-0">
         <EntityAvatar
           name={entity.name}
@@ -32,9 +32,10 @@ export function ScholarshipPreview({ id, name, deadline, entity, fillStatus }) {
           {deadline && <div>{formatDeadline(deadline)}</div>}
           <h1 className="text-xl font-semibold mt-1">{name}</h1>
         </header>
+
         <footer className="flex items-center justify-between mt-1">
           <PillStatus status={fillStatus} />
-          <LinkButton to={`/admin/pendientes/${id}`}>VER</LinkButton>
+          <LinkButton to={`/admin/pendientes/${id}`}>Ver más</LinkButton>
         </footer>
       </div>
     </article>
