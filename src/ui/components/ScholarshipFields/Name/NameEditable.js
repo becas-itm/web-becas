@@ -6,7 +6,7 @@ export function NameEditable({ value, onChange }) {
   const handleChange = event => onChange(event.target.value);
   return (
     <Name>
-      <Textarea value={value} onChange={handleChange} />
+      <Textarea value={value} onChange={handleChange} className="mt-1" />
     </Name>
   );
 }
