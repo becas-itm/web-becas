@@ -13,3 +13,5 @@ export * from './FundingType';
 export * from './Language';
 
 export * from './Name';
+
+export { FormikField } from './FormikField';
