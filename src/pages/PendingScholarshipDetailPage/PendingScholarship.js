@@ -11,6 +11,7 @@ import {
   Entity,
   Country,
   Deadline,
+  Language,
   Description,
   FundingType,
   AcademicLevel,
@@ -56,6 +57,10 @@ export default function PendingScholarship({ scholarship, onEdit }) {
 
         <div className="mt-4">
           <FundingType value={scholarship.fundingType} />
+        </div>
+
+        <div className="mt-4">
+          <Language value={scholarship.language} />
         </div>
 
         <div className="mt-4">
