@@ -6,6 +6,7 @@ const Textarea = React.forwardRef(({ className, ...restProps }, ref) => {
     'w-full px-3 py-2 rounded',
     restProps.readOnly || restProps.disabled ? 'bg-gray-100' : 'bg-gray-100',
     restProps.disabled && 'cursor-not-allowed',
+    className,
   );
   return <textarea {...restProps} ref={ref} className={styles} />;
 });
