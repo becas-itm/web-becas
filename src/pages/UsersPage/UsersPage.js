@@ -25,16 +25,16 @@ export default function UsersPage() {
   return (
     <AdminTemplate className="relative">
       <div className="max-w-5xl mx-auto py-4 px-6">
-        <div className="mb-4 flex flex-wrap items-end justify-between">
+        <header className="mb-4 flex flex-wrap items-baseline justify-between">
           <h1 className="text-xl font-semibold">Usuarios</h1>
           <Button onClick={toggleInvite} outline>
             <div className="flex flex-wrap items-center">
               Invitar <Add className="ml-2" />
             </div>
           </Button>
-        </div>
+        </header>
 
-        <div className="flex flex-wrap sm:justify-around md:justify-start">
+        <header className="flex flex-wrap sm:justify-around md:justify-start">
           {users.map(user => (
             <div
               key={user.uid}
@@ -51,7 +51,7 @@ export default function UsersPage() {
               </div>
             </div>
           ))}
-        </div>
+        </header>
       </div>
 
       <InviteUserDialog
