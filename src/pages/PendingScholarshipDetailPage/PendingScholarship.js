@@ -75,10 +75,12 @@ export default function PendingScholarship({ scholarship, onEdit }) {
         </div>
       </div>
 
-      <ScholarshipDetails
-        {...scholarship.sourceDetails}
-        entityName={scholarship.entity?.name}
-      />
+      <div className="mt-6">
+        <ScholarshipDetails
+          {...scholarship.sourceDetails}
+          entityName={scholarship.entity?.name}
+        />
+      </div>
 
       <div className="flex justify-end mt-6">
         <Button
