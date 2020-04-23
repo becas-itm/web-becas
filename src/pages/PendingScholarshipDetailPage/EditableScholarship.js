@@ -10,6 +10,7 @@ import {
   DescriptionEditable,
   AcademicLevelEditable,
   FundingTypeEditable,
+  LanguageEditable,
 } from 'ui/components/ScholarshipFields';
 
 import Button, { COLOR } from 'ui/components/Button';
@@ -25,6 +26,7 @@ export default function EditableScholarship({ scholarship, onEdit, onCancel }) {
     academicLevel: scholarship.academicLevel || '',
     fundingType: scholarship.fundingType || '',
     country: scholarship.country || {},
+    language: scholarship.language || '',
   };
 
   const { update, isUpdating } = useUpdate(scholarship.id);
@@ -67,6 +69,12 @@ export default function EditableScholarship({ scholarship, onEdit, onCancel }) {
             <div className="mt-4">
               <FormikField name="fundingType">
                 <FundingTypeEditable />
+              </FormikField>
+            </div>
+
+            <div className="mt-4">
+              <FormikField name="language">
+                <LanguageEditable />
               </FormikField>
             </div>
 
