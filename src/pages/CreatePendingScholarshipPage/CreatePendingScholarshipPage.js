@@ -52,27 +52,37 @@ export default function CreatePendingScholarshipPage() {
                 </FormikField>
               </div>
 
-              <FormikField name="description">
-                <DescriptionEditable rows={6} />
-              </FormikField>
+              <div className="mt-4">
+                <FormikField name="description">
+                  <DescriptionEditable rows={6} />
+                </FormikField>
+              </div>
 
-              <FormikField name="deadline">
-                <DeadlineEditable />
-              </FormikField>
+              <div className="mt-4">
+                <FormikField name="deadline">
+                  <DeadlineEditable />
+                </FormikField>
+              </div>
 
-              <FormikField name="academicLevel">
-                <AcademicLevelEditable />
-              </FormikField>
+              <div className="mt-4">
+                <FormikField name="academicLevel">
+                  <AcademicLevelEditable />
+                </FormikField>
+              </div>
 
-              <FormikField name="fundingType">
-                <FundingTypeEditable />
-              </FormikField>
+              <div className="mt-4">
+                <FormikField name="fundingType">
+                  <FundingTypeEditable />
+                </FormikField>
+              </div>
 
-              <FormikField name="country">
-                <CountryEditable />
-              </FormikField>
+              <div className="mt-4">
+                <FormikField name="country">
+                  <CountryEditable />
+                </FormikField>
+              </div>
 
-              <div className="flex justify-end mt-6">
+              <div className="flex justify-end mt-8">
                 <Button color={COLOR.secondary} disabled={isCreating}>
                   Cancelar
                 </Button>
