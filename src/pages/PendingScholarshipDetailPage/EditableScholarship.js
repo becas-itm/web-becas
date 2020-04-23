@@ -1,29 +1,30 @@
 import React from 'react';
-import { format } from 'date-fns';
 import { Formik, Form } from 'formik';
+
+import {
+  Entity,
+  FormikField,
+  NameEditable,
+  CountryEditable,
+  DeadlineEditable,
+  DescriptionEditable,
+  AcademicLevelEditable,
+  FundingTypeEditable,
+} from 'ui/components/ScholarshipFields';
 
 import Button, { COLOR } from 'ui/components/Button';
 import { ScholarshipDetails } from 'pages/ScholarshipPage/ScholarshipDetails';
 
 import { useUpdate } from './useScholarship';
-import { NameField } from './fields/NameField';
-import { EntityField } from './fields/EntityField';
-import { CountryField } from './fields/CountryField';
-import { DeadlineField } from './fields/DeadlineField';
-import { DescriptionField } from './fields/DescriptionField';
-import { FundingTypeField } from './fields/FundingTypeField';
-import { AcademicLevelField } from './fields/AcademicLevelField';
-
-const formatDate = date => format(new Date(date), 'yyyy-MM-dd');
 
 export default function EditableScholarship({ scholarship, onEdit, onCancel }) {
   const initialValues = {
     name: scholarship.name || '',
     description: scholarship.description || '',
-    deadline: scholarship.deadline ? formatDate(scholarship.deadline) : '',
-    academicLevel: scholarship.academicLevel || '*',
-    fundingType: scholarship.fundingType || '*',
-    country: scholarship.country || { code: '*', name: 'Seleccionar' },
+    deadline: scholarship.deadline || '',
+    academicLevel: scholarship.academicLevel || '',
+    fundingType: scholarship.fundingType || '',
+    country: scholarship.country || {},
   };
 
   const { update, isUpdating } = useUpdate(scholarship.id);
@@ -43,29 +44,44 @@ export default function EditableScholarship({ scholarship, onEdit, onCancel }) {
           </h1>
 
           <div className="mb-2">
-            <NameField isEditing />
+            <FormikField name="name">
+              <NameEditable />
+            </FormikField>
           </div>
 
-          <DescriptionField isEditing />
+          <FormikField name="description">
+            <DescriptionEditable rows="6" />
+          </FormikField>
 
           <div className="mt-6">
-            <DeadlineField isEditing />
+            <FormikField name="deadline">
+              <DeadlineEditable />
+            </FormikField>
 
             <div className="mt-4">
-              <AcademicLevelField isEditing />
+              <FormikField name="academicLevel">
+                <AcademicLevelEditable />
+              </FormikField>
             </div>
 
             <div className="mt-4">
-              <FundingTypeField isEditing />
+              <FormikField name="fundingType">
+                <FundingTypeEditable />
+              </FormikField>
             </div>
 
             <div className="mt-4">
-              <CountryField isEditing />
+              <FormikField name="country">
+                <CountryEditable />
+              </FormikField>
             </div>
           </div>
 
           <div className="pl-8 -ml-8 mt-8">
-            <EntityField value={scholarship.entity || {}} />
+            <Entity
+              name={scholarship.entity.name}
+              fullName={scholarship.entity.fullName}
+            />
           </div>
 
           <ScholarshipDetails
