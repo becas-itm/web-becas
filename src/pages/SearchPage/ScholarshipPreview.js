@@ -1,17 +1,11 @@
 import React from 'react';
-import { format } from 'date-fns';
 import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import locale from 'date-fns/locale/es';
 
 import { Event } from 'ui/components/Icon';
 import LinkButton from 'ui/components/LinkButton';
 import EntityAvatar from 'ui/components/EntityAvatar';
-
-function formatDeadline(date) {
-  const FORMAT = `d 'de' MMMM 'de' yyyy`;
-  return format(new Date(date), FORMAT, { locale });
-}
+import { formatDeadline } from 'ui/components/ScholarshipFields';
 
 export default function ScholarshipPreview({
   id,
@@ -40,7 +34,7 @@ export default function ScholarshipPreview({
 
         <p className="mb-4 text-justify">{description}</p>
 
-        <div className="flex items-end md:items-center justify-between relative">
+        <div className="flex items-center justify-between relative">
           <div className="flex items-center">
             {deadline && (
               <div className="flex pr-3">
