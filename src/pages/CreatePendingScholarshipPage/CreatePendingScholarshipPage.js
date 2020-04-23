@@ -1,27 +1,37 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
+import { useNavigate } from 'react-router-dom';
+
+import { useSnackbar } from 'ui/components/Snackbar';
 import Button, { COLOR } from 'ui/components/Button';
 import AdminTemplate from 'ui/templates/AdminTemplate';
-import { useCreate } from './useCreate';
+
 import {
-  NameEditable,
-  DescriptionEditable,
-  DeadlineEditable,
-  FundingTypeEditable,
-  CountryEditable,
-  AcademicLevelEditable,
   FormikField,
+  NameEditable,
+  CountryEditable,
+  DeadlineEditable,
   LanguageEditable,
+  DescriptionEditable,
+  FundingTypeEditable,
+  AcademicLevelEditable,
 } from 'ui/components/ScholarshipFields';
 
+import { useCreate } from './useCreate';
+
 export default function CreatePendingScholarshipPage() {
+  const snack = useSnackbar();
+  const navigate = useNavigate();
   const { create, isCreating } = useCreate();
 
   const handleSubmit = values => {
     create({
       ...values,
       country: values.country?.code,
-    }).then(console.log('Aceptado'));
+    }).then(({ id }) => {
+      snack.show('Convocatoria creada.');
+      navigate(`/admin/pendientes/${id}`);
+    });
   };
 
   return (
