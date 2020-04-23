@@ -4,6 +4,7 @@ import { Listbox, ListboxOption } from 'ui/components/Listbox';
 
 import { Language } from './Language';
 import { LANGUAGES } from './constants';
+import { getLanguageName } from './getLanguageName';
 
 export function LanguageEditable({ value, onChange }) {
   if (!value) {
@@ -23,11 +24,11 @@ export function LanguageEditable({ value, onChange }) {
         <ListboxOption value="*">Cualquiera</ListboxOption>
         <ListboxOption value={LANGUAGES.SPANISH}>
           <CountryFlag code="ESP" className="mr-2" />
-          <span>Español</span>
+          <span>{getLanguageName(LANGUAGES.SPANISH)}</span>
         </ListboxOption>
         <ListboxOption value={LANGUAGES.ENGLISH}>
           <CountryFlag code="USA" className="mr-2" />
-          <span>Inglés</span>
+          <span>{getLanguageName(LANGUAGES.ENGLISH)}</span>
         </ListboxOption>
       </Listbox>
     </Language>
