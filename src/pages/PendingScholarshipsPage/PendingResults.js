@@ -17,19 +17,18 @@ export function PendingResults({ searchUrl, onPage }) {
 
   return (
     <div className="w-full">
-      <div className="h-10 flex items-center px-4 border-b bg-white sm:mt-4 lg:mt-8 sm:bg-transparent sm:border-none">
-        <h1 className="text-base sm:text-2xl">Convocatorias pendientes</h1>
-      </div>
-
-      <div className="mb-4 flex flex-wrap items-end justify-between">
-        <h2 className="text-base my-4 px-4">
-          <span>Resultados de búsqueda</span>
-          <span> — Página {pagination.currentPage}</span>
-        </h2>
+      <header className="my-4 px-4 flex flex-wrap items-baseline justify-between">
+        <h1 className="text-xl font-semibold">Convocatorias</h1>
         <LinkButton to="/admin/pendientes/crear">
-          Nuevo <Add className="ml-2" />
+          Nueva <Add className="ml-2" />
         </LinkButton>
-      </div>
+      </header>
+
+      <h2 className="text-base mb-8 px-4">
+        <span>Resultados de búsqueda</span>
+        <span> — Página {pagination.currentPage}</span>
+      </h2>
+
       {scholarships.map(scholarship => (
         <ScholarshipPreview {...scholarship} key={scholarship.id} />
       ))}
