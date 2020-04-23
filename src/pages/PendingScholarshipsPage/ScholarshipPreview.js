@@ -3,8 +3,8 @@ import propTypes from 'prop-types';
 
 import Pill, { COLOR } from 'ui/components/Pill';
 import LinkButton from 'ui/components/LinkButton';
-import { formatDeadline } from 'utils/scholarship';
 import EntityAvatar from 'ui/components/EntityAvatar';
+import { formatDeadline } from 'ui/components/ScholarshipFields';
 
 function PillStatus({ status }) {
   if (status === 'COMPLETE') {
