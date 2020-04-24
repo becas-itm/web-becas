@@ -1,5 +1,4 @@
 import * as api from 'utils/api';
-import { useToggle } from 'utils/hooks';
 import { useQuery, useMutation } from 'react-query';
 
 export function useScholarship(id) {
@@ -10,12 +9,10 @@ export function useScholarship(id) {
 
 export function useApprove(scholarshipId) {
   const url = `/api/publishing/scholarships/${scholarshipId}/approve/`;
-  const [isApproved, toggleApproved] = useToggle();
   const [approve, approval] = useMutation(() => api.post(url));
   return {
-    isApproved,
+    approve,
     isApproving: approval.status === 'loading',
-    approve: () => approve().then(toggleApproved),
   };
 }
 

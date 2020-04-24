@@ -1,9 +1,11 @@
 import React from 'react';
 import { useToggle } from 'utils/hooks';
+import { useNavigate } from 'react-router-dom';
 
 import { Edit } from 'ui/components/Icon';
 import IconButton from 'ui/components/IconButton';
 import Button, { COLOR } from 'ui/components/Button';
+import { useSnackbar } from 'ui/components/Snackbar';
 import GoBackButton from 'ui/components/GoBackButton';
 import { ScholarshipDetails } from 'pages/ScholarshipPage/ScholarshipDetails';
 
@@ -21,10 +23,23 @@ import { DenyDialog } from './DenyDialog';
 import { useApprove } from './useScholarship';
 
 export default function PendingScholarship({ scholarship, onEdit }) {
-  const { approve, isApproving, isApproved } = useApprove(scholarship.id);
+  const snack = useSnackbar();
+  const navigate = useNavigate();
+  const { approve, isApproving } = useApprove(scholarship.id);
 
-  const [isDenied, toggleIsDenied] = useToggle();
   const [showDeny, toggleDenyDialog] = useToggle();
+
+  const handleDeny = () => {
+    toggleDenyDialog();
+    snack.show('Rechazada.');
+    navigate('/admin/pendientes');
+  };
+
+  const handleApprove = () =>
+    approve().then(() => {
+      snack.show('Aprobada.');
+      navigate('/admin/pendientes');
+    });
 
   return (
     <div className="relative max-w-xl mx-auto">
@@ -84,7 +99,7 @@ export default function PendingScholarship({ scholarship, onEdit }) {
 
       <div className="flex justify-end mt-6">
         <Button
-          disabled={isApproving || isApproved || isDenied}
+          disabled={isApproving}
           onClick={toggleDenyDialog}
           color={COLOR.danger}
           outline
@@ -93,11 +108,9 @@ export default function PendingScholarship({ scholarship, onEdit }) {
         </Button>
 
         <Button
-          onClick={approve}
+          onClick={handleApprove}
           isLoading={isApproving}
-          disabled={
-            scholarship.fillStatus === 'INCOMPLETE' || isApproved || isDenied
-          }
+          disabled={scholarship.fillStatus === 'INCOMPLETE'}
           className="ml-3"
         >
           Aprobar
@@ -106,10 +119,7 @@ export default function PendingScholarship({ scholarship, onEdit }) {
 
       {showDeny && (
         <DenyDialog
-          onDeny={() => {
-            toggleIsDenied();
-            toggleDenyDialog();
-          }}
+          onDeny={handleDeny}
           onCancel={toggleDenyDialog}
           scholarshipId={scholarship.id}
         />
