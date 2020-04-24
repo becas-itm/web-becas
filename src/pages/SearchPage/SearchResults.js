@@ -29,11 +29,7 @@ export default function SearchResults({ searchUrl, onPage }) {
   return (
     <div className="w-full">
       <h2 className="text-base text-medium mb-6 px-4">
-        <span>
-          {scholarships.length > 1
-            ? `${scholarships.length} Resultados`
-            : '1 Resultado'}
-        </span>
+        <span>Resultados de búsqueda</span>
         <span> — Página {pagination.currentPage}</span>
       </h2>
 
