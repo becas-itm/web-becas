@@ -5,6 +5,7 @@ import { useQuery } from 'react-query';
 import { useToggle } from 'utils/hooks';
 import { Add } from 'ui/components/Icon';
 import Button from 'ui/components/Button';
+import { useSnackbar } from 'ui/components/Snackbar';
 import GenderAvatar from 'ui/components/GenderAvatar';
 import AdminTemplate from 'ui/templates/AdminTemplate';
 
@@ -20,7 +21,13 @@ function useGetAllUsers() {
 }
 export default function UsersPage() {
   const { users } = useGetAllUsers();
+  const snack = useSnackbar();
   const [isInviting, toggleInvite] = useToggle();
+
+  const handleInvite = () => {
+    snack.show('Usuario invitado.');
+    toggleInvite();
+  };
 
   return (
     <AdminTemplate className="relative">
@@ -56,7 +63,7 @@ export default function UsersPage() {
 
       <InviteUserDialog
         isOpen={isInviting}
-        onInvite={toggleInvite}
+        onInvite={handleInvite}
         onCancel={toggleInvite}
       />
     </AdminTemplate>
