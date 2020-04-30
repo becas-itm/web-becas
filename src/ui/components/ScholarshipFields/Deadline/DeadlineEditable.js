@@ -1,10 +1,9 @@
 import React from 'react';
-import { format } from 'date-fns';
 import Input from 'ui/components/Input';
 
 import { Deadline } from './Deadline';
 
-const normalizeDate = date => format(new Date(date), 'yyyy-MM-dd');
+const normalizeDate = date => date.substring(0, 10);
 
 export function DeadlineEditable({ value, onChange }) {
   const handleChange = event => onChange(event.target.value);
