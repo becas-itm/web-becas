@@ -42,9 +42,19 @@ describe('Login Form', () => {
   });
 
   it('navigates to /admin on successful login', () => {
+    cy.server();
+
+    cy.route('POST', '/api/auth/', {
+      displayName: 'John Doe',
+      email: 'john@doe.com',
+      token: '123',
+      expiresIn: 999999,
+      gender: 'male',
+    }).as('postLogin');
+
     cy.findByTestId('email').type('john@doe.com');
     cy.findByTestId('password').type('1234567890{enter}');
+    cy.wait('@postLogin');
     cy.location('pathname').should('equal', '/admin');
-    cy.reload();
   });
 });

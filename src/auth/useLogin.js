@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import { useAuth } from './useAuth';
+import { api } from 'utils/api2';
 
 export function useLogin() {
   const { signIn } = useAuth();
@@ -19,20 +20,6 @@ export function useLogin() {
 }
 
 async function attemptLogin(credentials) {
-  const response = await fetch('/api/auth/', {
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(credentials),
-    method: 'POST',
-  });
-
-  if (response.ok) {
-    return response.json();
-  }
-
-  const error = new Error(response.statusText);
-  error.response = response;
-  throw error;
+  const response = await api.post('/api/auth/', credentials);
+  return response.data;
 }

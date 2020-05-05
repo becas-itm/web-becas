@@ -13,7 +13,7 @@ export function FastField({ label, name, children }) {
             )}
             {meta.touched && meta.error && (
               <div
-                data-testid={`${field.name}-validation}`}
+                data-testid={`${field.name}-validation`}
                 className="pl-3 mt-1 text-error font-semibold text-sm"
               >
                 {meta.error}
