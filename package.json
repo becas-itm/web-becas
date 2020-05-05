@@ -12,7 +12,8 @@
     "build:icons": "node src/ui/components/Icon/buildIcons",
     "cypress:open": "cypress open",
     "storybook": "start-storybook -p 9009 -s public",
-    "build:storybook": "build-storybook -s public"
+    "build:storybook": "build-storybook -s public",
+    "lint": "eslint .storybook cypress src"
   },
   "husky": {
     "hooks": {
