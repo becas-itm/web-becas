@@ -36,6 +36,8 @@ export { Money } from './Money';
 
 export { OpenInNew } from './OpenInNew';
 
+export { Refresh } from './Refresh';
+
 export { School } from './School';
 
 export { Search } from './Search';
