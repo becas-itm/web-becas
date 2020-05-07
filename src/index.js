@@ -5,9 +5,11 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { ReactQueryConfigProvider } from 'react-query';
 
+import ErrorPage from 'pages/ErrorPage';
 import VerifyUser from 'auth/VerifyUser';
 import AuthProvider from 'auth/AuthProvider';
 import SplashScreen from 'ui/components/SplashScreen';
+import ErrorBoundary from 'ui/components/ErrorBoundary';
 import { SnackbarProvider } from 'ui/components/Snackbar';
 
 import App from './App';
@@ -15,18 +17,20 @@ import App from './App';
 const queryConfig = { refetchAllOnWindowFocus: false };
 
 ReactDOM.render(
-  <React.Suspense fallback={<SplashScreen />}>
-    <ReactQueryConfigProvider config={queryConfig}>
-      <SnackbarProvider>
-        <BrowserRouter>
-          <VerifyUser>
-            <AuthProvider>
-              <App />
-            </AuthProvider>
-          </VerifyUser>
-        </BrowserRouter>
-      </SnackbarProvider>
-    </ReactQueryConfigProvider>
-  </React.Suspense>,
+  <ErrorBoundary fallback={<ErrorPage />}>
+    <React.Suspense fallback={<SplashScreen />}>
+      <ReactQueryConfigProvider config={queryConfig}>
+        <SnackbarProvider>
+          <BrowserRouter>
+            <VerifyUser>
+              <AuthProvider>
+                <App />
+              </AuthProvider>
+            </VerifyUser>
+          </BrowserRouter>
+        </SnackbarProvider>
+      </ReactQueryConfigProvider>
+    </React.Suspense>
+  </ErrorBoundary>,
   document.getElementById('root'),
 );
