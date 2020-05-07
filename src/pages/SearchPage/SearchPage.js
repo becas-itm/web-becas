@@ -7,7 +7,7 @@ import SearchBar, { SearchBarButton } from 'ui/components/SearchBar';
 
 import pick from 'utils/pick';
 import { useToggle } from 'utils/hooks';
-import { useFilters, mergeFilters, useQueryFilters } from 'utils/hooks/search2';
+import { useFilters, mergeFilters, useQueryFilters } from 'utils/hooks/search';
 
 import SearchResults from './SearchResults';
 import FiltersDialog from './SiteFilters/FiltersDialog';
