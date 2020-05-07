@@ -36,7 +36,7 @@ function LoginCard({ onSubmit, isLoading = false }) {
           <h1 className="block text-center text-xl">Iniciar sesión — Becas</h1>
         </header>
 
-        <div className="block mb-6">
+        <label className="block mb-6">
           <FastField label="Correo electrónico" name="email">
             <Input
               type="email"
@@ -45,7 +45,7 @@ function LoginCard({ onSubmit, isLoading = false }) {
               disabled={isLoading}
             />
           </FastField>
-        </div>
+        </label>
 
         <label className="block">
           <FastField name="password" label="Contraseña">

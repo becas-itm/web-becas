@@ -19,7 +19,6 @@ export function useLogin() {
   return { isLoading, attempt };
 }
 
-async function attemptLogin(credentials) {
-  const response = await api.post('/api/auth/', credentials);
-  return response.data;
+function attemptLogin(credentials) {
+  return api.post('/api/auth/', credentials);
 }
