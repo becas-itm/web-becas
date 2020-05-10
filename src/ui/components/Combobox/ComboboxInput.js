@@ -22,23 +22,26 @@ export function ComboboxInput(props) {
         {...props}
         {...getInputProps({ ref: setReferenceElement })}
         endIcon={
-          inputValue ? (
-            <button
-              onClick={event => {
-                event.preventDefault();
-                event.stopPropagation();
-                clearSelection();
-              }}
-            >
-              <Close />
-            </button>
-          ) : (
-            <button {...getToggleButtonProps()}>
-              <KeyboardArrowDown
-                style={{ transform: isOpen ? 'rotate(180deg)' : 'none' }}
-              />
-            </button>
-          )
+          <span className="pr-2">
+            {inputValue ? (
+              <button
+                onClick={event => {
+                  event.preventDefault();
+                  event.stopPropagation();
+                  clearSelection();
+                }}
+              >
+                <Close />
+              </button>
+            ) : (
+              <button {...getToggleButtonProps()}>
+                <KeyboardArrowDown
+                  style={{ transform: isOpen ? 'rotate(180deg)' : 'none' }}
+                  className="text-medium"
+                />
+              </button>
+            )}
+          </span>
         }
       />
     </div>

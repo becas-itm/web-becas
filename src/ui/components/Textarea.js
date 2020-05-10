@@ -3,8 +3,10 @@ import classNames from 'classnames';
 
 const Textarea = React.forwardRef(({ className, ...restProps }, ref) => {
   const styles = classNames(
-    'w-full px-3 py-2 rounded',
-    restProps.readOnly || restProps.disabled ? 'bg-gray-100' : 'bg-gray-100',
+    'w-full px-3 py-2 rounded-sm border',
+    restProps.readOnly || restProps.disabled
+      ? 'bg-gray-100'
+      : 'bg-white focus:outline-none focus:border-primary',
     restProps.disabled && 'cursor-not-allowed',
     className,
   );
