@@ -4,29 +4,7 @@ import { useLocation } from 'react-router-dom';
 
 import token from './token';
 import { ADMIN_PATH } from './constants';
-
-const HTTP_STATUS_UNAUTHORIZED = 401;
-
-async function fetchSilentRefresh() {
-  if (window.Cypress && localStorage['user']) {
-    console.log('user loaded from local storage');
-    return JSON.parse(localStorage['user']);
-  }
-
-  const response = await fetch('/api/auth/refresh-token/', { method: 'POST' });
-
-  if (response.ok) {
-    return response.json();
-  }
-
-  if (response.status === HTTP_STATUS_UNAUTHORIZED) {
-    return null;
-  }
-
-  const error = new Error(response.statusText);
-  error.response = response;
-  throw error;
-}
+import { fetchSilentRefresh } from './fetchSilentRefresh';
 
 export default function VerifyUser({ children, ...restProps }) {
   const location = useLocation();

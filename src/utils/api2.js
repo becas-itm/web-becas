@@ -1,5 +1,11 @@
 import axios from 'axios';
 
+import token from 'auth/token';
+
+function loadAuthorizationHeader() {
+  return token.exists ? { Authorization: `Bearer ${token.getToken()}` } : {};
+}
+
 export const api = axios.create({
   headers: {
     Accept: 'application/json',
@@ -41,6 +47,15 @@ class ErrorResponse extends Error {
     return this.axiosError?.response?.data?.detail;
   }
 }
+
+api.interceptors.request.use(config => {
+  config.headers = {
+    ...config.headers,
+    ...loadAuthorizationHeader(),
+  };
+
+  return config;
+});
 
 api.interceptors.response.use(
   response => response.data,
