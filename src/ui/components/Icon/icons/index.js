@@ -6,6 +6,8 @@ export { ArrowForward } from './ArrowForward';
 
 export { ArrowRightAlt } from './ArrowRightAlt';
 
+export { Block } from './Block';
+
 export { ChevronLeft } from './ChevronLeft';
 
 export { ChevronRight } from './ChevronRight';
@@ -49,5 +51,7 @@ export { SupervisorAccount } from './SupervisorAccount';
 export { Translate } from './Translate';
 
 export { Tune } from './Tune';
+
+export { VerifiedUser } from './VerifiedUser';
 
 export { Warning } from './Warning';

@@ -68,6 +68,23 @@ exports[`Icon component all icons ArrowRightAlt icon renders correctly 1`] = `
 </svg>
 `;
 
+exports[`Icon component all icons Block icon renders correctly 1`] = `
+<svg
+  aria-hidden="true"
+  class="inline-block fill-current w-6 h-6"
+  data-testid="Block"
+  viewBox="0 0 24 24"
+>
+  <path
+    d="M0 0h24v24H0z"
+    fill="none"
+  />
+  <path
+    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM4 12c0-4.42 3.58-8 8-8 1.85 0 3.55.63 4.9 1.69L5.69 16.9A7.902 7.902 0 014 12zm8 8c-1.85 0-3.55-.63-4.9-1.69L18.31 7.1A7.902 7.902 0 0120 12c0 4.42-3.58 8-8 8z"
+  />
+</svg>
+`;
+
 exports[`Icon component all icons ChevronLeft icon renders correctly 1`] = `
 <svg
   aria-hidden="true"
@@ -434,6 +451,23 @@ exports[`Icon component all icons Tune icon renders correctly 1`] = `
   />
   <path
     d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z"
+  />
+</svg>
+`;
+
+exports[`Icon component all icons VerifiedUser icon renders correctly 1`] = `
+<svg
+  aria-hidden="true"
+  class="inline-block fill-current w-6 h-6"
+  data-testid="VerifiedUser"
+  viewBox="0 0 24 24"
+>
+  <path
+    d="M0 0h24v24H0z"
+    fill="none"
+  />
+  <path
+    d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"
   />
 </svg>
 `;
