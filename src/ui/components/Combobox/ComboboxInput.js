@@ -19,8 +19,7 @@ export function ComboboxInput(props) {
     <div>
       <Input
         wide
-        {...props}
-        {...getInputProps({ ref: setReferenceElement })}
+        {...getInputProps({ ...props, ref: setReferenceElement })}
         endIcon={
           <span className="pr-2">
             {inputValue ? (
