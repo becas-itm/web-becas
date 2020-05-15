@@ -1,54 +1,31 @@
 import React from 'react';
-import { Event } from 'ui/components/Icon';
+import { Event, SupervisorAccount } from 'ui/components/Icon';
+
 import NavigationItem from './NavigationItem';
 
 const navItems = [
   {
-    to: '#',
+    to: '/admin/pendientes',
     icon: Event,
-    title: 'Usuario',
-    description: 'Curabitur eu est et leo feugiat ',
+    title: 'Convocatorias',
+    description: 'Crea, aprueba y rechaza nuevas convocatorias',
   },
   {
-    to: '#',
-    icon: Event,
-    title: 'Usuario',
-    description: 'Curabitur eu est et leo feugiat ',
-  },
-  {
-    to: '#',
-    icon: Event,
-    title: 'Usuario',
-    description: 'Curabitur eu est et leo feugiat ',
-  },
-  {
-    to: '#',
-    icon: Event,
-    title: 'Usuario',
-    description: 'Curabitur eu est et leo feugiat ',
-  },
-  {
-    to: '#',
-    icon: Event,
-    title: 'Usuario',
-    description: 'Curabitur eu est et leo feugiat ',
-  },
-  {
-    to: '#',
-    icon: Event,
-    title: 'Usuario',
-    description: 'Curabitur eu est et leo feugiat ',
+    to: '/admin/usuarios',
+    icon: SupervisorAccount,
+    title: 'Usuarios',
+    description: 'Ver e invitar a otros administradores',
   },
 ];
 
 export default function HomeNavigation() {
   return (
-    <div className="flex flex-wrap justify-around">
-      {navItems.map((item, index) => (
-        <div className="sm:mb-8" key={index}>
+    <nav className="flex flex-col sm:flex-row sm:flex-wrap sm:justify-around">
+      {navItems.map(item => (
+        <div className="mb-2 sm:mb-8" key={item.to}>
           <NavigationItem {...item} />
         </div>
       ))}
-    </div>
+    </nav>
   );
 }
