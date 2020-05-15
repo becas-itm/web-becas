@@ -16,7 +16,7 @@ const scholarship = {
   status: 'PENDING',
 };
 
-before(() => {
+beforeEach(() => {
   cy.server();
 
   // TODO: How can we simplify the auth process

@@ -4,7 +4,7 @@ describe('Admin Home', () => {
     fullName: 'John Doe',
   };
 
-  before(() => {
+  beforeEach(() => {
     cy.server();
 
     // TODO: How can we simplify the auth process

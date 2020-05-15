@@ -40,7 +40,7 @@ const stubScholarship = (fields = {}) => {
 };
 
 describe('Deny modal', () => {
-  before(() => {
+  beforeEach(() => {
     stubScholarship();
     cy.findByTestId('deny').click();
   });
@@ -50,7 +50,7 @@ describe('Deny modal', () => {
   });
 
   it('should close modal on cancel button click', () => {
-    cy.findByText('Cancelar').click();
+    cy.findByTestId('cancelDeny').click();
     cy.get('#deny-scholarship').should('not.exist');
   });
 });

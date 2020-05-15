@@ -46,6 +46,7 @@ export function DenyDialog({ isOpen, onCancel, onDeny, isLoading }) {
             ref={cancelButtonRef}
             color={COLOR.secondary}
             disabled={isLoading}
+            data-testid="cancelDeny"
           >
             Cancelar
           </Button>
