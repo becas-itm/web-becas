@@ -6,7 +6,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test:staged": "CI=true react-scripts test --bail --findRelatedTests --colors",
+    "test:staged": "cross-env CI=true react-scripts test --bail --findRelatedTests --colors",
     "eject": "react-scripts eject",
     "build:styles": "tailwindcss build src/ui/styles/tailwind.css -o src/ui/styles/styles.css",
     "build:icons": "node src/ui/components/Icon/buildIcons",
