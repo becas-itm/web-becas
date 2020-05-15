@@ -5,10 +5,10 @@ import AppLogo from 'ui/components/AppLogo';
 import UserActions from 'ui/components/UserActions';
 import { Event, SupervisorAccount } from 'ui/components/Icon';
 
-import HamburguerMenu, {
+import HamburgerMenu, {
   MenuButton,
-  useHamburguer,
-} from 'ui/components/HamburguerMenu';
+  useHamburger,
+} from 'ui/components/HamburgerMenu';
 
 import { greetUser } from './greetUser';
 import NavigationItem from './NavigationItem';
@@ -30,7 +30,7 @@ const navItems = [
 ];
 
 export function HomePage() {
-  const menu = useHamburguer();
+  const menu = useHamburger();
   const { user, signOut } = useAuth();
 
   return (
@@ -48,11 +48,11 @@ export function HomePage() {
           <MenuButton className="sm:hidden" {...menu.getToggleButtonProps()} />
         </header>
 
-        <HamburguerMenu isOpen={menu.isOpen}>
+        <HamburgerMenu isOpen={menu.isOpen}>
           <div className="flex justify-center mt-4">
             <UserActions user={user} onLogout={signOut} />
           </div>
-        </HamburguerMenu>
+        </HamburgerMenu>
 
         <h1
           className="text-2xl sm:text-3xl mt-6 sm:mt-12 text-center"

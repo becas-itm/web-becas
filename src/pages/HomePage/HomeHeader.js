@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom';
 
 import AppLogo from 'ui/components/AppLogo';
 
-import HamburguerMenu, {
+import HamburgerMenu, {
   MenuItem,
   MenuButton,
-  useHamburguer,
-} from 'ui/components/HamburguerMenu';
+  useHamburger,
+} from 'ui/components/HamburgerMenu';
 
 import links from 'utils/siteLinks';
 
 export function HomeHeader() {
-  const menu = useHamburguer();
+  const menu = useHamburger();
   return (
     <header data-testid="HomeHeader">
       <div className="flex items-center justify-between">
@@ -39,13 +39,13 @@ export function HomeHeader() {
         </div>
       </div>
 
-      <HamburguerMenu isOpen={menu.isOpen} data-testid="HomeHeader__hamburguer">
+      <HamburgerMenu isOpen={menu.isOpen} data-testid="HomeHeader__hamburger">
         {links.map(link => (
           <MenuItem to={link.href} key={link.href}>
             {link.text}
           </MenuItem>
         ))}
-      </HamburguerMenu>
+      </HamburgerMenu>
     </header>
   );
 }

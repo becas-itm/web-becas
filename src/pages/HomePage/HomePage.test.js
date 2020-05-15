@@ -48,7 +48,7 @@ describe('Header', () => {
 
       fireEvent.click(button);
 
-      expect(queryByTestId('HomeHeader__hamburguer')).toBeInTheDocument();
+      expect(queryByTestId('HomeHeader__hamburger')).toBeInTheDocument();
     });
   });
 });

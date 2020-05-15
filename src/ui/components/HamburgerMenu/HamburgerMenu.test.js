@@ -10,7 +10,7 @@ const MenuItem = props => (
 );
 
 describe('Hamburger Menu', () => {
-  const menuId = 'HamburguerMenu';
+  const menuId = 'HamburgerMenu';
 
   it('should not render when closed', () => {
     const { queryByTestId } = render(<Menu isOpen={false} />);
@@ -22,7 +22,7 @@ describe('Hamburger Menu', () => {
     expect(queryByTestId(menuId)).toBeInTheDocument();
   });
 
-  it('should not render chldren when closed', () => {
+  it('should not render children when closed', () => {
     const text = 'Foo';
     const { queryByText } = render(<Menu isOpen={false}>{text}</Menu>);
     expect(queryByText(text)).not.toBeInTheDocument();
@@ -41,7 +41,7 @@ describe('Hamburger Menu', () => {
 });
 
 describe('Menu Button', () => {
-  const buttonId = 'HamburguerMenu__Button';
+  const buttonId = 'HamburgerMenu__Button';
 
   it('should render correctly', () => {
     const { queryByTestId } = render(<MenuButton />);

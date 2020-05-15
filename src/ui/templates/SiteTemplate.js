@@ -5,11 +5,11 @@ import AppLogo from 'ui/components/AppLogo';
 import SearchBar from 'ui/components/SearchBar';
 import { ThreeRowTemplate } from 'ui/templates/ThreeRowTemplate';
 
-import HamburguerMenu, {
+import HamburgerMenu, {
   MenuItem,
   MenuButton,
-  useHamburguer,
-} from 'ui/components/HamburguerMenu';
+  useHamburger,
+} from 'ui/components/HamburgerMenu';
 
 import links from 'utils/siteLinks';
 
@@ -27,7 +27,7 @@ function RedirectSearchBar() {
 }
 
 export function SiteTemplate({ searchBar, ...restProps }) {
-  const menu = useHamburguer();
+  const menu = useHamburger();
 
   if (!searchBar) {
     searchBar = <RedirectSearchBar />;
@@ -70,16 +70,16 @@ export function SiteTemplate({ searchBar, ...restProps }) {
               </div>
             </div>
 
-            <HamburguerMenu
+            <HamburgerMenu
               isOpen={menu.isOpen}
-              data-testid="AppHeader__hamburguer"
+              data-testid="AppHeader__hamburger"
             >
               {links.map(link => (
                 <MenuItem to={link.href} key={link.href}>
                   {link.text}
                 </MenuItem>
               ))}
-            </HamburguerMenu>
+            </HamburgerMenu>
 
             <div className="md:hidden mt-6">{searchBar}</div>
           </header>
