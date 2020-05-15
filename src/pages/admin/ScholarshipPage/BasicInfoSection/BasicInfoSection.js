@@ -10,6 +10,8 @@ import {
   AcademicLevelListbox,
 } from 'ui/components/Scholarship';
 
+import { FieldMissingWarning } from '../FieldMissingWarning';
+
 export function BasicInfoSection() {
   return (
     <section className="flex flex-wrap pt-6 px-4 lg:px-0 border-t">
@@ -22,8 +24,9 @@ export function BasicInfoSection() {
 
       <div className="w-full md:max-w-lg">
         <div className="flex flex-col md:pl-10">
-          <div className="mb-2">
+          <div className="mb-2 flex justify-between">
             <label className="text-sm text-active">Nombre</label>
+            <FieldMissingWarning name="name" />
           </div>
           <Field
             name="name"
@@ -34,8 +37,9 @@ export function BasicInfoSection() {
         </div>
 
         <div className="flex flex-col mt-6 md:pl-10">
-          <div className="mb-2">
+          <div className="mb-2 flex justify-between">
             <label className="text-sm text-active">Descripción</label>
+            <FieldMissingWarning name="description" />
           </div>
           <Field
             as={Textarea}
@@ -48,8 +52,9 @@ export function BasicInfoSection() {
         <div className="mt-6 flex items-start">
           <Event className="text-disabled mr-3" />
           <div className="flex-1">
-            <div className="mb-3">
+            <div className="mb-3 flex justify-between">
               <label className="text-sm text-active">Abierta hasta</label>
+              <FieldMissingWarning name="deadline" />
             </div>
 
             <Field as={DateInput} name="deadline" className="testDeadline" />
@@ -59,8 +64,9 @@ export function BasicInfoSection() {
         <div className="mt-6 flex items-start">
           <School className="text-disabled mr-3" />
           <div className="flex-1">
-            <div className="mb-3">
+            <div className="mb-3 flex justify-between">
               <label className="text-sm text-active">Tipo de beca</label>
+              <FieldMissingWarning name="academicLevel" />
             </div>
             <AcademicLevelListbox
               name="academicLevel"
@@ -72,8 +78,9 @@ export function BasicInfoSection() {
         <div className="mt-6 flex items-start">
           <Money className="text-disabled mr-3" />
           <div className="flex-1">
-            <div className="mb-3">
+            <div className="mb-3 flex justify-between">
               <label className="text-sm text-active">Financiamiento</label>
+              <FieldMissingWarning name="fundingType" />
             </div>
             <FundingTypeListbox name="fundingType" data-testid="fundingType" />
           </div>

@@ -13,6 +13,7 @@ export function DenyDialog({ isOpen, onCancel, onDeny, isLoading }) {
 
   const handleSubmit = async event => {
     event.preventDefault();
+    event.stopPropagation();
     onDeny(reason);
   };
 

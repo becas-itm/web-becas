@@ -14,6 +14,10 @@ const scholarship = {
     code: 'DEU',
     name: 'Alemania',
   },
+  entity: {
+    name: 'daad',
+    fullName: 'Servicio Alemán de Intercambio Académico',
+  },
 };
 
 const stubScholarship = (fields = {}) => {
@@ -68,7 +72,7 @@ describe('Complete scholarship', () => {
 
 describe('Incomplete scholarship', () => {
   it('should deny incomplete scholarship', () => {
-    stubScholarship({ fillStatus: 'INCOMPLETE' });
+    stubScholarship({ fillStatus: 'INCOMPLETE', description: null });
     cy.findByTestId('deny').click();
 
     cy.findByPlaceholderText('Indica una razón').type('test reason');

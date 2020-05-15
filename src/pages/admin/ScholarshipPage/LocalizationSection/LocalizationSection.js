@@ -4,6 +4,8 @@ import { Translate } from 'ui/components/Icon';
 import CountryFlag from 'ui/components/CountryFlag';
 import { LanguageListbox, CountryCombobox } from 'ui/components/Scholarship';
 
+import { FieldMissingWarning } from '../FieldMissingWarning';
+
 export function LocalizationSection({ country }) {
   return (
     <section className="flex flex-wrap pt-6 px-4 lg:px-0 border-t mt-8">
@@ -23,8 +25,9 @@ export function LocalizationSection({ country }) {
             className="shadow-outline rounded-full object-cover mr-4"
           />
           <div className="flex-1">
-            <div className="mb-3">
+            <div className="mb-3 flex justify-between">
               <label className="text-sm text-active">País</label>
+              <FieldMissingWarning name="country" />
             </div>
             <CountryCombobox name="country" data-testid="country" />
           </div>
@@ -33,8 +36,9 @@ export function LocalizationSection({ country }) {
         <div className="mt-6 flex items-start">
           <Translate className="text-disabled mr-3" />
           <div className="flex-1">
-            <div className="mb-3">
+            <div className="mb-3 flex justify-between">
               <label className="text-sm text-active">Idioma</label>
+              <FieldMissingWarning name="language" />
             </div>
             <LanguageListbox name="language" data-testid="language" />
           </div>

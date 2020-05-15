@@ -85,7 +85,7 @@ function ScholarshipPage({ scholarship: initialScholarship, onUpdate }) {
                 </div>
               </section>
 
-              <LocalizationSection {...initialScholarship} />
+              <LocalizationSection {...scholarship} />
 
               <PublishingSection
                 {...initialScholarship}
