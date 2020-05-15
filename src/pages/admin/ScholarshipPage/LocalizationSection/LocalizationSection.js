@@ -2,8 +2,7 @@ import React from 'react';
 
 import { Translate } from 'ui/components/Icon';
 import CountryFlag from 'ui/components/CountryFlag';
-import LanguageListbox from 'ui/components/LanguageListbox';
-import CountryCombobox from 'ui/components/CountryCombobox2';
+import { LanguageListbox, CountryCombobox } from 'ui/components/Scholarship';
 
 export function LocalizationSection({ country }) {
   return (

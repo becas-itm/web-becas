@@ -4,8 +4,11 @@ import { Field } from 'formik';
 import Textarea from 'ui/components/Textarea';
 import DateInput from 'ui/components/DateInput';
 import { Event, Money, School } from 'ui/components/Icon';
-import FundingTypeListbox from 'ui/components/FundingTypeListbox';
-import AcademicLevelListbox from 'ui/components/AcademicLevelListbox';
+
+import {
+  FundingTypeListbox,
+  AcademicLevelListbox,
+} from 'ui/components/Scholarship';
 
 export function BasicInfoSection() {
   return (

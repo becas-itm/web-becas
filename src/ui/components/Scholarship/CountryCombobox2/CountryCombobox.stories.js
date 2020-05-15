@@ -5,7 +5,7 @@ import { Formik, Form, Field } from 'formik';
 import CountryCombobox from './index';
 
 export default {
-  title: 'CountryCombobox',
+  title: 'Scholarship / CountryCombobox',
   component: CountryCombobox,
 };
 
