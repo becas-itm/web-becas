@@ -18,6 +18,10 @@ function getStyle(code) {
 }
 
 function CountryFlag({ code, className = '', ...restProps }) {
+  if (!code) {
+    code = 'OTH';
+  }
+
   return (
     <img
       alt={code}
@@ -29,7 +33,7 @@ function CountryFlag({ code, className = '', ...restProps }) {
 }
 
 CountryFlag.propTypes = {
-  code: propTypes.string.isRequired,
+  code: propTypes.string,
 };
 
 export default CountryFlag;
