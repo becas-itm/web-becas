@@ -46,7 +46,7 @@ function ScholarshipPage({ scholarship: initialScholarship }) {
             </header>
 
             <main>
-              <BasicInfoSection {...scholarship} />
+              <BasicInfoSection />
 
               <section className="flex flex-wrap pt-2 px-4 lg:px-0">
                 <div className="mb-6 md:mb-0 md:flex-1" />
@@ -63,6 +63,7 @@ function ScholarshipPage({ scholarship: initialScholarship }) {
               </section>
 
               <LocalizationSection {...scholarship} />
+
               <PublishingSection
                 {...scholarship}
                 onApprove={handleApprove}

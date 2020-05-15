@@ -1,19 +1,13 @@
 import React from 'react';
+import { Field } from 'formik';
 
 import Textarea from 'ui/components/Textarea';
 import DateInput from 'ui/components/DateInput';
 import { Event, Money, School } from 'ui/components/Icon';
+import FundingTypeListbox from 'ui/components/FundingTypeListbox';
+import AcademicLevelListbox from 'ui/components/AcademicLevelListbox';
 
-import FundingType from '../form/FundingType';
-import AcademicLevel from '../form/AcademicLevel';
-
-export function BasicInfoSection({
-  name,
-  description,
-  deadline,
-  academicLevel,
-  fundingType,
-}) {
+export function BasicInfoSection() {
   return (
     <section className="flex flex-wrap pt-6 px-4 lg:px-0 border-t">
       <div className="mb-6 md:mb-0 md:flex-1">
@@ -28,8 +22,9 @@ export function BasicInfoSection({
           <div className="mb-2">
             <label className="text-sm text-active">Nombre</label>
           </div>
-          <Textarea
-            defaultValue={name}
+          <Field
+            name="name"
+            as={Textarea}
             data-testid="scholarshipName"
             rows="3"
           />
@@ -39,8 +34,9 @@ export function BasicInfoSection({
           <div className="mb-2">
             <label className="text-sm text-active">Descripción</label>
           </div>
-          <Textarea
-            defaultValue={description}
+          <Field
+            as={Textarea}
+            name="description"
             data-testid="description"
             rows="6"
           />
@@ -53,7 +49,7 @@ export function BasicInfoSection({
               <label className="text-sm text-active">Abierta hasta</label>
             </div>
 
-            <DateInput defaultValue={deadline} className="testDeadline" />
+            <Field as={DateInput} name="deadline" className="testDeadline" />
           </div>
         </div>
 
@@ -63,7 +59,10 @@ export function BasicInfoSection({
             <div className="mb-3">
               <label className="text-sm text-active">Tipo de beca</label>
             </div>
-            <AcademicLevel value={academicLevel} data-testid="academicLevel" />
+            <AcademicLevelListbox
+              name="academicLevel"
+              data-testid="academicLevel"
+            />
           </div>
         </div>
 
@@ -73,7 +72,7 @@ export function BasicInfoSection({
             <div className="mb-3">
               <label className="text-sm text-active">Financiamiento</label>
             </div>
-            <FundingType value={fundingType} data-testid="fundingType" />
+            <FundingTypeListbox name="fundingType" data-testid="fundingType" />
           </div>
         </div>
       </div>
