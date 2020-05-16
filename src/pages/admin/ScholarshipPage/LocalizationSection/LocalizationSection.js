@@ -6,7 +6,7 @@ import { LanguageListbox, CountryCombobox } from 'ui/components/Scholarship';
 
 import { FieldMissingWarning } from '../FieldMissingWarning';
 
-export function LocalizationSection({ country }) {
+export function LocalizationSection({ country, fieldsDisabled = false }) {
   return (
     <section className="flex flex-wrap pt-6 px-4 lg:px-0 border-t mt-8">
       <div className="mb-6 md:mb-0 md:flex-1">
@@ -29,7 +29,11 @@ export function LocalizationSection({ country }) {
               <label className="text-sm text-active">País</label>
               <FieldMissingWarning name="country" />
             </div>
-            <CountryCombobox name="country" data-testid="country" />
+            <CountryCombobox
+              name="country"
+              disabled={true}
+              data-testid="country"
+            />
           </div>
         </div>
 
@@ -40,7 +44,11 @@ export function LocalizationSection({ country }) {
               <label className="text-sm text-active">Idioma</label>
               <FieldMissingWarning name="language" />
             </div>
-            <LanguageListbox name="language" data-testid="language" />
+            <LanguageListbox
+              name="language"
+              disabled={fieldsDisabled}
+              data-testid="language"
+            />
           </div>
         </div>
       </div>

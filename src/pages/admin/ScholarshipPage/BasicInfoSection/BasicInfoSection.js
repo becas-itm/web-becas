@@ -12,7 +12,7 @@ import {
 
 import { FieldMissingWarning } from '../FieldMissingWarning';
 
-export function BasicInfoSection() {
+export function BasicInfoSection({ fieldsDisabled = false }) {
   return (
     <section className="flex flex-wrap pt-6 px-4 lg:px-0 border-t">
       <div className="mb-6 md:mb-0 md:flex-1">
@@ -31,6 +31,7 @@ export function BasicInfoSection() {
           <Field
             name="name"
             as={Textarea}
+            disabled={fieldsDisabled}
             data-testid="scholarshipName"
             rows="3"
           />
@@ -43,6 +44,7 @@ export function BasicInfoSection() {
           </div>
           <Field
             as={Textarea}
+            disabled={fieldsDisabled}
             name="description"
             data-testid="description"
             rows="6"
@@ -57,7 +59,12 @@ export function BasicInfoSection() {
               <FieldMissingWarning name="deadline" />
             </div>
 
-            <Field as={DateInput} name="deadline" className="testDeadline" />
+            <Field
+              as={DateInput}
+              name="deadline"
+              className="testDeadline"
+              disabled={fieldsDisabled}
+            />
           </div>
         </div>
 
@@ -71,6 +78,7 @@ export function BasicInfoSection() {
             <AcademicLevelListbox
               name="academicLevel"
               data-testid="academicLevel"
+              disabled={fieldsDisabled}
             />
           </div>
         </div>
@@ -82,7 +90,11 @@ export function BasicInfoSection() {
               <label className="text-sm text-active">Financiamiento</label>
               <FieldMissingWarning name="fundingType" />
             </div>
-            <FundingTypeListbox name="fundingType" data-testid="fundingType" />
+            <FundingTypeListbox
+              name="fundingType"
+              disabled={fieldsDisabled}
+              data-testid="fundingType"
+            />
           </div>
         </div>
       </div>
