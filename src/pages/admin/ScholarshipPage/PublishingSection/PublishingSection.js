@@ -1,6 +1,4 @@
 import React from 'react';
-import { format } from 'date-fns';
-import locale from 'date-fns/locale/es';
 
 import {
   Warning,
@@ -8,25 +6,10 @@ import {
   SettingsBackupRestore,
 } from 'ui/components/Icon';
 
+import { formatDate } from 'ui/components/DateInput';
 import Button, { COLOR } from 'ui/components/Button';
 import EntityAvatar from 'ui/components/EntityAvatar';
 import { Block } from 'ui/components/Icon/icons/Block';
-
-const COLOMBIAN_DATE_FORMAT = `d 'de' MMMM 'de' yyyy`;
-
-// TODO: Extract function. Same as in DateInput component.
-function formatDate(date) {
-  if (typeof date === 'string') {
-    date = new Date(
-      date
-        .substring(0, 10)
-        .split('-')
-        .map(n => parseInt(n, 10)),
-    );
-  }
-
-  return format(date, COLOMBIAN_DATE_FORMAT, { locale });
-}
 
 export function PublishingSection({
   entity,
