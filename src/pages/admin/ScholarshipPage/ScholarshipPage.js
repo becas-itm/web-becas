@@ -21,6 +21,7 @@ import { useDeny } from './useDeny';
 import { useEdit } from './useEdit';
 import { useApprove } from './useApprove';
 import { useRestore } from './useRestore';
+import { useArchive } from './useArchive';
 
 function PageFetcher() {
   const { id } = useParams();
@@ -49,6 +50,13 @@ function ScholarshipPage({ scholarship: initialScholarship, onUpdate }) {
   const handleApprove = async () => {
     await approve.approve();
     snack.show('Convocatoria aprobada.');
+    onUpdate();
+  };
+
+  const archive = useArchive(initialScholarship.id);
+  const handleArchive = async () => {
+    await archive.archive();
+    snack.show('Convocatoria archivada.');
     onUpdate();
   };
 
@@ -134,6 +142,7 @@ function ScholarshipPage({ scholarship: initialScholarship, onUpdate }) {
                 <PublishingSection
                   {...initialScholarship}
                   onApprove={handleApprove}
+                  onArchive={handleArchive}
                   onDeny={toggleDeny}
                   onRestore={handleRestore}
                 />
