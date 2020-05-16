@@ -38,6 +38,7 @@ export function PublishingSection({
   denial,
   onRestore,
   state,
+  archive,
 }) {
   let actions = null;
 
@@ -72,7 +73,12 @@ export function PublishingSection({
         </div>
       </div>
     );
-  } else if (state === 'ARCHIVED') {
+  } else if (state === 'DENIED' || state === 'ARCHIVED') {
+    const archivedAt =
+      state === 'DENIED' ? denial.deniedAt : archive.archivedAt;
+    const reason =
+      state === 'DENIED' ? denial.reason : 'Convocatoria aprobada/rechazada.';
+
     actions = (
       <div className="flex items-start">
         <Block className="text-red-300 mr-3" />
@@ -82,10 +88,10 @@ export function PublishingSection({
           </label>
 
           <div className="my-2" data-testid="denialDate">
-            {formatDate(denial.deniedAt)}
+            {formatDate(archivedAt)}
           </div>
 
-          <div data-testid="denialReason">{denial.reason}</div>
+          <div data-testid="denialReason">{reason}</div>
 
           <div className="my-4">
             <Button outline onClick={onRestore} data-testid="restore">

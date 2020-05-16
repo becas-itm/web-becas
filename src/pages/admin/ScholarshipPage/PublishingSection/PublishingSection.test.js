@@ -23,11 +23,16 @@ const PUBLISHED_SCHOLARSHIP = Object.assign({}, COMPLETE_SCHOLARSHIP, {
 });
 
 const DENIED_SCHOLARSHIP = Object.assign({}, COMPLETE_SCHOLARSHIP, {
-  state: 'ARCHIVED',
+  state: 'DENIED',
   denial: {
     deniedAt: '2020-05-21T05:00:00.000Z',
     reason: 'Convocatoria duplicada/archivada',
   },
+});
+
+const ARCHIVED_SCHOLARSHIP = Object.assign({}, COMPLETE_SCHOLARSHIP, {
+  state: 'ARCHIVED',
+  archive: { archivedAt: '2020-05-22T05:00:00.000Z' },
 });
 
 describe('Complete scholarship', () => {
@@ -135,7 +140,7 @@ describe('published scholarship', () => {
   });
 });
 
-describe('denied/archived scholarship', () => {
+describe('denied scholarship', () => {
   const renderDenied = (props = {}) =>
     render(<PublishingSection {...DENIED_SCHOLARSHIP} {...props} />);
 
@@ -161,6 +166,39 @@ describe('denied/archived scholarship', () => {
   it('restore button should be clickable', () => {
     const onRestore = jest.fn();
     const { getByTestId } = renderDenied({ onRestore });
+    const button = getByTestId('restore');
+    fireEvent.click(button);
+    expect(onRestore).toHaveBeenCalledTimes(1);
+    expect(button).toHaveTextContent('Restaurar');
+  });
+});
+
+describe('archived scholarship', () => {
+  const renderArchived = (props = {}) =>
+    render(<PublishingSection {...ARCHIVED_SCHOLARSHIP} {...props} />);
+
+  it('archive title', () => {
+    const { getByText } = renderArchived();
+    const title = getByText('Rechazada');
+    expect(title).toBeInTheDocument();
+  });
+
+  it('should render archive date', () => {
+    const { getByTestId } = renderArchived();
+    const dateElement = getByTestId('denialDate');
+    expect(dateElement).toHaveTextContent('22 de mayo de 2020');
+  });
+
+  it('should render archive reason', () => {
+    const { getByTestId } = renderArchived();
+    expect(getByTestId('denialReason')).toHaveTextContent(
+      'Convocatoria aprobada/rechazada.',
+    );
+  });
+
+  it('restore button should be clickable', () => {
+    const onRestore = jest.fn();
+    const { getByTestId } = renderArchived({ onRestore });
     const button = getByTestId('restore');
     fireEvent.click(button);
     expect(onRestore).toHaveBeenCalledTimes(1);

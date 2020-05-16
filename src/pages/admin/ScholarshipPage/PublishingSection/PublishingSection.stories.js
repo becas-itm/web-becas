@@ -62,11 +62,25 @@ export const denied = () => (
         name: 'daad',
         fullName: 'Servicio Alemán de Intercambio Académico',
       },
-      state: 'ARCHIVED',
+      state: 'DENIED',
       denial: {
         deniedAt: '2020-05-21T05:00:00.000Z',
         reason: 'Convocatoria duplicada/archivada',
       },
+    }}
+  />
+);
+
+export const archived = () => (
+  <PublishingSection
+    onRestore={action('onRestore')}
+    {...{
+      entity: {
+        name: 'daad',
+        fullName: 'Servicio Alemán de Intercambio Académico',
+      },
+      state: 'ARCHIVED',
+      archive: { archivedAt: '2020-05-21T05:00:00.000Z' },
     }}
   />
 );
