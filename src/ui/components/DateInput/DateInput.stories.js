@@ -29,3 +29,5 @@ export const ControlledInput = () => {
     </>
   );
 };
+
+export const disabled = () => <DateInput disabled defaultValue="2020-01-01" />;

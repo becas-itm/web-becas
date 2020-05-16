@@ -45,14 +45,23 @@ const DateInput = React.forwardRef(function DateInput(
         onChange={handleChange}
         value={prepareValue(value) || ''}
         className={classNames(
-          'w-full h-12 px-4 py-3 rounded-sm bg-white border outline-none',
+          'w-full h-12 px-4 py-3 rounded-sm border outline-none',
           isFocused ? 'border-primary' : 'text-transparent',
+          {
+            'bg-white': !restProps.disabled,
+            'bg-gray-100 cursor-not-allowed': restProps.disabled,
+          },
         )}
       />
       {!isFocused && (
         <div className="absolute left-0 top-0 w-full p-1">
           <div
-            className="flex items-center justify-between py-2 px-3 bg-white"
+            className={classNames(
+              'flex items-center justify-between py-2 px-3',
+              restProps.disabled
+                ? 'bg-gray-100 cursor-not-allowed'
+                : 'bg-white',
+            )}
             data-testid="DateInput__placeholder"
           >
             <span className="truncate">
