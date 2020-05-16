@@ -38,10 +38,19 @@ function ScholarshipPage({ scholarship: initialScholarship, onUpdate }) {
 
   const deny = useDeny(initialScholarship.id);
   const [showDeny, toggleDeny] = useToggle();
-  const handleDeny = reason => deny.deny(reason).then(() => toggleDeny());
+  const handleDeny = async reason => {
+    await deny.deny(reason);
+    toggleDeny();
+    snack.show('Convocatoria rechazada.');
+    onUpdate();
+  };
 
   const approve = useApprove(initialScholarship.id);
-  const handleApprove = () => approve.approve();
+  const handleApprove = async () => {
+    await approve.approve();
+    snack.show('Convocatoria aprobada.');
+    onUpdate();
+  };
 
   const edit = useEdit(initialScholarship.id);
   const handleEdit = async form => {
