@@ -54,7 +54,11 @@ function ScholarshipPage({ scholarship: initialScholarship, onUpdate }) {
 
   const edit = useEdit(initialScholarship.id);
   const handleEdit = async form => {
-    await edit.edit(form);
+    const data = { ...form };
+    if (data.country) {
+      data.country = data.country.code;
+    }
+    await edit.edit(data);
     snack.show('Convocatoria actualizada.');
     onUpdate();
   };

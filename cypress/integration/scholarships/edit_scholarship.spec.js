@@ -113,6 +113,14 @@ describe('Edit scholarship', () => {
       .should('have.nested.property', field.name)
       .and('be.equal', field.value);
   });
+
+  it.only('should send only the country code', () => {
+    submitUpdate();
+    cy.wait('@editRequest')
+      .its('request.body')
+      .should('have.nested.property', 'country')
+      .and('be.equal', scholarship.country.code);
+  });
 });
 
 describe('Empty scholarship', () => {
