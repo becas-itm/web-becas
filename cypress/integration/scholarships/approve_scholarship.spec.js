@@ -6,7 +6,7 @@ const scholarship = {
   fundingType: 'COMPLETE',
   academicLevel: 'UNDERGRADUATE',
   language: 'en',
-  status: 'PENDING',
+  state: 'PENDING',
   fillStatus: 'COMPLETE',
   country: {
     code: 'DEU',

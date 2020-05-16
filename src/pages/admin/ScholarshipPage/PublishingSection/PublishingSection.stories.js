@@ -19,7 +19,7 @@ export const completePending = () => (
         fullName: 'Servicio Alemán de Intercambio Académico',
       },
       fillStatus: 'COMPLETE',
-      status: 'PENDING',
+      state: 'PENDING',
     }}
   />
 );
@@ -33,7 +33,7 @@ export const incompletePending = () => (
         fullName: 'Servicio Alemán de Intercambio Académico',
       },
       fillStatus: 'INCOMPLETE',
-      status: 'PENDING',
+      state: 'PENDING',
     }}
   />
 );
@@ -46,7 +46,7 @@ export const published = () => (
         name: 'daad',
         fullName: 'Servicio Alemán de Intercambio Académico',
       },
-      status: 'PUBLISHED',
+      state: 'PUBLISHED',
       approval: {
         approvedAt: '2020-05-21T05:00:00.000Z',
       },
@@ -62,7 +62,7 @@ export const denied = () => (
         name: 'daad',
         fullName: 'Servicio Alemán de Intercambio Académico',
       },
-      status: 'ARCHIVED',
+      state: 'ARCHIVED',
       denial: {
         deniedAt: '2020-05-21T05:00:00.000Z',
         reason: 'Convocatoria duplicada/archivada',

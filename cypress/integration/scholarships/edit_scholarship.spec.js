@@ -22,7 +22,7 @@ describe('Edit complete scholarship', () => {
     fundingType: 'COMPLETE',
     academicLevel: 'UNDERGRADUATE',
     language: 'en',
-    status: 'PENDING',
+    state: 'PENDING',
     fillStatus: 'COMPLETE',
     country: {
       code: 'DEU',
@@ -71,7 +71,7 @@ describe('Edit scholarship', () => {
     fundingType: 'COMPLETE',
     academicLevel: 'UNDERGRADUATE',
     language: 'en',
-    status: 'PENDING',
+    state: 'PENDING',
     fillStatus: 'COMPLETE',
     country: {
       code: 'DEU',
@@ -114,7 +114,7 @@ describe('Edit scholarship', () => {
       .and('be.equal', field.value);
   });
 
-  it.only('should send only the country code', () => {
+  it('should send only the country code', () => {
     submitUpdate();
     cy.wait('@editRequest')
       .its('request.body')
@@ -132,7 +132,7 @@ describe('Empty scholarship', () => {
     fundingType: null,
     academicLevel: null,
     language: null,
-    status: 'PENDING',
+    state: 'PENDING',
     fillStatus: 'INCOMPLETE',
     country: null,
   };

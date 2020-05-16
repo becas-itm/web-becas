@@ -13,7 +13,7 @@ const scholarship = {
   },
   language: 'en',
   fillStatus: 'COMPLETE',
-  status: 'PENDING',
+  state: 'PENDING',
 };
 
 beforeEach(() => {

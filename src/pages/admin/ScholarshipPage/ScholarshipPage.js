@@ -70,7 +70,7 @@ function ScholarshipPage({ scholarship: initialScholarship, onUpdate }) {
     onUpdate();
   };
 
-  const isArchived = initialScholarship.status === 'ARCHIVED';
+  const isArchived = initialScholarship.state === 'ARCHIVED';
 
   return (
     <>
