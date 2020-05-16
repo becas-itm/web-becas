@@ -37,11 +37,11 @@ export function PublishingSection({
   approval,
   denial,
   onRestore,
-  status,
+  state,
 }) {
   let actions = null;
 
-  if (status === 'PUBLISHED') {
+  if (state === 'PUBLISHED') {
     actions = (
       <div className="flex items-start">
         <VerifiedUser className="text-green-400 mr-3" />
@@ -72,7 +72,7 @@ export function PublishingSection({
         </div>
       </div>
     );
-  } else if (status === 'ARCHIVED') {
+  } else if (state === 'ARCHIVED') {
     actions = (
       <div className="flex items-start">
         <Block className="text-red-300 mr-3" />

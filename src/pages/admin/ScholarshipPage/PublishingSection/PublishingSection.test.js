@@ -8,7 +8,7 @@ const COMPLETE_SCHOLARSHIP = {
     fullName: 'Servicio Alemán de Intercambio Académico',
   },
   fillStatus: 'COMPLETE',
-  status: 'PENDING',
+  state: 'PENDING',
 };
 
 const INCOMPLETE_SCHOLARSHIP = Object.assign({}, COMPLETE_SCHOLARSHIP, {
@@ -16,14 +16,14 @@ const INCOMPLETE_SCHOLARSHIP = Object.assign({}, COMPLETE_SCHOLARSHIP, {
 });
 
 const PUBLISHED_SCHOLARSHIP = Object.assign({}, COMPLETE_SCHOLARSHIP, {
-  status: 'PUBLISHED',
+  state: 'PUBLISHED',
   approval: {
     approvedAt: '2020-05-21T05:00:00.000Z',
   },
 });
 
 const DENIED_SCHOLARSHIP = Object.assign({}, COMPLETE_SCHOLARSHIP, {
-  status: 'ARCHIVED',
+  state: 'ARCHIVED',
   denial: {
     deniedAt: '2020-05-21T05:00:00.000Z',
     reason: 'Convocatoria duplicada/archivada',
