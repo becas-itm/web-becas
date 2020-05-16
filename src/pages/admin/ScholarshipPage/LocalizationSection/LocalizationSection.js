@@ -31,7 +31,7 @@ export function LocalizationSection({ country, fieldsDisabled = false }) {
             </div>
             <CountryCombobox
               name="country"
-              disabled={true}
+              disabled={fieldsDisabled}
               data-testid="country"
             />
           </div>
