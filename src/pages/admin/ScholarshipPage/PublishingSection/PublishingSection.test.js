@@ -192,7 +192,7 @@ describe('archived scholarship', () => {
   it('should render archive reason', () => {
     const { getByTestId } = renderArchived();
     expect(getByTestId('denialReason')).toHaveTextContent(
-      'Convocatoria aprobada/rechazada.',
+      'Convocatoria rechazada/archivada.',
     );
   });
 

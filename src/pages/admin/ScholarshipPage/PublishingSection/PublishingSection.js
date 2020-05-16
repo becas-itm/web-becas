@@ -60,7 +60,7 @@ export function PublishingSection({
     const archivedAt =
       state === 'DENIED' ? denial.deniedAt : archive.archivedAt;
     const reason =
-      state === 'DENIED' ? denial.reason : 'Convocatoria aprobada/rechazada.';
+      state === 'DENIED' ? denial.reason : 'Convocatoria rechazada/archivada.';
 
     actions = (
       <div className="flex items-start">
