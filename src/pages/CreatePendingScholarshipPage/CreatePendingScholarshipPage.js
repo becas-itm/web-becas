@@ -30,7 +30,7 @@ export default function CreatePendingScholarshipPage() {
       country: values.country?.code,
     }).then(({ id }) => {
       snack.show('Convocatoria creada.');
-      navigate(`/admin/pendientes/${id}`);
+      navigate(`/admin/convocatorias/${id}`);
     });
   };
 
