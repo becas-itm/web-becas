@@ -1,4 +1,5 @@
 import React from 'react';
+import { Field } from 'formik';
 
 import { Translate } from 'ui/components/Icon';
 import CountryFlag from 'ui/components/CountryFlag';
@@ -6,7 +7,7 @@ import { LanguageListbox, CountryCombobox } from 'ui/components/Scholarship';
 
 import { FieldMissingWarning } from '../FieldMissingWarning';
 
-export function LocalizationSection({ country, fieldsDisabled = false }) {
+export function LocalizationSection({ fieldsDisabled = false }) {
   return (
     <section className="flex flex-wrap pt-6 px-4 lg:px-0 border-t mt-8">
       <div className="mb-6 md:mb-0 md:flex-1">
@@ -19,11 +20,15 @@ export function LocalizationSection({ country, fieldsDisabled = false }) {
 
       <div className="w-full md:max-w-lg">
         <div className="flex items-start">
-          <CountryFlag
-            code={country?.code}
-            style={{ width: 24, height: 24 }}
-            className="shadow-outline rounded-full object-cover mr-4"
-          />
+          <Field name="country">
+            {({ field }) => (
+              <CountryFlag
+                code={field.value?.code}
+                style={{ width: 24, height: 24 }}
+                className="shadow-outline rounded-full object-cover mr-4"
+              />
+            )}
+          </Field>
           <div className="flex-1">
             <div className="mb-3 flex justify-between">
               <label className="text-sm text-active">País</label>
