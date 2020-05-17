@@ -3,7 +3,7 @@ import { useAuth } from 'auth/index';
 
 import AppLogo from 'ui/components/AppLogo';
 import UserActions from 'ui/components/UserActions';
-import { Event, SupervisorAccount } from 'ui/components/Icon';
+import { Event, SupervisorAccount, Business } from 'ui/components/Icon';
 
 import HamburgerMenu, {
   MenuButton,
@@ -20,6 +20,12 @@ const navItems = [
     icon: Event,
     title: 'Convocatorias',
     description: 'Crea, aprueba y rechaza nuevas convocatorias',
+  },
+  {
+    to: '/admin/entidades',
+    icon: Business,
+    title: 'Entidades',
+    description: 'Agregar y editar entidades que ofrecen becas',
   },
   {
     to: '/admin/usuarios',

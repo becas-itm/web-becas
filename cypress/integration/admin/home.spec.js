@@ -45,5 +45,10 @@ describe('Admin Home', () => {
       cy.contains('Usuarios').should('have.attr', 'href', '/admin/usuarios');
       cy.contains('Ver e invitar a otros administradores');
     });
+
+    it('should have an entity item', () => {
+      cy.contains('Entidades').should('have.attr', 'href', '/admin/entidades');
+      cy.contains('Agregar y editar entidades que ofrecen becas');
+    });
   });
 });

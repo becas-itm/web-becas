@@ -8,6 +8,8 @@ export { ArrowRightAlt } from './ArrowRightAlt';
 
 export { Block } from './Block';
 
+export { Business } from './Business';
+
 export { ChevronLeft } from './ChevronLeft';
 
 export { ChevronRight } from './ChevronRight';
