@@ -10,7 +10,7 @@ test('should render component', () => {
   expect(getByTestId('Avatar')).toBeInTheDocument();
 });
 
-describe('src prop', () => {
+describe('image avatar', () => {
   it('should render a given image', () => {
     const { getByAltText } = render(
       <Avatar src={fixtureImg} alt="avatar-img" />,
@@ -18,6 +18,7 @@ describe('src prop', () => {
     const image = getByAltText('avatar-img');
     expect(image).toBeInTheDocument();
     expect(image.src).toBe(STUB_FILENAME);
+    expect(image.tagName).toBe('IMG');
   });
 });
 
@@ -54,5 +55,36 @@ describe('size prop', () => {
     const avatar = getByTestId('Avatar');
     expect(avatar).toHaveStyle(`width: ${SIZE.regular}px`);
     expect(avatar).toHaveStyle(`height: ${SIZE.regular}px`);
+  });
+});
+
+describe('name initials', () => {
+  const renderInitials = name => {
+    const result = render(<Avatar name={name} />);
+    return {
+      ...result,
+      initialsNode: result.queryByTestId('Avatar__initials'),
+    };
+  };
+
+  it('should render the name initials', () => {
+    const { initialsNode } = renderInitials('foo');
+    expect(initialsNode).toBeInTheDocument();
+  });
+
+  it.each([
+    ['bar', 'B'],
+    ['john doe', 'JD'],
+    ['john doe bar', 'JD'],
+    ['', '✷'],
+  ])('initial name `%s` should be `%s`', (fullName, initials) => {
+    const { initialsNode } = renderInitials(fullName);
+    expect(initialsNode.textContent).toBe(initials);
+  });
+
+  it('should have the given name as title', () => {
+    const name = 'Jane Doe';
+    const { initialsNode } = renderInitials(name);
+    expect(initialsNode).toHaveAttribute('title', name);
   });
 });

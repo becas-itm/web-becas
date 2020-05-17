@@ -29,3 +29,12 @@ export const customSize = () => (
 export const customImage = () => (
   <Avatar src={text('Source', RANDOM_IMAGE_URL)} size={SIZE.extraLarge} />
 );
+
+export const initials = () => (
+  <>
+    <Avatar name="" />
+    <Avatar name="Stiven Díaz" />
+    <Avatar name="Jimmy Murillo" />
+    <Avatar name="Jane Doe" size={number('Size', 96)} />
+  </>
+);
