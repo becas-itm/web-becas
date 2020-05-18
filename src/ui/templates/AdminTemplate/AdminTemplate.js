@@ -7,7 +7,14 @@ import AppFooter from 'ui/components/AppFooter';
 import IconButton from 'ui/components/IconButton';
 import UserActions from 'ui/components/UserActions';
 import NavRail, { NavItem } from 'ui/components/NavRail';
-import { Home, Inbox, SupervisorAccount, Menu } from 'ui/components/Icon';
+
+import {
+  Home,
+  Inbox,
+  SupervisorAccount,
+  Menu,
+  Business,
+} from 'ui/components/Icon';
 
 import { MenuDrawer } from './MenuDrawer';
 import './AdminTemplate.css';
@@ -43,6 +50,9 @@ const AdminTemplate = React.memo(function AdminTemplate({
         </NavItem>
         <NavItem to="/admin/pendientes" icon={Inbox}>
           Becas
+        </NavItem>
+        <NavItem to="/admin/entidades" icon={Business}>
+          Entidades
         </NavItem>
         <NavItem to="/admin/usuarios" icon={SupervisorAccount}>
           Usuarios
