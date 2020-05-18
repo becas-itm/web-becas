@@ -14,6 +14,7 @@ const CompleteRegisterPage = lazy(() => import('pages/CompleteRegisterPage'));
 
 const AdminPage = lazy(() => import('pages/admin/Home'));
 const UsersPage = lazy(() => import('pages/UsersPage'));
+const EntitiesPage = lazy(() => import('pages/EntitiesPage'));
 const ProfilePage = lazy(() => import('pages/ProfilePage'));
 const PendingScholarshipsPage = lazy(() =>
   import('pages/PendingScholarshipsPage'),
@@ -41,6 +42,7 @@ function App() {
 
       <PrivateRoute path="/admin" element={<AdminPage />} />
       <PrivateRoute path="/admin/usuarios" element={<UsersPage />} />
+      <PrivateRoute path="/admin/entidades" element={<EntitiesPage />} />
       <PrivateRoute path="/admin/perfil" element={<ProfilePage />} />
 
       <PrivateRoute
