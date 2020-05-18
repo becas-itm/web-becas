@@ -12,7 +12,7 @@ const ResetPage = lazy(() => import('pages/ResetPage'));
 const RecoverPage = lazy(() => import('pages/RecoverPage'));
 const CompleteRegisterPage = lazy(() => import('pages/CompleteRegisterPage'));
 
-const AdminPage = lazy(() => import('pages/admin/Home'));
+const AdminPage = lazy(() => import('pages/admin/HomePage'));
 const UsersPage = lazy(() => import('pages/UsersPage'));
 const EntitiesPage = lazy(() => import('pages/admin/EntitiesPage'));
 const ProfilePage = lazy(() => import('pages/ProfilePage'));

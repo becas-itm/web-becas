@@ -69,7 +69,7 @@ export function HomePage() {
 
         <nav className="flex flex-col sm:flex-row sm:flex-wrap sm:justify-around mt-6 sm:mt-12">
           {navItems.map(item => (
-            <div className="mb-2 sm:mb-8" key={item.to}>
+            <div className="mb-5 sm:mb-8" key={item.to}>
               <NavigationItem {...item} />
             </div>
           ))}
