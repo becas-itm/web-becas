@@ -14,7 +14,7 @@ const CompleteRegisterPage = lazy(() => import('pages/CompleteRegisterPage'));
 
 const AdminPage = lazy(() => import('pages/admin/Home'));
 const UsersPage = lazy(() => import('pages/UsersPage'));
-const EntitiesPage = lazy(() => import('pages/EntitiesPage'));
+const EntitiesPage = lazy(() => import('pages/admin/EntitiesPage'));
 const ProfilePage = lazy(() => import('pages/ProfilePage'));
 const PendingScholarshipsPage = lazy(() =>
   import('pages/PendingScholarshipsPage'),
