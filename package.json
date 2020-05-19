@@ -5,7 +5,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "test:staged": "cross-env CI=true react-scripts test --bail --findRelatedTests --colors",
     "eject": "react-scripts eject",
     "build:styles": "tailwindcss build src/ui/styles/tailwind.css -o src/ui/styles/styles.css",
@@ -93,6 +93,7 @@
     "eslint-plugin-prettier": "^3.1.2",
     "http-proxy-middleware": "^1.0.3",
     "husky": "^4.2.5",
+    "jest-environment-jsdom-sixteen": "^1.0.3",
     "lint-staged": "^10.1.5",
     "node-sass": "^4.13.1",
     "prettier": "^2.0.4",
