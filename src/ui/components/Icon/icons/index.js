@@ -34,6 +34,8 @@ export { KeyboardArrowDown } from './KeyboardArrowDown';
 
 export { LastPage } from './LastPage';
 
+export { Link } from './Link';
+
 export { Menu } from './Menu';
 
 export { Money } from './Money';
