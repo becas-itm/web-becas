@@ -34,12 +34,14 @@ describe('reload action button', () => {
   });
 
   it('click should reload the current page', () => {
-    const reloadSpy = jest
-      .spyOn(window.location, 'reload')
-      .mockImplementation(() => {});
+    const reload = jest.fn();
+
+    delete window.location;
+    window.location = { reload };
+
     const { getByText } = renderPage();
     const button = getByText(buttonText);
     fireEvent.click(button);
-    expect(reloadSpy).toHaveBeenCalledTimes(1);
+    expect(reload).toHaveBeenCalledTimes(1);
   });
 });
