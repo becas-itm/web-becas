@@ -4,18 +4,16 @@ import { useParams } from 'react-router-dom';
 
 import { useGet, useToggle } from 'utils/hooks';
 import { useSnackbar } from 'ui/components/Snackbar';
-
 import Button, { COLOR } from 'ui/components/Button';
 import GoBackButton from 'ui/components/GoBackButton';
 import AdminTemplate from 'ui/templates/AdminTemplate';
+import { SettingsBackupRestore } from 'ui/components/Icon';
 import { ScholarshipDetails } from 'pages/ScholarshipPage/ScholarshipDetails';
 
 import { DenyDialog } from './PublishingSection/DenyDialog';
 import { BasicInfoSection } from './BasicInfoSection/BasicInfoSection';
 import { PublishingSection } from './PublishingSection/PublishingSection';
 import { LocalizationSection } from './LocalizationSection/LocalizationSection';
-
-import { SettingsBackupRestore } from 'ui/components/Icon';
 
 import { useDeny } from './useDeny';
 import { useEdit } from './useEdit';
