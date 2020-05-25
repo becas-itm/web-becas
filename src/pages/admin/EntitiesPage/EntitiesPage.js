@@ -39,24 +39,79 @@ function useCreateEntity(url) {
   };
 }
 
+function useEditEntity() {
+  const snack = useSnackbar();
+  const [isOpen, toggleDialog] = useToggle();
+
+  const [mutate, { status }] = useMutation(({ code, ...data }) =>
+    api.put(`${ENTITIES_ENDPOINT}${code}/`, data),
+  );
+  const isLoading = status === 'loading';
+
+  const [currentEntity, setEntity] = React.useState(null);
+
+  return {
+    startEdit: entity => {
+      setEntity(entity);
+      toggleDialog();
+    },
+    getDialogProps: ({ onEdit }) => ({
+      isOpen,
+      isLoading,
+      entity: currentEntity,
+      onSubmit: async values => {
+        const entity = await mutate(values);
+        toggleDialog();
+        onEdit(entity, values);
+        setEntity(null);
+        snack.show('Entidad actualizada.');
+      },
+      onCancel: () => {
+        if (!isLoading) {
+          toggleDialog();
+        }
+      },
+    }),
+  };
+}
+
 function useEntities(initialEntities) {
   const [entities, setEntities] = React.useState(initialEntities || []);
 
-  const onAdd = entity => setEntities(entities.concat(entity));
-
-  return { entities, onAdd };
+  return React.useMemo(
+    () => ({
+      entities,
+      onAdd: entity => setEntities(entities.concat(entity)),
+      onEdit: (entity, oldEntity) => {
+        setEntities(
+          entities.map(ent => (ent.code === oldEntity.code ? entity : ent)),
+        );
+      },
+    }),
+    [entities],
+  );
 }
 
 function EntitiesPageContent() {
   const { data } = useGet(ENTITIES_ENDPOINT);
-  const { entities, onAdd } = useEntities(data || []);
+  const { entities, onAdd, onEdit } = useEntities(data || []);
 
   const { toggleCreate, getCreateProps } = useCreateEntity(ENTITIES_ENDPOINT);
 
+  const editEntity = useEditEntity();
+
   return (
     <div className="max-w-6xl mx-auto px-4">
-      <EntitiesList entities={entities} onNew={toggleCreate} />
+      <EntitiesList
+        entities={entities}
+        onNew={toggleCreate}
+        onEdit={editEntity.startEdit}
+      />
       <EntityDialog title="Nueva entidad" {...getCreateProps({ onAdd })} />
+      <EntityDialog
+        title="Editar entidad"
+        {...editEntity.getDialogProps({ onEdit })}
+      />
     </div>
   );
 }
