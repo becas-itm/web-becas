@@ -24,7 +24,7 @@ describe('EntitiesList', () => {
     expect(queryAllByTestId('EntityItem')).toHaveLength(2);
   });
 
-  it('should call the `onNew` creat button click', () => {
+  it('should call the `onNew` create button click', () => {
     const onNew = jest.fn();
     const { getByTestId } = render(
       <EntitiesList onNew={onNew} entities={[ent1]} />,

@@ -25,7 +25,7 @@ export function EntitiesList({ entities = [], onNew, onEdit }) {
           data-testid="EntitiesList__createButton"
         >
           <div className="flex flex-wrap items-center">
-            Crear <Add className="ml-2" />
+            Nueva <Add className="ml-2" />
           </div>
         </Button>
       </header>

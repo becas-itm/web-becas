@@ -33,7 +33,7 @@ export function EntityForm({ entity, onSubmit, onCancel, isLoading = false }) {
           <FastField label="Sitio web" name="website">
             <Input
               disabled={isLoading}
-              type="text"
+              type="url"
               placeholder="http://ejemplo.com"
               data-testid="EntityForm__website"
             />

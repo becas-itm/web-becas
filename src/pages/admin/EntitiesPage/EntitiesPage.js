@@ -4,6 +4,7 @@ import { useMutation } from 'react-query';
 import { api } from 'utils/api2';
 import Spinner from 'ui/components/Spinner';
 import { useGet, useToggle } from 'utils/hooks';
+import { useSnackbar } from 'ui/components/Snackbar';
 import AdminTemplate from 'ui/templates/AdminTemplate';
 
 import { EntitiesList } from './EntitiesList';
@@ -12,6 +13,7 @@ import { EntityDialog } from './EntityDialog';
 const ENTITIES_ENDPOINT = '/api/entities/';
 
 function useCreateEntity(url) {
+  const snack = useSnackbar();
   const [isOpen, toggleCreate] = useToggle();
 
   const [mutate, { status }] = useMutation(data => api.post(url, data));
@@ -26,6 +28,7 @@ function useCreateEntity(url) {
         const entity = await mutate(values);
         toggleCreate();
         onAdd(entity);
+        snack.show('Entidad creada.');
       },
       onCancel: () => {
         if (!isLoading) {
