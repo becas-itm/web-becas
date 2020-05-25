@@ -38,7 +38,7 @@ describe('Admin Home', () => {
         'href',
         '/admin/pendientes',
       );
-      cy.contains('Crea, aprueba y rechaza nuevas convocatorias');
+      cy.contains('Crear, aprobar y rechazar nuevas convocatorias');
     });
 
     it('should have an users item', () => {
@@ -48,7 +48,9 @@ describe('Admin Home', () => {
 
     it('should have an entity item', () => {
       cy.contains('Entidades').should('have.attr', 'href', '/admin/entidades');
-      cy.contains('Agregar y editar entidades que ofrecen becas');
+      cy.contains(
+        'Agregar y editar entidades que ofertan becas y convocatorias',
+      );
     });
   });
 });

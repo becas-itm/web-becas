@@ -19,13 +19,13 @@ const navItems = [
     to: '/admin/pendientes',
     icon: Event,
     title: 'Convocatorias',
-    description: 'Crea, aprueba y rechaza nuevas convocatorias',
+    description: 'Crear, aprobar y rechazar nuevas convocatorias',
   },
   {
     to: '/admin/entidades',
     icon: Business,
     title: 'Entidades',
-    description: 'Agregar y editar entidades que ofrecen becas',
+    description: 'Agregar y editar entidades que ofertan becas y convocatorias',
   },
   {
     to: '/admin/usuarios',
