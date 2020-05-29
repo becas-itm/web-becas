@@ -8,11 +8,9 @@ import {
 
 import { formatDate } from 'ui/components/DateInput';
 import Button, { COLOR } from 'ui/components/Button';
-import EntityAvatar from 'ui/components/EntityAvatar';
 import { Block } from 'ui/components/Icon/icons/Block';
 
 export function PublishingSection({
-  entity,
   onApprove,
   onDeny,
   onArchive,
@@ -155,23 +153,7 @@ export function PublishingSection({
         </p>
       </div>
 
-      <div className="w-full md:max-w-lg">
-        {actions}
-
-        {entity && (
-          <div className="mt-2 flex items-start">
-            <div className="mr-4">
-              <EntityAvatar name={entity.name} />
-            </div>
-            <div className="flex-1">
-              <label className="block text-base text-medium">
-                Ofrecida por
-              </label>
-              <div>{entity.fullName}</div>
-            </div>
-          </div>
-        )}
-      </div>
+      <div className="w-full md:max-w-lg">{actions}</div>
     </section>
   );
 }

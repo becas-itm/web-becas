@@ -3,10 +3,6 @@ import { render, fireEvent } from '@testing-library/react';
 import { PublishingSection } from './PublishingSection';
 
 const COMPLETE_SCHOLARSHIP = {
-  entity: {
-    name: 'daad',
-    fullName: 'Servicio Alemán de Intercambio Académico',
-  },
   fillStatus: 'COMPLETE',
   state: 'PENDING',
 };
@@ -79,20 +75,6 @@ describe('Complete scholarship', () => {
       fireEvent.click(button);
       expect(onDeny).toHaveBeenCalledTimes(1);
       expect(button).toHaveTextContent('Rechazar');
-    });
-  });
-
-  describe('entity field', () => {
-    it('should have a title', () => {
-      const { getByText } = renderComplete();
-      expect(getByText('Ofrecida por')).toBeInTheDocument();
-    });
-
-    it('should show full entity name', () => {
-      const { getByText } = renderComplete();
-      expect(
-        getByText(COMPLETE_SCHOLARSHIP.entity.fullName),
-      ).toBeInTheDocument();
     });
   });
 });

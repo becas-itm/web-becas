@@ -8,8 +8,8 @@ import Button, { COLOR } from 'ui/components/Button';
 import GoBackButton from 'ui/components/GoBackButton';
 import AdminTemplate from 'ui/templates/AdminTemplate';
 import { SettingsBackupRestore } from 'ui/components/Icon';
-import { ScholarshipDetails } from 'pages/ScholarshipPage/ScholarshipDetails';
 
+import { EntitySection } from './EntitySection';
 import { DenyDialog } from './PublishingSection/DenyDialog';
 import { BasicInfoSection } from './BasicInfoSection/BasicInfoSection';
 import { PublishingSection } from './PublishingSection/PublishingSection';
@@ -24,6 +24,8 @@ import { useArchive } from './useArchive';
 function PageFetcher() {
   const { id } = useParams();
   const { data, refetch } = useGet(`/api/publishing/scholarships/${id}/`);
+
+  data.steps = data.sourceDetails?.steps;
 
   return (
     <AdminTemplate>
@@ -103,6 +105,7 @@ function ScholarshipPage({ scholarship: initialScholarship, onUpdate }) {
           fundingType: initialScholarship.fundingType || '',
           academicLevel: initialScholarship.academicLevel || '',
           language: initialScholarship.language || '',
+          steps: initialScholarship.steps || '',
           country: initialScholarship.country || null,
         }}
         onSubmit={handleEdit}
@@ -118,22 +121,13 @@ function ScholarshipPage({ scholarship: initialScholarship, onUpdate }) {
               <main>
                 <BasicInfoSection fieldsDisabled={isArchived} />
 
-                <section className="flex flex-wrap pt-2 px-4 lg:px-0">
-                  <div className="mb-6 md:mb-0 md:flex-1" />
-
-                  <div className="mt-6 w-full md:max-w-lg flex items-start">
-                    <div className="w-6 mr-3" />
-                    <div className="flex-1 flex items-start">
-                      <ScholarshipDetails
-                        {...(initialScholarship.sourceDetails || {})}
-                        entityName={initialScholarship.entity?.name}
-                      />
-                    </div>
-                  </div>
-                </section>
-
                 <LocalizationSection
                   {...scholarship}
+                  fieldsDisabled={isArchived}
+                />
+
+                <EntitySection
+                  {...initialScholarship}
                   fieldsDisabled={isArchived}
                 />
 
