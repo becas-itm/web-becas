@@ -2,22 +2,22 @@ import React, { lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import PrivateRoute from 'ui/components/PrivateRoute';
 
-const LoginPage = lazy(() => import('pages/LoginPage'));
-const ResetPage = lazy(() => import('pages/ResetPage'));
-const RecoverPage = lazy(() => import('pages/RecoverPage'));
-const CompleteRegisterPage = lazy(() => import('pages/CompleteRegisterPage'));
+const LoginPage = lazy(() => import('./pages/LoginPage'));
+const ResetPage = lazy(() => import('./pages/ResetPage'));
+const RecoverPage = lazy(() => import('./pages/RecoverPage'));
+const CompleteRegisterPage = lazy(() => import('./pages/CompleteRegisterPage'));
 
-const AdminPage = lazy(() => import('pages/admin/HomePage'));
-const UsersPage = lazy(() => import('pages/UsersPage'));
-const EntitiesPage = lazy(() => import('pages/admin/EntitiesPage'));
-const ProfilePage = lazy(() => import('pages/ProfilePage'));
+const AdminPage = lazy(() => import('./pages/HomePage'));
+const UsersPage = lazy(() => import('./pages/UsersPage'));
+const EntitiesPage = lazy(() => import('./pages/EntitiesPage'));
+const ProfilePage = lazy(() => import('./pages/ProfilePage'));
 const PendingScholarshipsPage = lazy(() =>
-  import('pages/PendingScholarshipsPage'),
+  import('./pages/PendingScholarshipsPage'),
 );
 
-const AdminScholarshipPage = lazy(() => import('pages/admin/ScholarshipPage'));
+const AdminScholarshipPage = lazy(() => import('./pages/ScholarshipPage'));
 const CreateScholarshipPage = lazy(() =>
-  import('pages/admin/CreateScholarshipPage'),
+  import('./pages/CreateScholarshipPage'),
 );
 
 function App() {

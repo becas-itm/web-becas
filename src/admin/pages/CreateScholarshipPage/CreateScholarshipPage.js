@@ -9,10 +9,7 @@ import Button, { COLOR } from 'ui/components/Button';
 import GoBackButton from 'ui/components/GoBackButton';
 import AdminTemplate from 'ui/templates/AdminTemplate';
 
-import {
-  BasicInfoSection,
-  LocalizationSection,
-} from 'pages/admin/ScholarshipPage';
+import { BasicInfoSection, LocalizationSection } from '../ScholarshipPage';
 
 import { useCreate } from './useCreate';
 
