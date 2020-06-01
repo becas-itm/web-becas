@@ -5,7 +5,7 @@ import { ExitToApp } from 'ui/components/Icon';
 export default function UserActions({ user, onLogout }) {
   return (
     <div className="flex items-center" data-testid="UserActions">
-      <Link to="/admin/perfil" className="hover:underline">
+      <Link to="/perfil" className="hover:underline">
         {user.displayName || 'Anónimo'}
       </Link>
       <span className="text-sm text-gray-400 ml-2 select-none">|</span>

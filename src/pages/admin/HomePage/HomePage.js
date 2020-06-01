@@ -16,19 +16,19 @@ import './HomePage.scss';
 
 const navItems = [
   {
-    to: '/admin/pendientes',
+    to: '/pendientes',
     icon: Event,
     title: 'Convocatorias',
     description: 'Crear, aprobar y rechazar nuevas convocatorias',
   },
   {
-    to: '/admin/entidades',
+    to: '/entidades',
     icon: Business,
     title: 'Entidades',
     description: 'Agregar y editar entidades que ofertan becas y convocatorias',
   },
   {
-    to: '/admin/usuarios',
+    to: '/usuarios',
     icon: SupervisorAccount,
     title: 'Usuarios',
     description: 'Ver e invitar a otros administradores',

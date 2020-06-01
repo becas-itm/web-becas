@@ -36,7 +36,7 @@ export function MenuDrawer({ user, onDismiss, onLogout }) {
         </Title>
         <CloseBtn onClick={onDismiss} />
 
-        <Link to="/admin/perfil" className="MenuDrawer-user flex items-center">
+        <Link to="/perfil" className="MenuDrawer-user flex items-center">
           <GenderAvatar gender={user.gender} className="mr-3" />
           <h3 className="text-lg">{user.displayName}</h3>
         </Link>
@@ -44,15 +44,15 @@ export function MenuDrawer({ user, onDismiss, onLogout }) {
 
       <nav>
         <ul>
-          <MenuItem onClick={onDismiss} to="/admin">
+          <MenuItem onClick={onDismiss} to="/">
             Inicio
           </MenuItem>
 
-          <MenuItem onClick={onDismiss} to="/admin/pendientes">
+          <MenuItem onClick={onDismiss} to="/pendientes">
             Becas pendientes
           </MenuItem>
 
-          <MenuItem onClick={onDismiss} to="/admin/usuarios">
+          <MenuItem onClick={onDismiss} to="/usuarios">
             Usuarios
           </MenuItem>
 

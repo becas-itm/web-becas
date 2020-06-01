@@ -6,8 +6,11 @@ import { BrowserRouter } from 'react-router-dom';
 import { ReactQueryConfigProvider } from 'react-query';
 
 import ErrorPage from 'pages/ErrorPage';
+import VerifyUser from 'auth/VerifyUser';
+import AuthProvider from 'auth/AuthProvider';
 import SplashScreen from 'ui/components/SplashScreen';
 import ErrorBoundary from 'ui/components/ErrorBoundary';
+import { SnackbarProvider } from 'ui/components/Snackbar';
 
 import App from './App';
 
@@ -17,9 +20,15 @@ ReactDOM.render(
   <ErrorBoundary fallback={<ErrorPage />}>
     <React.Suspense fallback={<SplashScreen />}>
       <ReactQueryConfigProvider config={queryConfig}>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <SnackbarProvider>
+          <BrowserRouter basename="/admin">
+            <VerifyUser>
+              <AuthProvider>
+                <App />
+              </AuthProvider>
+            </VerifyUser>
+          </BrowserRouter>
+        </SnackbarProvider>
       </ReactQueryConfigProvider>
     </React.Suspense>
   </ErrorBoundary>,

@@ -35,7 +35,7 @@ export function ScholarshipPreview({ id, name, deadline, entity, fillStatus }) {
 
         <footer className="flex items-center justify-between mt-1">
           <PillStatus status={fillStatus} />
-          <LinkButton to={`/admin/convocatorias/${id}`}>Ver más</LinkButton>
+          <LinkButton to={`/convocatorias/${id}`}>Ver más</LinkButton>
         </footer>
       </div>
     </article>

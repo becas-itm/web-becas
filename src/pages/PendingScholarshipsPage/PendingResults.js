@@ -19,7 +19,7 @@ export function PendingResults({ searchUrl, onPage }) {
     <div className="w-full">
       <header className="my-4 px-4 flex flex-wrap items-baseline justify-between">
         <h1 className="text-xl font-semibold">Convocatorias</h1>
-        <LinkButton to="/admin/convocatorias/crear">
+        <LinkButton to="/convocatorias/crear">
           Nueva <Add className="ml-2" />
         </LinkButton>
       </header>

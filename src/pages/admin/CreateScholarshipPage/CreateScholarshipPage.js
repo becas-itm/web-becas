@@ -44,7 +44,7 @@ function CreateScholarshipPage() {
 
   const handleSubmit = form =>
     createScholarship(form)
-      .then(({ id }) => history.push(`/admin/convocatorias/${id}`))
+      .then(({ id }) => history.push(`/convocatorias/${id}`))
       .then(snack.show('Convocatoria creada.'));
 
   return (
