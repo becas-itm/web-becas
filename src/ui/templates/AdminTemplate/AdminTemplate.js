@@ -45,7 +45,7 @@ const AdminTemplate = React.memo(function AdminTemplate({
       </header>
 
       <NavRail>
-        <NavItem to="/admin" icon={Home}>
+        <NavItem exact to="/admin" icon={Home}>
           Inicio
         </NavItem>
         <NavItem to="/admin/pendientes" icon={Inbox}>

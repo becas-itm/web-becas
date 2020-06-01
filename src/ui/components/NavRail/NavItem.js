@@ -2,11 +2,12 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
-export function NavItem({ icon: Icon, to, children }) {
+export function NavItem({ icon: Icon, to, children, exact = false }) {
   return (
     <li>
       <NavLink
         to={to}
+        exact={exact}
         className="NavRail-Item flex flex-col items-center justify-center text-center"
         activeClassName="-active"
       >
