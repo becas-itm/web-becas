@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Navigate } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 import { useAuth } from 'auth/useAuth';
 import { LOGIN_PATH } from 'auth/constants';
@@ -11,7 +11,7 @@ function PrivateRoute(props) {
 
   if (!user) {
     snack.show('Inicia sesión para continuar.');
-    return <Navigate to={LOGIN_PATH} replace />;
+    return <Redirect to={LOGIN_PATH} />;
   }
 
   return <Route {...props} />;

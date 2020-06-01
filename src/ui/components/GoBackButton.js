@@ -1,13 +1,13 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { ArrowBack } from 'ui/components/Icon';
 import IconButton from 'ui/components/IconButton';
 
 function GoBackButton(props) {
-  const navigate = useNavigate();
+  const { goBack } = useHistory();
 
   return (
-    <IconButton {...props} onClick={() => navigate(-1)} icon={ArrowBack}>
+    <IconButton {...props} onClick={goBack} icon={ArrowBack}>
       Ir atrás
     </IconButton>
   );

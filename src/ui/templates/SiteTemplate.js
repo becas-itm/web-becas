@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import AppLogo from 'ui/components/AppLogo';
 import SearchBar from 'ui/components/SearchBar';
@@ -14,12 +14,11 @@ import HamburgerMenu, {
 import links from 'utils/siteLinks';
 
 function RedirectSearchBar() {
-  const navigate = useNavigate();
-  const location = useLocation();
+  const history = useHistory();
 
   const handleSearch = term => {
-    if (location.pathname !== '/buscar') {
-      navigate(`/buscar?term=${term}`, { state: { isSearching: true } });
+    if (history.location.pathname !== '/buscar') {
+      history.push(`/buscar?term=${term}`, { isSearching: true });
     }
   };
 

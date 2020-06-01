@@ -1,6 +1,6 @@
 import React from 'react';
 import { useMount } from 'react-use';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import token from './token';
 import { useRefreshToken } from './useRefreshToken';
@@ -9,7 +9,7 @@ import { LOGIN_PATH, ADMIN_PATH } from './constants';
 export const AuthContext = React.createContext(null);
 
 export default function AuthProvider({ user: initialUser, children }) {
-  const navigate = useNavigate();
+  const history = useHistory();
   const refreshCountdown = useRefreshToken();
   const [user, setUser] = React.useState(initialUser || null);
 
@@ -18,7 +18,7 @@ export default function AuthProvider({ user: initialUser, children }) {
     token.clean();
     refreshCountdown.stop();
     setUser(null);
-    navigate(LOGIN_PATH);
+    history.push(LOGIN_PATH);
   }
 
   function setCurrentUser({ token: accessToken, expiresIn, ...user }) {
@@ -47,7 +47,7 @@ export default function AuthProvider({ user: initialUser, children }) {
   function signIn(user) {
     console.log('USER AUTHENTICATED');
     setCurrentUser(user);
-    navigate(ADMIN_PATH);
+    history.push(ADMIN_PATH);
   }
 
   return (

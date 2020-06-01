@@ -1,16 +1,14 @@
 import qs from 'qs';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 function useQueryFilters() {
-  const location = useLocation();
-  const navigate = useNavigate();
+  const history = useHistory();
 
-  const replace = filters =>
-    navigate(stringifyFilters(filters), { replace: true });
+  const replace = filters => history.replace(stringifyFilters(filters));
 
   return {
     replace,
-    filters: parseFilters(location.search),
+    filters: parseFilters(history.location.search),
   };
 }
 

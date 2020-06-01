@@ -1,5 +1,5 @@
 import React, { lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import PrivateRoute from 'ui/components/PrivateRoute';
 
 const HomePage = lazy(() => import('pages/HomePage'));
@@ -29,37 +29,44 @@ const NotFoundPage = lazy(() => import('pages/NotFoundPage'));
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/buscar" element={<SearchPage />} />
-      <Route path="/terminos" element={<DisclaimerPage />} />
-      <Route path="/convocatoria/:id" element={<ScholarshipPage />} />
+    <Switch>
+      <Route exact path="/" children={<HomePage />} />
+      <Route exact path="/buscar" children={<SearchPage />} />
+      <Route exact path="/terminos" children={<DisclaimerPage />} />
+      <Route exact path="/convocatoria/:id" children={<ScholarshipPage />} />
 
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/recuperar" element={<RecoverPage />} />
-      <Route path="/restablecer/:token" element={<ResetPage />} />
-      <Route path="/registro/:token" element={<CompleteRegisterPage />} />
+      <Route exact path="/login" children={<LoginPage />} />
+      <Route exact path="/recuperar" children={<RecoverPage />} />
+      <Route exact path="/restablecer/:token" children={<ResetPage />} />
+      <Route
+        exact
+        path="/registro/:token"
+        children={<CompleteRegisterPage />}
+      />
 
-      <PrivateRoute path="/admin" element={<AdminPage />} />
-      <PrivateRoute path="/admin/usuarios" element={<UsersPage />} />
-      <PrivateRoute path="/admin/entidades" element={<EntitiesPage />} />
-      <PrivateRoute path="/admin/perfil" element={<ProfilePage />} />
+      <PrivateRoute exact path="/admin" children={<AdminPage />} />
+      <PrivateRoute exact path="/admin/usuarios" children={<UsersPage />} />
+      <PrivateRoute exact path="/admin/entidades" children={<EntitiesPage />} />
+      <PrivateRoute exact path="/admin/perfil" children={<ProfilePage />} />
 
       <PrivateRoute
+        exact
         path="/admin/pendientes"
-        element={<PendingScholarshipsPage />}
+        children={<PendingScholarshipsPage />}
       />
       <PrivateRoute
+        exact
         path="/admin/convocatorias/crear"
-        element={<CreateScholarshipPage />}
+        children={<CreateScholarshipPage />}
       />
       <PrivateRoute
+        exact
         path="/admin/convocatorias/:id"
-        element={<AdminScholarshipPage />}
+        children={<AdminScholarshipPage />}
       />
 
-      <Route path="*" element={<NotFoundPage />} />
-    </Routes>
+      <Route path="*" children={<NotFoundPage />} />
+    </Switch>
   );
 }
 

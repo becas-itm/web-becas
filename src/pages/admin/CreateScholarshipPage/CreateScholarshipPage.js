@@ -1,7 +1,7 @@
 import React from 'react';
 import * as yup from 'yup';
 import { Formik, Form } from 'formik';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { Warning } from 'ui/components/Icon';
 import { useSnackbar } from 'ui/components/Snackbar';
@@ -38,13 +38,13 @@ const initialFormValues = {
 
 function CreateScholarshipPage() {
   const snack = useSnackbar();
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const { createScholarship } = useCreate();
 
   const handleSubmit = form =>
     createScholarship(form)
-      .then(({ id }) => navigate(`/admin/convocatorias/${id}`))
+      .then(({ id }) => history.push(`/admin/convocatorias/${id}`))
       .then(snack.show('Convocatoria creada.'));
 
   return (

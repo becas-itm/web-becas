@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import { ArrowRightAlt } from 'ui/components/Icon';
 import SearchBar, { SearchBarButton } from 'ui/components/SearchBar';
@@ -8,10 +8,10 @@ import { HomeHeader } from './HomeHeader';
 import { ReactComponent as ImgHero } from './imgResearching.svg';
 
 export default function HomePage() {
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const handleChange = term => {
-    navigate(`/buscar?term=${term}`, { state: { isSearching: true } });
+    history.push(`/buscar?term=${term}`, { isSearching: true });
   };
 
   return (
