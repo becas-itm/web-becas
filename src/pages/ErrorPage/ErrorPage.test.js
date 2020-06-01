@@ -18,9 +18,7 @@ it('should have a title', () => {
 
 it('should have a description', () => {
   const { queryByText } = renderPage();
-  const description = queryByText(
-    'No te preocupes, estamos trabajando en ello.',
-  );
+  const description = queryByText('No te preocupes, lo estamos arreglando.');
   expect(description).toBeInTheDocument();
 });
 

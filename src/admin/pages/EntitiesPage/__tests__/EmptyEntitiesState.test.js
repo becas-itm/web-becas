@@ -10,7 +10,7 @@ describe('EmptyEntitiesState', () => {
 
   it('should have a title', () => {
     const { queryByText } = render(<EmptyEntitiesState />);
-    expect(queryByText('Sin entidades')).toBeInTheDocument();
+    expect(queryByText('Entidades')).toBeInTheDocument();
     expect(queryByText('Crea una entidad para comenzar.')).toBeInTheDocument();
   });
 

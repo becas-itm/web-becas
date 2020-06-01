@@ -4,7 +4,7 @@ import { useParams } from 'react-router';
 
 import Spinner from 'ui/Spinner';
 import LinkButton from 'ui/LinkButton';
-import NotFoundGhost from 'ui/NotFoundGhost';
+import EmptyState from 'ui/EmptyState';
 import { SiteTemplate } from 'ui/SiteTemplate';
 
 import { ScholarshipCard } from './ScholarshipCard';
@@ -32,9 +32,14 @@ function PageFetcher({ scholarshipId }) {
 
   if (!data) {
     return (
-      <NotFoundGhost title="¡Oops!" description="No pudimos encontrar la beca">
-        <LinkButton to="/buscar">Ir a página de búsqueda</LinkButton>
-      </NotFoundGhost>
+      <EmptyState
+        title="¡Oops!"
+        description="No pudimos encontrar la convocatoria"
+      >
+        <LinkButton to="/buscar" className="uppercase">
+          Buscar otra
+        </LinkButton>
+      </EmptyState>
     );
   }
 

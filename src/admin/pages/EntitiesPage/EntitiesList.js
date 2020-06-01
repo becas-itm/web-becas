@@ -8,11 +8,7 @@ import { EmptyEntitiesState } from './EmptyEntitiesState';
 
 export function EntitiesList({ entities = [], onNew, onEdit }) {
   if (entities.length === 0) {
-    return (
-      <div className="flex justify-center mx-4 mt-10 sm:mt-32">
-        <EmptyEntitiesState onNewClick={onNew} />
-      </div>
-    );
+    return <EmptyEntitiesState onNewClick={onNew} />;
   }
 
   return (

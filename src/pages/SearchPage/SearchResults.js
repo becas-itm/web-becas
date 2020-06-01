@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from 'ui/Button';
 import Pagination from 'ui/Pagination';
-import NotFoundGhost from 'ui/NotFoundGhost';
+import EmptyState from 'ui/EmptyState';
 import { SettingsBackupRestore } from 'ui/Icon';
 
 import { get } from 'utils/api';
@@ -15,14 +15,15 @@ export default function SearchResults({ searchUrl, onPage }) {
 
   if (scholarships.length === 0) {
     return (
-      <NotFoundGhost
-        title="Sin resultados de búsqueda"
-        description="Prueba usando un término más general, o bien"
+      <EmptyState
+        title="Sin resultados"
+        description="Prueba otro término o restablece la búsqueda"
+        mood="sad"
       >
         <Button outline type="reset" form="filters">
-          Restablece los filtros <SettingsBackupRestore className="ml-2" />
+          Restablecer <SettingsBackupRestore className="ml-2" />
         </Button>
-      </NotFoundGhost>
+      </EmptyState>
     );
   }
 
