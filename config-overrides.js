@@ -1,3 +1,5 @@
+const { override, addPostcssPlugins } = require('customize-cra');
+
 const adminEntry = require('react-app-rewire-multiple-entry')([
   {
     entry: 'src/admin/admin.js',
@@ -6,10 +8,10 @@ const adminEntry = require('react-app-rewire-multiple-entry')([
 ]);
 
 module.exports = {
-  webpack: function (config) {
-    adminEntry.addMultiEntry(config);
-    return config;
-  },
+  webpack: override(
+    adminEntry.addMultiEntry,
+    addPostcssPlugins([require('tailwindcss')]),
+  ),
   devServer: function (configFunction) {
     return function (proxy, allowedHost) {
       const config = configFunction(proxy, allowedHost);

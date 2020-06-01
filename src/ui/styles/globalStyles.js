@@ -6,5 +6,5 @@ import 'ui/Dialog/Dialog.css';
 
 import 'ui/Combobox/combobox.css';
 
-import './styles.css';
+import './tailwind.css';
 import './index.css';
