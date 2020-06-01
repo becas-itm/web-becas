@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Tune } from 'ui/Icon';
 import Spinner from 'ui/Spinner';
-import { SiteTemplate } from 'ui/templates/SiteTemplate';
+import { SiteTemplate } from 'ui/SiteTemplate';
 import SearchBar, { SearchBarButton } from 'ui/SearchBar';
 
 import pick from 'utils/pick';

@@ -6,7 +6,7 @@ import { get } from 'utils/api';
 import AppLogo from 'ui/AppLogo';
 import Spinner from 'ui/Spinner';
 import LinkButton from 'ui/LinkButton';
-import { ThreeRowTemplate } from 'ui/templates/ThreeRowTemplate';
+import { ThreeRowTemplate } from 'ui/ThreeRowTemplate';
 
 import { RegisterCard } from './RegisterCard';
 

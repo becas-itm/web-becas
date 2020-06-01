@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 
 import AppLogo from 'ui/AppLogo';
 import SearchBar from 'ui/SearchBar';
-import { ThreeRowTemplate } from 'ui/templates/ThreeRowTemplate';
+import { ThreeRowTemplate } from 'ui/ThreeRowTemplate';
 
 import HamburgerMenu, {
   MenuItem,

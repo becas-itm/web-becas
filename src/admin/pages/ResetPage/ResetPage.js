@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useQuery, useMutation } from 'react-query';
 
 import * as api from 'utils/api';
-import AuthTemplate from 'ui/templates/AuthTemplate';
+import AuthTemplate from 'admin/ui/AuthTemplate';
 
 import { ResetForm } from './ResetForm';
 

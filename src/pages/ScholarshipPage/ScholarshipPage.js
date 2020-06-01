@@ -5,7 +5,7 @@ import { useParams } from 'react-router';
 import Spinner from 'ui/Spinner';
 import LinkButton from 'ui/LinkButton';
 import NotFoundGhost from 'ui/NotFoundGhost';
-import { SiteTemplate } from 'ui/templates/SiteTemplate';
+import { SiteTemplate } from 'ui/SiteTemplate';
 
 import { ScholarshipCard } from './ScholarshipCard';
 

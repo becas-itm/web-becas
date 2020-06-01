@@ -1,5 +1,5 @@
 import React from 'react';
-import { SiteTemplate } from 'ui/templates/SiteTemplate';
+import { SiteTemplate } from 'ui/SiteTemplate';
 
 export default function DisclaimerPage() {
   return (

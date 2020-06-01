@@ -7,7 +7,7 @@ import { Warning } from 'ui/Icon';
 import { useSnackbar } from 'ui/Snackbar';
 import Button, { COLOR } from 'ui/Button';
 import GoBackButton from 'ui/GoBackButton';
-import AdminTemplate from 'ui/templates/AdminTemplate';
+import AdminTemplate from 'admin/ui/AdminTemplate';
 
 import { BasicInfoSection, LocalizationSection } from '../ScholarshipPage';
 

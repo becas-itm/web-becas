@@ -2,7 +2,7 @@ import React from 'react';
 import { useMutation } from 'react-query';
 
 import { post } from 'utils/api';
-import AuthTemplate from 'ui/templates/AuthTemplate';
+import AuthTemplate from 'admin/ui/AuthTemplate';
 
 import { RecoverForm } from './RecoverForm';
 

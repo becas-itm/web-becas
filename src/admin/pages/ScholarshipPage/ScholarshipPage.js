@@ -6,7 +6,7 @@ import { useGet, useToggle } from 'utils/hooks';
 import { useSnackbar } from 'ui/Snackbar';
 import Button, { COLOR } from 'ui/Button';
 import GoBackButton from 'ui/GoBackButton';
-import AdminTemplate from 'ui/templates/AdminTemplate';
+import AdminTemplate from 'admin/ui/AdminTemplate';
 import { SettingsBackupRestore } from 'ui/Icon';
 
 import { EntitySection } from './EntitySection';

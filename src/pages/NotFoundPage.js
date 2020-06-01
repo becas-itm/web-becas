@@ -1,7 +1,7 @@
 import React from 'react';
 import LinkButton from 'ui/LinkButton';
 import KawaiGhost from 'ui/KawaiGhost';
-import { SiteTemplate } from 'ui/templates/SiteTemplate';
+import { SiteTemplate } from 'ui/SiteTemplate';
 
 export default function NotFoundPage() {
   return (

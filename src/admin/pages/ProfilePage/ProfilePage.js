@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuth } from 'auth/index';
-import AdminTemplate from 'ui/templates/AdminTemplate';
+import AdminTemplate from 'admin/ui/AdminTemplate';
 
 import { useEditUser } from './useEditUser';
 import { UserProfileCard } from './UserProfileCard';

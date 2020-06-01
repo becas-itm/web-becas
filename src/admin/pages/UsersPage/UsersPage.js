@@ -7,7 +7,7 @@ import { Add } from 'ui/Icon';
 import Button from 'ui/Button';
 import { useSnackbar } from 'ui/Snackbar';
 import GenderAvatar from 'ui/GenderAvatar';
-import AdminTemplate from 'ui/templates/AdminTemplate';
+import AdminTemplate from 'admin/ui/AdminTemplate';
 
 import { InviteUserDialog } from './InviteUserDialog';
 

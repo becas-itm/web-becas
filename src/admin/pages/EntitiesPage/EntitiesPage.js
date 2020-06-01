@@ -5,7 +5,7 @@ import { api } from 'utils/api2';
 import Spinner from 'ui/Spinner';
 import { useGet, useToggle } from 'utils/hooks';
 import { useSnackbar } from 'ui/Snackbar';
-import AdminTemplate from 'ui/templates/AdminTemplate';
+import AdminTemplate from 'admin/ui/AdminTemplate';
 
 import { EntitiesList } from './EntitiesList';
 import { EntityDialog } from './EntityDialog';

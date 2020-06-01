@@ -1,6 +1,6 @@
 import React from 'react';
 import Spinner from 'ui/Spinner';
-import AdminTemplate from 'ui/templates/AdminTemplate';
+import AdminTemplate from 'admin/ui/AdminTemplate';
 import { PendingResults } from './PendingResults';
 
 const DEFAULT_FILTERS = { page: 1 };
