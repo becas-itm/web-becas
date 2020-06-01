@@ -9,7 +9,6 @@ export const ThreeRowTemplate = React.memo(function ThreeRowTemplate({
 }) {
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="h-1 w-full bg-primary" />
       <div>{header}</div>
       <div {...restProps} className={`h-full flex-1 ${className} px-3`} />
       <div className="mt-8">

@@ -2,6 +2,7 @@ import React from 'react';
 import { useAuth } from 'auth/index';
 
 import AppLogo from 'ui/AppLogo';
+import PageRibbon from 'ui/PageRibbon';
 import UserActions from 'ui/UserActions';
 import { Event, SupervisorAccount, Business } from 'ui/Icon';
 
@@ -38,7 +39,7 @@ export function HomePage() {
 
   return (
     <>
-      <div className="h-1 w-full bg-primary" />
+      <PageRibbon />
 
       <div className="p-4 lg:mt-10 w-full max-w-screen-lg mx-auto">
         <header className="flex items-center justify-between flex-wrap">

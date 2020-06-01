@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
+import PageRibbon from 'ui/PageRibbon';
 import { ArrowRightAlt } from 'ui/Icon';
 import SearchBar, { SearchBarButton } from 'ui/SearchBar';
 
@@ -16,7 +17,7 @@ export default function HomePage() {
 
   return (
     <div>
-      <div className="h-1 w-full bg-primary" />
+      <PageRibbon />
       <div className="p-4 lg:pt-10 pb-0 max-w-screen-xl mx-auto">
         <HomeHeader />
 

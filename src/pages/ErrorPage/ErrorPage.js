@@ -1,14 +1,15 @@
 import React from 'react';
+import Button from 'ui/Button';
 import AppLogo from 'ui/AppLogo';
 import { Refresh } from 'ui/Icon';
+import PageRibbon from 'ui/PageRibbon';
 import { ReactComponent as HeroImage } from './undrawBugFixing.svg';
-import Button from 'ui/Button';
 
 function ErrorPage() {
   const handleClick = () => window.location.reload();
   return (
     <div>
-      <div className="h-1 w-full bg-primary" />
+      <PageRibbon />
 
       <div className="p-4 lg:pt-10 pb-0 max-w-screen-xl mx-auto">
         <AppLogo />
