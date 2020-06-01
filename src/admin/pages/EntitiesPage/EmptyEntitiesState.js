@@ -1,6 +1,6 @@
 import React from 'react';
 import { Ghost } from 'react-kawaii';
-import Button from 'ui/components/Button';
+import Button from 'ui/Button';
 
 export function EmptyEntitiesState({ onNewClick }) {
   return (

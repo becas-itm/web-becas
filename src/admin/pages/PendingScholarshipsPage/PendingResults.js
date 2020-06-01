@@ -2,10 +2,10 @@ import React from 'react';
 import { useQuery } from 'react-query';
 
 import { get } from 'utils/api';
-import Pagination from 'ui/components/Pagination';
+import Pagination from 'ui/Pagination';
 import { ScholarshipPreview } from './ScholarshipPreview';
-import LinkButton from 'ui/components/LinkButton';
-import { Add } from 'ui/components/Icon';
+import LinkButton from 'ui/LinkButton';
+import { Add } from 'ui/Icon';
 
 export function PendingResults({ searchUrl, onPage }) {
   const { data } = useQuery(searchUrl, get, { suspense: true });

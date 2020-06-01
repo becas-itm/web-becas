@@ -1,14 +1,11 @@
 import React from 'react';
 import { Field } from 'formik';
 
-import Textarea from 'ui/components/Textarea';
-import DateInput from 'ui/components/DateInput';
-import { Event, Money, School } from 'ui/components/Icon';
+import Textarea from 'ui/Textarea';
+import DateInput from 'ui/DateInput';
+import { Event, Money, School } from 'ui/Icon';
 
-import {
-  FundingTypeListbox,
-  AcademicLevelListbox,
-} from 'ui/components/Scholarship';
+import { FundingTypeListbox, AcademicLevelListbox } from 'ui/Scholarship';
 
 import { FieldMissingWarning } from '../FieldMissingWarning';
 

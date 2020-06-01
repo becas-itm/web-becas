@@ -2,10 +2,10 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import { Event } from 'ui/components/Icon';
-import LinkButton from 'ui/components/LinkButton';
-import EntityAvatar from 'ui/components/EntityAvatar';
-import { formatDeadline } from 'ui/components/ScholarshipFields';
+import { Event } from 'ui/Icon';
+import LinkButton from 'ui/LinkButton';
+import EntityAvatar from 'ui/EntityAvatar';
+import { formatDeadline } from 'ui/ScholarshipFields';
 
 export default function ScholarshipPreview({
   id,

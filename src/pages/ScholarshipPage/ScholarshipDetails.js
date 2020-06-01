@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from 'ui/components/Button';
-import { OpenInNew } from 'ui/components/Icon';
+import Button from 'ui/Button';
+import { OpenInNew } from 'ui/Icon';
 import { IcetexDialogDetails } from './IcetexDialogDetails';
 
 export function ScholarshipDetails({ entityName, id, url }) {

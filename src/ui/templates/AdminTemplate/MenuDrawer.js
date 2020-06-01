@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
-import { ExitToApp } from 'ui/components/Icon';
-import GenderAvatar from 'ui/components/GenderAvatar';
-import Button, { COLOR } from 'ui/components/Button';
-import Dialog, { Title, KIND, CloseBtn } from 'ui/components/Dialog';
+import { ExitToApp } from 'ui/Icon';
+import GenderAvatar from 'ui/GenderAvatar';
+import Button, { COLOR } from 'ui/Button';
+import Dialog, { Title, KIND, CloseBtn } from 'ui/Dialog';
 
 function MenuItem({ to, children }) {
   return (

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Field } from 'formik';
 
-import { Translate } from 'ui/components/Icon';
-import CountryFlag from 'ui/components/CountryFlag';
-import { LanguageListbox, CountryCombobox } from 'ui/components/Scholarship';
+import { Translate } from 'ui/Icon';
+import CountryFlag from 'ui/CountryFlag';
+import { LanguageListbox, CountryCombobox } from 'ui/Scholarship';
 
 import { FieldMissingWarning } from '../FieldMissingWarning';
 

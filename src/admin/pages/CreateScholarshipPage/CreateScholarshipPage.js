@@ -3,10 +3,10 @@ import * as yup from 'yup';
 import { Formik, Form } from 'formik';
 import { useHistory } from 'react-router-dom';
 
-import { Warning } from 'ui/components/Icon';
-import { useSnackbar } from 'ui/components/Snackbar';
-import Button, { COLOR } from 'ui/components/Button';
-import GoBackButton from 'ui/components/GoBackButton';
+import { Warning } from 'ui/Icon';
+import { useSnackbar } from 'ui/Snackbar';
+import Button, { COLOR } from 'ui/Button';
+import GoBackButton from 'ui/GoBackButton';
 import AdminTemplate from 'ui/templates/AdminTemplate';
 
 import { BasicInfoSection, LocalizationSection } from '../ScholarshipPage';

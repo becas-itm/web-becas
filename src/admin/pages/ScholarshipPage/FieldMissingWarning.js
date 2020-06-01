@@ -1,7 +1,7 @@
 import React from 'react';
 import { useField } from 'formik';
 
-import { Warning } from 'ui/components/Icon';
+import { Warning } from 'ui/Icon';
 
 export function FieldMissingWarning({ name }) {
   const [, meta] = useField(name);

@@ -1,7 +1,7 @@
 import React from 'react';
-import Textarea from 'ui/components/Textarea';
-import Button, { COLOR } from 'ui/components/Button';
-import Dialog, { Title, Actions } from 'ui/components/Dialog';
+import Textarea from 'ui/Textarea';
+import Button, { COLOR } from 'ui/Button';
+import Dialog, { Title, Actions } from 'ui/Dialog';
 
 export function DenyDialog({ isOpen, onCancel, onDeny, isLoading }) {
   const cancelButtonRef = React.useRef(null);

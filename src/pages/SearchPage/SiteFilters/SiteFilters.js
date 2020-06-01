@@ -4,10 +4,10 @@ import { useFormik } from 'formik';
 import isEqual from 'react-fast-compare';
 import { checkboxGroup } from 'utils/forms';
 
-import { Checkbox } from 'ui/components/Checkbox';
-import Button, { COLOR } from 'ui/components/Button';
-import { ComboboxInput, ComboboxPopover } from 'ui/components/Combobox';
-import Combobox, { CountryComboboxMenu } from 'ui/components/CountryCombobox';
+import { Checkbox } from 'ui/Checkbox';
+import Button, { COLOR } from 'ui/Button';
+import { ComboboxInput, ComboboxPopover } from 'ui/Combobox';
+import Combobox, { CountryComboboxMenu } from 'ui/CountryCombobox';
 
 import LanguageFilter from './LanguageFilter';
 

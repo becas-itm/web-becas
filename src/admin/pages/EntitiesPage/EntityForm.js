@@ -2,9 +2,9 @@ import React from 'react';
 import * as yup from 'yup';
 import { Formik, Form } from 'formik';
 
-import Input from 'ui/components/Input';
-import { FastField } from 'ui/components/formik';
-import Button, { COLOR } from 'ui/components/Button';
+import Input from 'ui/Input';
+import { FastField } from 'ui/formik';
+import Button, { COLOR } from 'ui/Button';
 
 const validationSchema = yup.object().shape({
   name: yup.string().required('Campo requerido'),

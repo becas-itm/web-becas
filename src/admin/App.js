@@ -1,6 +1,6 @@
 import React, { lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import PrivateRoute from 'ui/components/PrivateRoute';
+import PrivateRoute from 'ui/PrivateRoute';
 
 const LoginPage = lazy(() => import('./pages/LoginPage'));
 const ResetPage = lazy(() => import('./pages/ResetPage'));

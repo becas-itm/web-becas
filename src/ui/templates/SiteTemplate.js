@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
-import AppLogo from 'ui/components/AppLogo';
-import SearchBar from 'ui/components/SearchBar';
+import AppLogo from 'ui/AppLogo';
+import SearchBar from 'ui/SearchBar';
 import { ThreeRowTemplate } from 'ui/templates/ThreeRowTemplate';
 
 import HamburgerMenu, {
   MenuItem,
   MenuButton,
   useHamburger,
-} from 'ui/components/HamburgerMenu';
+} from 'ui/HamburgerMenu';
 
 import links from 'utils/siteLinks';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { SupervisorAccount } from 'ui/components/Icon';
+import { SupervisorAccount } from 'ui/Icon';
 
 import NavigationItem from './NavigationItem';
 import './HomePage.scss';

@@ -1,14 +1,11 @@
 import React from 'react';
 import { useAuth } from 'auth/index';
 
-import AppLogo from 'ui/components/AppLogo';
-import UserActions from 'ui/components/UserActions';
-import { Event, SupervisorAccount, Business } from 'ui/components/Icon';
+import AppLogo from 'ui/AppLogo';
+import UserActions from 'ui/UserActions';
+import { Event, SupervisorAccount, Business } from 'ui/Icon';
 
-import HamburgerMenu, {
-  MenuButton,
-  useHamburger,
-} from 'ui/components/HamburgerMenu';
+import HamburgerMenu, { MenuButton, useHamburger } from 'ui/HamburgerMenu';
 
 import { greetUser } from './greetUser';
 import NavigationItem from './NavigationItem';

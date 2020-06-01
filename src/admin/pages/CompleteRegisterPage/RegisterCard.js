@@ -4,8 +4,8 @@ import { useFormik } from 'formik';
 import { useMutation } from 'react-query';
 
 import { put } from 'utils/api';
-import Button from 'ui/components/Button';
-import GenderAvatar from 'ui/components/GenderAvatar';
+import Button from 'ui/Button';
+import GenderAvatar from 'ui/GenderAvatar';
 
 const validationSchema = yup.object().shape({
   password: yup

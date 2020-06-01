@@ -8,9 +8,9 @@ import { ReactQueryConfigProvider } from 'react-query';
 import ErrorPage from 'pages/ErrorPage';
 import VerifyUser from 'auth/VerifyUser';
 import AuthProvider from 'auth/AuthProvider';
-import SplashScreen from 'ui/components/SplashScreen';
-import ErrorBoundary from 'ui/components/ErrorBoundary';
-import { SnackbarProvider } from 'ui/components/Snackbar';
+import SplashScreen from 'ui/SplashScreen';
+import ErrorBoundary from 'ui/ErrorBoundary';
+import { SnackbarProvider } from 'ui/Snackbar';
 
 import App from './App';
 

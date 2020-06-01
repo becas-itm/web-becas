@@ -6,8 +6,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { ReactQueryConfigProvider } from 'react-query';
 
 import ErrorPage from 'pages/ErrorPage';
-import SplashScreen from 'ui/components/SplashScreen';
-import ErrorBoundary from 'ui/components/ErrorBoundary';
+import SplashScreen from 'ui/SplashScreen';
+import ErrorBoundary from 'ui/ErrorBoundary';
 
 import App from './App';
 

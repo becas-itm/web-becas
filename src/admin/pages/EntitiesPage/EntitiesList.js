@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Add } from 'ui/components/Icon';
-import Button from 'ui/components/Button';
+import { Add } from 'ui/Icon';
+import Button from 'ui/Button';
 
 import { EntityItem } from './EntityItem';
 import { EmptyEntitiesState } from './EmptyEntitiesState';

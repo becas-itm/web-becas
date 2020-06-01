@@ -1,6 +1,6 @@
 import React from 'react';
-import CountryFlag from 'ui/components/CountryFlag';
-import { Listbox, ListboxOption } from 'ui/components/Listbox';
+import CountryFlag from 'ui/CountryFlag';
+import { Listbox, ListboxOption } from 'ui/Listbox';
 
 export default function LanguageFilter({ value, onChange }) {
   if (!value) {

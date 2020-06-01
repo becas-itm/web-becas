@@ -1,5 +1,5 @@
 import React from 'react';
-import Spinner from 'ui/components/Spinner';
+import Spinner from 'ui/Spinner';
 import AdminTemplate from 'ui/templates/AdminTemplate';
 import { PendingResults } from './PendingResults';
 

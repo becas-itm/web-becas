@@ -4,11 +4,11 @@ import { Formik, Form } from 'formik';
 import { useMutation } from 'react-query';
 
 import { post } from 'utils/api';
-import Input from 'ui/components/Input';
-import { FastField } from 'ui/components/formik';
-import Button, { COLOR } from 'ui/components/Button';
-import GenderAvatarPicker from 'ui/components/GenderAvatarPicker';
-import Dialog, { Title, Actions, CloseBtn } from 'ui/components/Dialog';
+import Input from 'ui/Input';
+import { FastField } from 'ui/formik';
+import Button, { COLOR } from 'ui/Button';
+import GenderAvatarPicker from 'ui/GenderAvatarPicker';
+import Dialog, { Title, Actions, CloseBtn } from 'ui/Dialog';
 
 const validationSchema = yup.object().shape({
   displayName: yup

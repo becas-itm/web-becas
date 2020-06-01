@@ -1,14 +1,10 @@
 import React from 'react';
 
-import {
-  Warning,
-  VerifiedUser,
-  SettingsBackupRestore,
-} from 'ui/components/Icon';
+import { Warning, VerifiedUser, SettingsBackupRestore } from 'ui/Icon';
 
-import { formatDate } from 'ui/components/DateInput';
-import Button, { COLOR } from 'ui/components/Button';
-import { Block } from 'ui/components/Icon/icons/Block';
+import { formatDate } from 'ui/DateInput';
+import Button, { COLOR } from 'ui/Button';
+import { Block } from 'ui/Icon/icons/Block';
 
 export function PublishingSection({
   onApprove,

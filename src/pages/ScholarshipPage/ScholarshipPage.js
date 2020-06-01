@@ -2,9 +2,9 @@ import React from 'react';
 import { useGet } from 'utils/hooks';
 import { useParams } from 'react-router';
 
-import Spinner from 'ui/components/Spinner';
-import LinkButton from 'ui/components/LinkButton';
-import NotFoundGhost from 'ui/components/NotFoundGhost';
+import Spinner from 'ui/Spinner';
+import LinkButton from 'ui/LinkButton';
+import NotFoundGhost from 'ui/NotFoundGhost';
 import { SiteTemplate } from 'ui/templates/SiteTemplate';
 
 import { ScholarshipCard } from './ScholarshipCard';

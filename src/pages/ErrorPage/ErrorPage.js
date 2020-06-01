@@ -1,8 +1,8 @@
 import React from 'react';
-import AppLogo from 'ui/components/AppLogo';
-import { Refresh } from 'ui/components/Icon';
+import AppLogo from 'ui/AppLogo';
+import { Refresh } from 'ui/Icon';
 import { ReactComponent as HeroImage } from './undrawBugFixing.svg';
-import Button from 'ui/components/Button';
+import Button from 'ui/Button';
 
 function ErrorPage() {
   const handleClick = () => window.location.reload();

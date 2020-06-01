@@ -2,19 +2,13 @@ import React from 'react';
 import { useAuth } from 'auth/index';
 import { useToggle } from 'utils/hooks';
 
-import AppLogo from 'ui/components/AppLogo';
-import AppFooter from 'ui/components/AppFooter';
-import IconButton from 'ui/components/IconButton';
-import UserActions from 'ui/components/UserActions';
-import NavRail, { NavItem } from 'ui/components/NavRail';
+import AppLogo from 'ui/AppLogo';
+import AppFooter from 'ui/AppFooter';
+import IconButton from 'ui/IconButton';
+import UserActions from 'ui/UserActions';
+import NavRail, { NavItem } from 'ui/NavRail';
 
-import {
-  Home,
-  Inbox,
-  SupervisorAccount,
-  Menu,
-  Business,
-} from 'ui/components/Icon';
+import { Home, Inbox, SupervisorAccount, Menu, Business } from 'ui/Icon';
 
 import { MenuDrawer } from './MenuDrawer';
 import './AdminTemplate.css';

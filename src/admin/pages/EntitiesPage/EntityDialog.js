@@ -1,5 +1,5 @@
 import React from 'react';
-import Dialog, { Title, CloseBtn } from 'ui/components/Dialog';
+import Dialog, { Title, CloseBtn } from 'ui/Dialog';
 import { EntityForm } from './EntityForm';
 
 function EntityDialog({

@@ -1,6 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import { AppFooter } from 'ui/components/AppFooter';
+import { AppFooter } from 'ui/AppFooter';
 
 export const ThreeRowTemplate = React.memo(function ThreeRowTemplate({
   header,

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Field } from 'formik';
 
-import Textarea from 'ui/components/Textarea';
-import EntityAvatar from 'ui/components/EntityAvatar';
+import Textarea from 'ui/Textarea';
+import EntityAvatar from 'ui/EntityAvatar';
 
 import { FieldMissingWarning } from './FieldMissingWarning';
 

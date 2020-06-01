@@ -3,10 +3,10 @@ import { get } from 'utils/api';
 import { useQuery } from 'react-query';
 
 import { useToggle } from 'utils/hooks';
-import { Add } from 'ui/components/Icon';
-import Button from 'ui/components/Button';
-import { useSnackbar } from 'ui/components/Snackbar';
-import GenderAvatar from 'ui/components/GenderAvatar';
+import { Add } from 'ui/Icon';
+import Button from 'ui/Button';
+import { useSnackbar } from 'ui/Snackbar';
+import GenderAvatar from 'ui/GenderAvatar';
 import AdminTemplate from 'ui/templates/AdminTemplate';
 
 import { InviteUserDialog } from './InviteUserDialog';

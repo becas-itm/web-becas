@@ -2,10 +2,10 @@ import React from 'react';
 import * as yup from 'yup';
 import { Formik, Form } from 'formik';
 
-import Input from 'ui/components/Input';
-import Button from 'ui/components/Button';
-import GenderAvatar from 'ui/components/GenderAvatar';
-import { FastField } from 'ui/components/formik';
+import Input from 'ui/Input';
+import Button from 'ui/Button';
+import GenderAvatar from 'ui/GenderAvatar';
+import { FastField } from 'ui/formik';
 
 const validationSchema = yup.object().shape({
   password: yup

@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { Tune } from 'ui/components/Icon';
-import Spinner from 'ui/components/Spinner';
+import { Tune } from 'ui/Icon';
+import Spinner from 'ui/Spinner';
 import { SiteTemplate } from 'ui/templates/SiteTemplate';
-import SearchBar, { SearchBarButton } from 'ui/components/SearchBar';
+import SearchBar, { SearchBarButton } from 'ui/SearchBar';
 
 import pick from 'utils/pick';
 import { useToggle } from 'utils/hooks';

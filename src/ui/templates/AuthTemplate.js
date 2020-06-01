@@ -1,7 +1,7 @@
 import React from 'react';
 
-import AppLogo from 'ui/components/AppLogo';
-import Spinner from 'ui/components/Spinner';
+import AppLogo from 'ui/AppLogo';
+import Spinner from 'ui/Spinner';
 import { ThreeRowTemplate } from 'ui/templates/ThreeRowTemplate';
 
 export default function AuthTemplate({ title, isLoading, children }) {

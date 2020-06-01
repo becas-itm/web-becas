@@ -1,5 +1,5 @@
 import React from 'react';
-import GoBackButton from 'ui/components/GoBackButton';
+import GoBackButton from 'ui/GoBackButton';
 
 import {
   Entity,
@@ -8,7 +8,7 @@ import {
   FundingType,
   Description,
   AcademicLevel,
-} from 'ui/components/ScholarshipFields';
+} from 'ui/ScholarshipFields';
 
 import { ScholarshipDetails } from './ScholarshipDetails';
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
-import { ArrowRightAlt } from 'ui/components/Icon';
-import SearchBar, { SearchBarButton } from 'ui/components/SearchBar';
+import { ArrowRightAlt } from 'ui/Icon';
+import SearchBar, { SearchBarButton } from 'ui/SearchBar';
 
 import { HomeHeader } from './HomeHeader';
 import { ReactComponent as ImgHero } from './imgResearching.svg';

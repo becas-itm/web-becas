@@ -1,6 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import Dialog, { CloseBtn, Title } from 'ui/components/Dialog';
+import Dialog, { CloseBtn, Title } from 'ui/Dialog';
 
 function FiltersDialog({ isOpen, onDismiss, children }) {
   return (

@@ -3,11 +3,11 @@ import { Formik, Form } from 'formik';
 import { useParams } from 'react-router-dom';
 
 import { useGet, useToggle } from 'utils/hooks';
-import { useSnackbar } from 'ui/components/Snackbar';
-import Button, { COLOR } from 'ui/components/Button';
-import GoBackButton from 'ui/components/GoBackButton';
+import { useSnackbar } from 'ui/Snackbar';
+import Button, { COLOR } from 'ui/Button';
+import GoBackButton from 'ui/GoBackButton';
 import AdminTemplate from 'ui/templates/AdminTemplate';
-import { SettingsBackupRestore } from 'ui/components/Icon';
+import { SettingsBackupRestore } from 'ui/Icon';
 
 import { EntitySection } from './EntitySection';
 import { DenyDialog } from './PublishingSection/DenyDialog';

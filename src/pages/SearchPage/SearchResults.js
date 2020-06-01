@@ -1,8 +1,8 @@
 import React from 'react';
-import Button from 'ui/components/Button';
-import Pagination from 'ui/components/Pagination';
-import NotFoundGhost from 'ui/components/NotFoundGhost';
-import { SettingsBackupRestore } from 'ui/components/Icon';
+import Button from 'ui/Button';
+import Pagination from 'ui/Pagination';
+import NotFoundGhost from 'ui/NotFoundGhost';
+import { SettingsBackupRestore } from 'ui/Icon';
 
 import { get } from 'utils/api';
 import { useQuery } from 'react-query';

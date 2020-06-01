@@ -3,10 +3,10 @@ import * as yup from 'yup';
 import { Formik, Form } from 'formik';
 import { Link } from 'react-router-dom';
 
-import Input from 'ui/components/Input';
-import Button from 'ui/components/Button';
-import { AppLogo } from 'ui/components/AppLogo';
-import { FastField } from 'ui/components/formik';
+import Input from 'ui/Input';
+import Button from 'ui/Button';
+import { AppLogo } from 'ui/AppLogo';
+import { FastField } from 'ui/formik';
 
 const validationSchema = yup.object().shape({
   email: yup

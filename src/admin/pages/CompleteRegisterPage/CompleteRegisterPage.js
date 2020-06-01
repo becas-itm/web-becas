@@ -3,9 +3,9 @@ import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 
 import { get } from 'utils/api';
-import AppLogo from 'ui/components/AppLogo';
-import Spinner from 'ui/components/Spinner';
-import LinkButton from 'ui/components/LinkButton';
+import AppLogo from 'ui/AppLogo';
+import Spinner from 'ui/Spinner';
+import LinkButton from 'ui/LinkButton';
 import { ThreeRowTemplate } from 'ui/templates/ThreeRowTemplate';
 
 import { RegisterCard } from './RegisterCard';

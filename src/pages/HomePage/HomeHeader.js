@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import AppLogo from 'ui/components/AppLogo';
+import AppLogo from 'ui/AppLogo';
 
 import HamburgerMenu, {
   MenuItem,
   MenuButton,
   useHamburger,
-} from 'ui/components/HamburgerMenu';
+} from 'ui/HamburgerMenu';
 
 import links from 'utils/siteLinks';
 
