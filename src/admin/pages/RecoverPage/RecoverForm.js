@@ -13,31 +13,32 @@ const validationSchema = yup.object().shape({
     .required('Ingresa tu correo'),
 });
 
-export function RecoverForm({ onRecover, isLoading }) {
+export function RecoverForm({ onSubmit, isLoading }) {
   return (
-    <>
-      <h1 className="text-2xl mb-8">Recuperar cuenta</h1>
-      <Formik
-        onSubmit={onRecover}
-        initialValues={{ email: '' }}
-        validationSchema={validationSchema}
-      >
-        <Form noValidate>
-          <div className="block">
-            <FastField label="Correo electrónico" name="email">
-              <Input
-                disabled={isLoading}
-                type="email"
-                placeholder="ejemplo@itm.edu.co"
-              />
-            </FastField>
-          </div>
+    <Formik
+      onSubmit={onSubmit}
+      initialValues={{ email: '' }}
+      validationSchema={validationSchema}
+    >
+      <Form noValidate>
+        <div className="block">
+          <FastField
+            label={<label htmlFor="inputEmail">Correo electrónico</label>}
+            name="email"
+          >
+            <Input
+              type="email"
+              id="inputEmail"
+              placeholder="ejemplo@itm.edu.co"
+              disabled={isLoading}
+            />
+          </FastField>
+        </div>
 
-          <Button isLoading={isLoading} type="submit" className="mt-8">
-            Continuar
-          </Button>
-        </Form>
-      </Formik>
-    </>
+        <Button isLoading={isLoading} type="submit" className="mt-8">
+          Continuar
+        </Button>
+      </Form>
+    </Formik>
   );
 }

@@ -11,7 +11,9 @@ export default function AuthTemplate({ title, isLoading, children }) {
         <header className="bg-white border-b">
           <div className="px-4 h-16 flex items-center max-w-md mx-auto">
             <AppLogo children={null} />
-            <div className="pl-3 text-lg">{title}</div>
+            <div className="pl-3 text-lg" data-testid="pageTitle">
+              {title}
+            </div>
           </div>
         </header>
       }
