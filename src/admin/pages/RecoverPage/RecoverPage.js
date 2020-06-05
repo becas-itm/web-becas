@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useMutation } from 'react-query';
 import { SpeechBubble } from 'react-kawaii';
 
-import { post } from 'utils/api';
+import { api } from 'utils/api2';
 import AlertBox from 'ui/AlertBox';
 import AuthTemplate from 'admin/ui/AuthTemplate';
 
@@ -12,7 +12,7 @@ import { RecoverForm } from './RecoverForm';
 export default function RecoverPage() {
   const [email, setEmail] = React.useState('');
   const [requestRecover, { status, error, reset }] = useMutation(
-    account => post('/api/auth/recover/', account),
+    account => api.post('/api/auth/recover/', account),
     { onSuccess: (_, { email }) => setEmail(email) },
   );
   const isLoading = status === 'loading';
@@ -27,7 +27,9 @@ export default function RecoverPage() {
 
       {error && (
         <AlertBox onClick={reset}>
-          Ocurrió un error inesperado. Vuelve a intentarlo.
+          <span data-testid="error">
+            Ocurrió un error inesperado. Vuelve a intentarlo.
+          </span>
         </AlertBox>
       )}
 
