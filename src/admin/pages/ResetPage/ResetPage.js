@@ -2,45 +2,60 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery, useMutation } from 'react-query';
 
-import * as api from 'utils/api';
+import { api } from 'utils/api2';
+import AlertBox from 'ui/AlertBox';
 import AuthTemplate from 'admin/ui/AuthTemplate';
 
 import { ResetForm } from './ResetForm';
+import { TokenExpired } from './TokenExpired';
+import { PasswordReset } from './PasswordReset';
 
 function resetPassword({ token, ...data }) {
   return api.put(`/api/auth/reset/${token}/`, data);
 }
 
-export default function ResetPage() {
+function ResetPage() {
   const { token } = useParams();
-  const { data: user, isFetching, error } = useQuery(
+
+  const { data: user, error: errorToken } = useQuery(
     ['/api/auth/reset/', token],
     (url, token) => api.get(`${url}/${token}/`),
-    { retry: false },
+    { retry: false, suspense: false },
   );
 
-  const [mutate, result] = useMutation(resetPassword);
+  const [mutate, { status, error, reset }] = useMutation(resetPassword);
   const handleReset = data => mutate({ ...data, token });
 
-  return (
-    <AuthTemplate title="Restablecer contraseña" isLoading={isFetching}>
-      {!isFetching && error && (
-        <div>
-          <h1 className="text-2xl mb-4">Enlace caducado</h1>
-          <p>
-            Comuníquese con el administrador para la creación de un nuevo
-            usuario.
-          </p>
-        </div>
-      )}
+  const renderContent = () => {
+    if (status === 'success') {
+      return <PasswordReset />;
+    }
 
-      {user && (
-        <ResetForm
-          onReset={handleReset}
-          user={user}
-          isLoading={result.status === 'loading'}
-        />
-      )}
+    return (
+      <ResetForm
+        user={user}
+        onSubmit={handleReset}
+        isLoading={status === 'loading'}
+      />
+    );
+  };
+
+  return (
+    <AuthTemplate
+      title="Restablecer contraseña"
+      alert={
+        error && (
+          <AlertBox onClick={reset}>
+            <span data-testid="error">
+              Ocurrió un error inesperado. Vuelve a intentarlo.
+            </span>
+          </AlertBox>
+        )
+      }
+    >
+      {errorToken || !user ? <TokenExpired /> : renderContent()}
     </AuthTemplate>
   );
 }
+
+export default ResetPage;

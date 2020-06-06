@@ -4,8 +4,9 @@ import { Formik, Form } from 'formik';
 
 import Input from 'ui/Input';
 import Button from 'ui/Button';
-import GenderAvatar from 'ui/GenderAvatar';
 import { FastField } from 'ui/formik';
+import GenderAvatar from 'ui/GenderAvatar';
+import { AuthCard } from 'admin/ui/AuthTemplate';
 
 const validationSchema = yup.object().shape({
   password: yup
@@ -15,45 +16,46 @@ const validationSchema = yup.object().shape({
     .required('Ingresa una contraseña'),
 });
 
-export function ResetForm({ user, onReset, isLoading }) {
+export function ResetForm({ user, onSubmit, isLoading }) {
+  const { gender, displayName } = user;
   return (
-    <>
-      <h1 className="text-2xl mb-8">Restablecer contraseña</h1>
-
-      <div className="flex items-start">
-        <GenderAvatar
-          size={48}
-          gender={user.gender}
-          className="shadow-outline mr-4 flex-shrink-0"
-        />
-
-        <div>
-          <h2 className="text-lg font-semibold">{user.displayName}</h2>
-          <p>Usuario</p>
-        </div>
-      </div>
-
+    <AuthCard>
       <Formik
-        onSubmit={onReset}
+        onSubmit={onSubmit}
         initialValues={{ password: '' }}
         validationSchema={validationSchema}
       >
-        <Form noValidate className="mt-6">
-          <div>
-            <FastField label="Contraseña" name="password">
-              <Input
-                disabled={isLoading}
-                type="password"
-                placeholder="Contraseña"
-              />
-            </FastField>
+        <Form noValidate>
+          <div className="flex items-start mb-6">
+            <GenderAvatar
+              size={48}
+              gender={gender}
+              className="shadow-outline mr-4 flex-shrink-0"
+            />
+
+            <div>
+              <h2 className="text-lg font-semibold">{displayName}</h2>
+              <p className="text-medium">Usuario</p>
+            </div>
           </div>
 
-          <Button isLoading={isLoading} type="submit" className="mt-8">
+          <FastField
+            name="password"
+            label={<label htmlFor="inputPassword">Contraseña</label>}
+          >
+            <Input
+              disabled={isLoading}
+              type="password"
+              id="inputPassword"
+              placeholder="Contraseña"
+            />
+          </FastField>
+
+          <Button isLoading={isLoading} type="submit" className="block mt-8">
             Restablecer
           </Button>
         </Form>
       </Formik>
-    </>
+    </AuthCard>
   );
 }
