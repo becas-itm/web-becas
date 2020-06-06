@@ -14,7 +14,7 @@ function AlertBox({ children, onClick, type = 'assertive' }) {
 
   return (
     <BaseAlert type={type}>
-      <div className="flex items-start bg-error text-white rounded font-semibold mb-4 text-sm">
+      <div className="flex items-start bg-error text-white rounded font-semibold text-sm">
         <span className="flex-1 pl-3 py-2">{children}</span>
         {onClick && (
           <button
