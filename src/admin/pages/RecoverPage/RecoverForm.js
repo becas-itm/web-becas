@@ -5,6 +5,7 @@ import { Formik, Form } from 'formik';
 import Input from 'ui/Input';
 import Button from 'ui/Button';
 import { FastField } from 'ui/formik';
+import { AuthCard } from 'admin/ui/AuthTemplate';
 
 const validationSchema = yup.object().shape({
   email: yup
@@ -15,30 +16,32 @@ const validationSchema = yup.object().shape({
 
 export function RecoverForm({ onSubmit, isLoading }) {
   return (
-    <Formik
-      onSubmit={onSubmit}
-      initialValues={{ email: '' }}
-      validationSchema={validationSchema}
-    >
-      <Form noValidate>
-        <div className="block">
-          <FastField
-            label={<label htmlFor="inputEmail">Correo electrónico</label>}
-            name="email"
-          >
-            <Input
-              type="email"
-              id="inputEmail"
-              placeholder="ejemplo@itm.edu.co"
-              disabled={isLoading}
-            />
-          </FastField>
-        </div>
+    <AuthCard>
+      <Formik
+        onSubmit={onSubmit}
+        initialValues={{ email: '' }}
+        validationSchema={validationSchema}
+      >
+        <Form noValidate>
+          <div className="block">
+            <FastField
+              label={<label htmlFor="inputEmail">Correo electrónico</label>}
+              name="email"
+            >
+              <Input
+                type="email"
+                id="inputEmail"
+                placeholder="ejemplo@itm.edu.co"
+                disabled={isLoading}
+              />
+            </FastField>
+          </div>
 
-        <Button isLoading={isLoading} type="submit" className="mt-8">
-          Continuar
-        </Button>
-      </Form>
-    </Formik>
+          <Button isLoading={isLoading} type="submit" className="mt-8">
+            Continuar
+          </Button>
+        </Form>
+      </Formik>
+    </AuthCard>
   );
 }

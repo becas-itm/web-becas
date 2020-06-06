@@ -50,12 +50,20 @@ test('successful recover request', async () => {
 
   await waitFor(() => {
     expect(api.post).toHaveBeenCalledTimes(1);
-    expect(api.post.mock.calls[0][1]).toEqual({ email });
+    expect(api.post.mock.calls).toContainEqual([
+      '/api/auth/recover/',
+      { email },
+    ]);
   });
 
   const confirmationMessage = 'Te hemos enviado un enlace a';
   expect(screen.queryByText(confirmationMessage)).toBeInTheDocument();
   expect(screen.getByTestId('submittedEmail')).toHaveTextContent(email);
+
+  expect(screen.getByText('Volver a Inicio de sesión')).toHaveAttribute(
+    'href',
+    '/login',
+  );
 });
 
 test('form gets validated before submit', () => {
