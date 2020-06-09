@@ -13,6 +13,7 @@ export function useCreate() {
     mutate({
       ...values,
       country: values.country?.code,
+      entity: values.entity?.code,
     });
 
   return {

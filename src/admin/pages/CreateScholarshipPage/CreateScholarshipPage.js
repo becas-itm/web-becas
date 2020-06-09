@@ -9,7 +9,11 @@ import Button, { COLOR } from 'ui/Button';
 import GoBackButton from 'ui/GoBackButton';
 import AdminTemplate from 'admin/ui/AdminTemplate';
 
-import { BasicInfoSection, LocalizationSection } from '../ScholarshipPage';
+import {
+  EntitySection,
+  BasicInfoSection,
+  LocalizationSection,
+} from '../ScholarshipPage';
 
 import { useCreate } from './useCreate';
 
@@ -21,6 +25,7 @@ const scholarshipSchema = yup.object().shape({
   fundingType: yup.string().required(),
   country: yup.string().required(),
   language: yup.string().required(),
+  entity: yup.string().required(),
 });
 
 const initialFormValues = {
@@ -31,6 +36,7 @@ const initialFormValues = {
   academicLevel: '',
   language: '',
   country: null,
+  entity: null,
 };
 
 function CreateScholarshipPage() {
@@ -62,6 +68,8 @@ function CreateScholarshipPage() {
               <BasicInfoSection />
 
               <LocalizationSection />
+
+              <EntitySection />
 
               <div className="pt-6 px-4 lg:px-0 border-t mt-8">
                 {!isValid && (
