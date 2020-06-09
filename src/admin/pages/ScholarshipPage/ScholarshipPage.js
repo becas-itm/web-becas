@@ -27,6 +27,12 @@ function PageFetcher() {
 
   data.steps = data.sourceDetails?.steps;
 
+  if (data.entity?.fullName) {
+    data.entity.code = data.entity.name;
+    data.entity.name = data.entity.fullName;
+    delete data.entity.fullName;
+  }
+
   return (
     <AdminTemplate>
       <ScholarshipPage scholarship={data} onUpdate={refetch} />
@@ -63,9 +69,15 @@ function ScholarshipPage({ scholarship: initialScholarship, onUpdate }) {
   const edit = useEdit(initialScholarship.id);
   const handleEdit = async form => {
     const data = { ...form };
+
     if (data.country) {
       data.country = data.country.code;
     }
+
+    if (data.entity) {
+      data.entity = data.entity.code;
+    }
+
     await edit.edit(data);
     snack.show('Convocatoria actualizada.');
     onUpdate();
@@ -107,6 +119,7 @@ function ScholarshipPage({ scholarship: initialScholarship, onUpdate }) {
           language: initialScholarship.language || '',
           steps: initialScholarship.steps || '',
           country: initialScholarship.country || null,
+          entity: initialScholarship.entity || null,
         }}
         onSubmit={handleEdit}
       >
@@ -126,10 +139,7 @@ function ScholarshipPage({ scholarship: initialScholarship, onUpdate }) {
                   fieldsDisabled={isArchived}
                 />
 
-                <EntitySection
-                  {...initialScholarship}
-                  fieldsDisabled={isArchived}
-                />
+                <EntitySection fieldsDisabled={isArchived} />
 
                 <PublishingSection
                   {...initialScholarship}

@@ -1,7 +1,11 @@
 import React from 'react';
 import { Field } from 'formik';
-import EntityAvatar from 'ui/EntityAvatar';
+
+import Avatar from 'ui/Avatar';
 import MarkdownEditor, { StepsPreview } from 'ui/MarkdownEditor';
+
+import { FieldMissingWarning } from '../FieldMissingWarning';
+import EntityCombobox from './EntityCombobox';
 
 function StepsField({ fieldsDisabled }) {
   const [isEditing, setEditing] = React.useState(true);
@@ -22,6 +26,7 @@ function StepsField({ fieldsDisabled }) {
               {...field}
               disabled={fieldsDisabled}
               data-testid="scholarshipSteps"
+              placeholder="Pasos para ver detalles de la convocatoria..."
               rows={5}
             />
           ) : (
@@ -33,7 +38,7 @@ function StepsField({ fieldsDisabled }) {
   );
 }
 
-export function EntitySection({ entity, fieldsDisabled = false }) {
+export function EntitySection({ fieldsDisabled = false }) {
   return (
     <section className="flex flex-wrap pt-6 px-4 lg:px-0 border-t mt-8">
       <div className="mb-6 md:mb-0 md:flex-1">
@@ -44,19 +49,20 @@ export function EntitySection({ entity, fieldsDisabled = false }) {
       </div>
 
       <div className="w-full md:max-w-lg">
-        {entity && (
-          <div className="mt-2 flex items-start">
-            <div className="mr-4">
-              <EntityAvatar name={entity.name} />
-            </div>
-            <div className="flex-1">
-              <label className="block text-base text-medium">
-                Ofrecida por
-              </label>
-              <div>{entity.fullName}</div>
-            </div>
+        <div className="mt-2 flex items-start">
+          <div className="mr-4">
+            <Field name="entity">
+              {({ field }) => <Avatar name={field.value?.name} />}
+            </Field>
           </div>
-        )}
+          <div className="flex-1">
+            <div className="mb-3 flex justify-between">
+              <label className="text-sm text-active">Ofrecida por</label>
+              <FieldMissingWarning name="entity" />
+            </div>
+            <EntityCombobox name="entity" />
+          </div>
+        </div>
 
         <StepsField fieldsDisabled={fieldsDisabled} />
       </div>
