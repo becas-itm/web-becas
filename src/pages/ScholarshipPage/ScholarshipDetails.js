@@ -1,15 +1,11 @@
 import React from 'react';
 import Button from 'ui/Button';
 import { OpenInNew } from 'ui/Icon';
-import { IcetexDialogDetails } from './IcetexDialogDetails';
+import ScholarshipDetailsDialog from './ScholarshipDetailsDialog';
 
-export function ScholarshipDetails({ entityName, id, url }) {
-  if (!entityName) {
-    return null;
-  }
-
-  if (entityName === 'icetex') {
-    return <IcetexDialogDetails id={id} url={url} />;
+export function ScholarshipDetails({ steps, url }) {
+  if (steps) {
+    return <ScholarshipDetailsDialog src={steps} />;
   }
 
   if (url) {

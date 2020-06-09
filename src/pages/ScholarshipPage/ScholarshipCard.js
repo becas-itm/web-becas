@@ -56,7 +56,7 @@ export function ScholarshipCard({
           </div>
         </div>
 
-        <ScholarshipDetails {...sourceDetails} entityName={entity.name} />
+        <ScholarshipDetails {...sourceDetails} />
       </div>
     </main>
   );
