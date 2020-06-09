@@ -1,10 +1,37 @@
 import React from 'react';
 import { Field } from 'formik';
-
-import Textarea from 'ui/Textarea';
 import EntityAvatar from 'ui/EntityAvatar';
+import MarkdownEditor, { StepsPreview } from 'ui/MarkdownEditor';
 
-import { FieldMissingWarning } from './FieldMissingWarning';
+function StepsField({ fieldsDisabled }) {
+  const [isEditing, setEditing] = React.useState(true);
+  const toggleEdit = () => setEditing(!isEditing);
+
+  return (
+    <div className="flex flex-col mt-6 md:pl-10">
+      <div className="mb-2 flex justify-between">
+        <label className="text-sm text-active">Pasos</label>
+        <button onClick={toggleEdit} type="button" className="text-blue-500">
+          {isEditing ? 'Previsualizar' : 'Editar'}
+        </button>
+      </div>
+      <Field name="steps">
+        {({ field }) =>
+          isEditing ? (
+            <MarkdownEditor
+              {...field}
+              disabled={fieldsDisabled}
+              data-testid="scholarshipSteps"
+              rows={5}
+            />
+          ) : (
+            <StepsPreview src={field.value} />
+          )
+        }
+      </Field>
+    </div>
+  );
+}
 
 export function EntitySection({ entity, fieldsDisabled = false }) {
   return (
@@ -31,19 +58,7 @@ export function EntitySection({ entity, fieldsDisabled = false }) {
           </div>
         )}
 
-        <div className="flex flex-col mt-6 md:pl-10">
-          <div className="mb-2 flex justify-between">
-            <label className="text-sm text-active">Pasos</label>
-            <FieldMissingWarning name="steps" />
-          </div>
-          <Field
-            name="steps"
-            as={Textarea}
-            disabled={fieldsDisabled}
-            data-testid="scholarshipSteps"
-            rows="5"
-          />
-        </div>
+        <StepsField fieldsDisabled={fieldsDisabled} />
       </div>
     </section>
   );
