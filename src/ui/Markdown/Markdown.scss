@@ -9,7 +9,18 @@
     color: #0000ff;
   }
 
+  pre {
+    font-family: inherit;
+  }
+
+  code {
+    word-break: keep-all;
+    white-space: pre-wrap;
+    font-family: inherit;
+  }
+
   a:hover {
     text-decoration: underline;
   }
 }
+

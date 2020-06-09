@@ -5,10 +5,10 @@ import { OpenInNew } from 'ui/Icon';
 
 import './Markdown.scss';
 
-function addLinkProps(props) {
+function AddLinkProps({ href, children }) {
   return (
-    <a href={props.href} target="_blank" rel="noopener noreferrer">
-      {props.children}
+    <a href={href} target="_blank" rel="noopener noreferrer">
+      {children}
       <OpenInNew auto className="inline-block ml-1 w-3 h-3" />
     </a>
   );
@@ -20,9 +20,8 @@ export default function Markdown({ src }) {
       source={src}
       className="Markdown"
       escapeHtml
-      renderers={{
-        link: addLinkProps,
-      }}
+      disallowedTypes={['image', 'table', 'html', 'virtualHtml']}
+      renderers={{ link: AddLinkProps }}
     />
   );
 }
