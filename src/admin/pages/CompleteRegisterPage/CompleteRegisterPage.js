@@ -2,7 +2,7 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 
-import { get } from 'utils/api';
+import { api } from 'utils/api2';
 import AppLogo from 'ui/AppLogo';
 import Spinner from 'ui/Spinner';
 import LinkButton from 'ui/LinkButton';
@@ -14,7 +14,7 @@ export default function CompleteRegisterPage() {
   const { token } = useParams();
   const { data: user, isFetching, error } = useQuery(
     ['/api/auth/register', token],
-    (url, token) => get(`${url}/${token}/`),
+    (url, token) => api.get(`${url}/${token}/`),
     { retry: false },
   );
   const [registered, setRegistered] = React.useState(false);

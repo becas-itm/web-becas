@@ -1,14 +1,14 @@
 import React from 'react';
-import { useQuery } from 'react-query';
 
-import { get } from 'utils/api';
-import Pagination from 'ui/Pagination';
-import { ScholarshipPreview } from './ScholarshipPreview';
-import LinkButton from 'ui/LinkButton';
 import { Add } from 'ui/Icon';
+import { useGet } from 'utils/hooks';
+import Pagination from 'ui/Pagination';
+import LinkButton from 'ui/LinkButton';
+
+import { ScholarshipPreview } from './ScholarshipPreview';
 
 export function PendingResults({ searchUrl, onPage }) {
-  const { data } = useQuery(searchUrl, get, { suspense: true });
+  const { data } = useGet(searchUrl);
   const { results: scholarships, ...pagination } = data || { results: [] };
 
   if (scholarships.length === 0) {

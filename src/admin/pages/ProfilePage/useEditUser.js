@@ -1,9 +1,9 @@
-import { put } from 'utils/api';
+import { api } from 'utils/api2';
 import { useMutation } from 'react-query';
 
 export function useEditUser(userId) {
   const url = `/api/users/${userId}/`;
-  const [editUser, result] = useMutation(data => put(url, data));
+  const [editUser, result] = useMutation(data => api.put(url, data));
 
   const edit = async values => {
     await editUser(values);

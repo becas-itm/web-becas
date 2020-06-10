@@ -1,16 +1,15 @@
 import React from 'react';
+import { useGet } from 'utils/hooks';
+
 import Button from 'ui/Button';
 import Pagination from 'ui/Pagination';
 import EmptyState from 'ui/EmptyState';
 import { SettingsBackupRestore } from 'ui/Icon';
 
-import { get } from 'utils/api';
-import { useQuery } from 'react-query';
-
 import ScholarshipPreview from './ScholarshipPreview';
 
 export default function SearchResults({ searchUrl, onPage }) {
-  const { data } = useQuery(searchUrl, get, { suspense: true });
+  const { data } = useGet(searchUrl);
   const { results: scholarships, ...pagination } = data || { results: [] };
 
   if (scholarships.length === 0) {

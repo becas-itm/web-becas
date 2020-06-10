@@ -1,6 +1,5 @@
 import React from 'react';
-import { get } from 'utils/api';
-import { useQuery } from 'react-query';
+import { useGet } from 'utils/hooks';
 
 import { useToggle } from 'utils/hooks';
 import { Add } from 'ui/Icon';
@@ -12,7 +11,7 @@ import AdminTemplate from 'admin/ui/AdminTemplate';
 import { InviteUserDialog } from './InviteUserDialog';
 
 function useGetAllUsers() {
-  const { data, isFetching } = useQuery('/api/users/', get);
+  const { data, isFetching } = useGet('/api/users/');
 
   return {
     isFetching,

@@ -3,7 +3,7 @@ import * as yup from 'yup';
 import { useFormik } from 'formik';
 import { useMutation } from 'react-query';
 
-import { put } from 'utils/api';
+import { api } from 'utils/api2';
 import Button from 'ui/Button';
 import GenderAvatar from 'ui/GenderAvatar';
 
@@ -16,7 +16,7 @@ const validationSchema = yup.object().shape({
 });
 
 function finishRegister({ token, ...data }) {
-  return put(`/api/auth/register/${token}/`, data);
+  return api.put(`/api/auth/register/${token}/`, data);
 }
 
 export function RegisterCard({ user, token, onRegister }) {

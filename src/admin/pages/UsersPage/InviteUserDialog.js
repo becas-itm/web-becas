@@ -3,7 +3,7 @@ import * as yup from 'yup';
 import { Formik, Form } from 'formik';
 import { useMutation } from 'react-query';
 
-import { post } from 'utils/api';
+import { api } from 'utils/api2';
 import Input from 'ui/Input';
 import { FastField } from 'ui/formik';
 import Button, { COLOR } from 'ui/Button';
@@ -22,7 +22,7 @@ const validationSchema = yup.object().shape({
 });
 
 function useInviteUser() {
-  const [invite, result] = useMutation(data => post('/api/users/', data));
+  const [invite, result] = useMutation(data => api.post('/api/users/', data));
   return {
     invite,
     isLoading: result.status === 'loading',
