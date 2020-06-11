@@ -8,7 +8,10 @@ export default function DisclaimerPage() {
         <h1 className="text-2xl font-semibold mb-4 sm:text-3xl">
           Convocatorias y Becas Externas
         </h1>
-        <p className="text-base text-justify leading-relaxed">
+        <p
+          data-testid="disclaimer"
+          className="text-base text-justify leading-relaxed"
+        >
           Ésta sección tiene el fin de dar a conocer a la comunidad académica,
           las Convocatorias y Becas Externas de diferentes instituciones,
           organizaciones, fundaciones, países, entre otros. El ITM, a través de
