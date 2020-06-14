@@ -23,12 +23,13 @@ export function ScholarshipPreview({ id, name, deadline, entity, fillStatus }) {
     <article className="bg-white shadow rounded border border-transparent mb-5">
       <div className="relative max-w-md mx-auto mt-4 mb-2 sm:mt-8 sm:mb-4 px-4 sm:px-0">
         <EntityAvatar
+          code={entity.code}
           name={entity.name}
           size={54}
           className="hidden md:block md:mr-8 absolute top-0 right-full mr-4"
         />
         <header>
-          <div className="max-w-md mx-auto mb-1">{entity.fullName}</div>
+          <div className="max-w-md mx-auto mb-1">{entity.name}</div>
           {deadline && <div>{formatDeadline(deadline)}</div>}
           <h1 className="text-xl font-semibold mt-1">{name}</h1>
         </header>
@@ -48,7 +49,7 @@ ScholarshipPreview.propTypes = {
   name: propTypes.string.isRequired,
   fillStatus: propTypes.string.isRequired,
   entity: propTypes.shape({
+    code: propTypes.string.isRequired,
     name: propTypes.string.isRequired,
-    fullName: propTypes.string.isRequired,
   }),
 };

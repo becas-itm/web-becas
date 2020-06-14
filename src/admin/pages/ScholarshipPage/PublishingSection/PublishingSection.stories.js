@@ -15,8 +15,8 @@ export const completePending = () => (
     onDeny={action('onDeny')}
     {...{
       entity: {
-        name: 'daad',
-        fullName: 'Servicio Alemán de Intercambio Académico',
+        code: 'daad',
+        name: 'Servicio Alemán de Intercambio Académico',
       },
       fillStatus: 'COMPLETE',
       state: 'PENDING',
@@ -29,8 +29,8 @@ export const incompletePending = () => (
     onDeny={action('onDeny')}
     {...{
       entity: {
-        name: 'daad',
-        fullName: 'Servicio Alemán de Intercambio Académico',
+        code: 'daad',
+        name: 'Servicio Alemán de Intercambio Académico',
       },
       fillStatus: 'INCOMPLETE',
       state: 'PENDING',
@@ -43,8 +43,8 @@ export const published = () => (
     onArchive={action('onArchive')}
     {...{
       entity: {
-        name: 'daad',
-        fullName: 'Servicio Alemán de Intercambio Académico',
+        code: 'daad',
+        name: 'Servicio Alemán de Intercambio Académico',
       },
       state: 'PUBLISHED',
       approval: {
@@ -59,8 +59,8 @@ export const denied = () => (
     onRestore={action('onRestore')}
     {...{
       entity: {
-        name: 'daad',
-        fullName: 'Servicio Alemán de Intercambio Académico',
+        code: 'daad',
+        name: 'Servicio Alemán de Intercambio Académico',
       },
       state: 'DENIED',
       denial: {
@@ -76,8 +76,8 @@ export const archived = () => (
     onRestore={action('onRestore')}
     {...{
       entity: {
-        name: 'daad',
-        fullName: 'Servicio Alemán de Intercambio Académico',
+        code: 'daad',
+        name: 'Servicio Alemán de Intercambio Académico',
       },
       state: 'ARCHIVED',
       archive: { archivedAt: '2020-05-21T05:00:00.000Z' },

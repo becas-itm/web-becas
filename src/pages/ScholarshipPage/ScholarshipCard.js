@@ -52,7 +52,7 @@ export function ScholarshipCard({
           </div>
 
           <div className="flex -ml-8 mt-4">
-            <Entity name={entity.name} fullName={entity.fullName} />
+            <Entity code={entity.code} name={entity.name} />
           </div>
         </div>
 

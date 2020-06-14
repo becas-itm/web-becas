@@ -13,8 +13,8 @@ describe('Restore Scholarship', () => {
       name: 'Alemania',
     },
     entity: {
-      name: 'daad',
-      fullName: 'Servicio Alemán de Intercambio Académico',
+      code: 'daad',
+      name: 'Servicio Alemán de Intercambio Académico',
     },
     state: 'ARCHIVED',
     denial: {

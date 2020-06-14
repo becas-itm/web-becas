@@ -15,8 +15,8 @@ const scholarship = {
     name: 'Alemania',
   },
   entity: {
-    name: 'daad',
-    fullName: 'Servicio Alemán de Intercambio Académico',
+    code: 'daad',
+    name: 'Servicio Alemán de Intercambio Académico',
   },
 };
 

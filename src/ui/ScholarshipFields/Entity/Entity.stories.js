@@ -5,4 +5,4 @@ export default {
   title: 'Scholarship Fields / Entity',
 };
 
-export const readOnly = () => <Entity name="icetex" fullName="ICETEX" />;
+export const readOnly = () => <Entity code="icetex" name="ICETEX" />;

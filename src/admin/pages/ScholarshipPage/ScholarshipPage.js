@@ -27,12 +27,6 @@ function PageFetcher() {
 
   data.steps = data.sourceDetails?.steps;
 
-  if (data.entity?.fullName) {
-    data.entity.code = data.entity.name;
-    data.entity.name = data.entity.fullName;
-    delete data.entity.fullName;
-  }
-
   return (
     <AdminTemplate>
       <ScholarshipPage scholarship={data} onUpdate={refetch} />

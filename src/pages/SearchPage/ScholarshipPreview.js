@@ -18,6 +18,7 @@ export default function ScholarshipPreview({
     <article className="bg-white shadow rounded mb-6 lg:mb-10 py-6 sm:py-10">
       <div className="relative max-w-md mx-auto px-4 sm:px-0">
         <EntityAvatar
+          code={entity.code}
           name={entity.name}
           size={60}
           className="hidden md:block absolute top-0 right-full md:mr-8"
@@ -54,7 +55,7 @@ export default function ScholarshipPreview({
           </div>
 
           <div className="md:hidden flex-shrink-0">
-            <EntityAvatar name={entity.name} size={48} />
+            <EntityAvatar code={entity.code} name={entity.name} size={48} />
           </div>
         </div>
       </div>
@@ -69,6 +70,6 @@ ScholarshipPreview.propTypes = {
   description: propTypes.string.isRequired,
   entity: propTypes.shape({
     name: propTypes.string.isRequired,
-    fullName: propTypes.string.isRequired,
+    code: propTypes.string.isRequired,
   }),
 };
