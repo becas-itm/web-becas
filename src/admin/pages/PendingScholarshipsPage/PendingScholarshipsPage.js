@@ -5,9 +5,9 @@ import { PendingResults } from './PendingResults';
 
 const DEFAULT_FILTERS = { page: 1 };
 
-function PendingScholarshipsPage() {
+function PendingScholarshipsPage({ state = '' }) {
   const [page, setPage] = React.useState(DEFAULT_FILTERS.page);
-  const searchUrl = `/api/publishing/scholarships/?page=${page}`;
+  const searchUrl = `/api/publishing/scholarships/?page=${page}&state=${state}`;
 
   return (
     <AdminTemplate>

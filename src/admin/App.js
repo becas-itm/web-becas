@@ -43,8 +43,27 @@ function App() {
       <PrivateRoute
         exact
         path="/pendientes"
-        children={<PendingScholarshipsPage />}
+        children={<PendingScholarshipsPage state="PENDING" />}
       />
+
+      <PrivateRoute
+        exact
+        path="/publicadas"
+        children={<PendingScholarshipsPage state="PUBLISHED" />}
+      />
+
+      <PrivateRoute
+        exact
+        path="/rechazadas"
+        children={<PendingScholarshipsPage state="DENIED" />}
+      />
+
+      <PrivateRoute
+        exact
+        path="/archivadas"
+        children={<PendingScholarshipsPage state="ARCHIVED" />}
+      />
+
       <PrivateRoute
         exact
         path="/convocatorias/crear"
