@@ -1,14 +1,15 @@
 class Token {
-  token = null;
-
-  expiresIn = 0;
+  constructor() {
+    this.token = null;
+    this.expiresIn = 0;
+  }
 
   get exists() {
     return !!this.token;
   }
 
-  setToken(value, expiresIn) {
-    this.token = value;
+  processPayload({ token, expiresIn }) {
+    this.token = token;
     this.expiresIn = expiresIn;
   }
 
@@ -19,10 +20,6 @@ class Token {
   clean() {
     this.token = null;
     this.expiresIn = 0;
-  }
-
-  getExpiresIn() {
-    return this.expiresIn;
   }
 }
 
