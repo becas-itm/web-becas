@@ -1,15 +1,31 @@
 import React from 'react';
-import { useLogin } from 'auth/index';
+import { useMutation } from 'react-query';
+
+import token from 'auth/token';
+import { api } from 'utils/api2';
+import { useAuth } from 'auth/hooks';
 import { ThreeRowTemplate } from 'ui/ThreeRowTemplate';
 
 import LoginCard from './LoginCard';
 
 export default function LoginPage() {
-  const login = useLogin();
+  const auth = useAuth();
+
+  const [handleSubmit, { status }] = useMutation(
+    credentials => api.post('/api/auth/', credentials),
+    {
+      onSuccess: payload => {
+        auth.login(payload);
+        token.processPayload(payload);
+      },
+      onError: () => alert('Correo y/o contraseña no válidos'),
+    },
+  );
+
   return (
     <ThreeRowTemplate header={null}>
       <div className="flex justify-center mt-12 lg:mt-20">
-        <LoginCard onSubmit={login.attempt} isLoading={login.isLoading} />
+        <LoginCard onSubmit={handleSubmit} isLoading={status === 'loading'} />
       </div>
     </ThreeRowTemplate>
   );

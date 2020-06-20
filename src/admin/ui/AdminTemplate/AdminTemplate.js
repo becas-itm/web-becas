@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAuth } from 'auth/index';
+import { useAuth } from 'auth/hooks';
 import { useToggle } from 'utils/hooks';
 
 import AppLogo from 'ui/AppLogo';

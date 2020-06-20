@@ -1,6 +1,6 @@
 import React, { lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import PrivateRoute from 'ui/PrivateRoute';
+import { PrivateRoute } from 'auth/PrivateRoute';
 
 const LoginPage = lazy(() => import('./pages/LoginPage'));
 const ResetPage = lazy(() => import('./pages/ResetPage'));
@@ -20,12 +20,25 @@ const CreateScholarshipPage = lazy(() =>
   import('./pages/CreateScholarshipPage'),
 );
 
+const AUTH_ROUTES = {
+  auth: '/login',
+  afterLogin: '/',
+  afterLogout: '/login',
+};
+
+const PUBLIC_ROUTES = [
+  '/login',
+  '/recuperar',
+  '/restablecer/:token',
+  '/registro/:token',
+];
+
 function App() {
   return (
     <Switch>
       <PrivateRoute exact path="/" children={<AdminPage />} />
 
-      <Route exact path="/login" children={<LoginPage />} />
+      <Route exact path={AUTH_ROUTES.auth} children={<LoginPage />} />
       <Route exact path="/recuperar" children={<RecoverPage />} />
       <Route exact path="/restablecer/:token" children={<ResetPage />} />
       <Route
@@ -62,3 +75,5 @@ function App() {
 }
 
 export default App;
+
+export { AUTH_ROUTES, PUBLIC_ROUTES };

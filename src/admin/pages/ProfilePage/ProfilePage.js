@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAuth } from 'auth/index';
+import { useAuth } from 'auth/hooks';
 import AdminTemplate from 'admin/ui/AdminTemplate';
 
 import { useEditUser } from './useEditUser';
