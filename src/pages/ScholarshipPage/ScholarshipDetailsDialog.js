@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { useToggle } from 'utils/hooks';
 import Button from 'ui/Button';
-import Dialog, { Title, Actions } from 'ui/Dialog';
 import Markdown from 'ui/Markdown';
+import { useToggle } from 'utils/hooks';
+import Dialog, { Title, Actions } from 'ui/Dialog';
 
 export default function ScholarshipDetailsDialog({ src }) {
   const [detailsOpened, toggleDetails] = useToggle();

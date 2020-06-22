@@ -3,7 +3,7 @@ import * as yup from 'yup';
 import { useFormik } from 'formik';
 import { useMutation } from 'react-query';
 
-import { api } from 'utils/api2';
+import api from 'utils/api';
 import Button from 'ui/Button';
 import GenderAvatar from 'ui/GenderAvatar';
 

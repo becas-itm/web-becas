@@ -1,5 +1,5 @@
 import React from 'react';
-import { useGet } from 'utils/hooks';
+import { useGet } from 'utils/api';
 import { useParams } from 'react-router';
 
 import Spinner from 'ui/Spinner';

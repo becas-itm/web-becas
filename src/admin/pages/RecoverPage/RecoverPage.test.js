@@ -3,11 +3,11 @@ import { MemoryRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 import { render, screen, waitFor } from '@testing-library/react';
 
-import { api } from 'utils/api2';
+import api from 'utils/api';
 
 import RecoverPage from './RecoverPage';
 
-jest.mock('utils/api2');
+jest.mock('utils/api');
 
 beforeEach(() => {
   render(

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Add } from 'ui/Icon';
-import { useGet } from 'utils/hooks';
+import { useGet } from 'utils/api';
 import Pagination from 'ui/Pagination';
 import LinkButton from 'ui/LinkButton';
 

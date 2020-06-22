@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { useToggle } from 'utils/hooks';
 import Button from 'ui/Button';
 import { OpenInNew } from 'ui/Icon';
+import { useToggle } from 'utils/hooks';
 import Dialog, { Title, Actions } from 'ui/Dialog';
 
 export function IcetexDialogDetails({ id }) {

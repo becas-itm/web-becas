@@ -1,4 +1,4 @@
-import { api } from 'utils/api2';
+import api from 'utils/api';
 import { useMutation } from 'react-query';
 
 export function useApprove(scholarshipId) {

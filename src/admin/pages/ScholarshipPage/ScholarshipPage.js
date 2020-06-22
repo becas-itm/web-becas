@@ -2,12 +2,13 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import { useParams } from 'react-router-dom';
 
-import { useGet, useToggle } from 'utils/hooks';
+import { useGet } from 'utils/api';
+import { useToggle } from 'utils/hooks';
 import { useSnackbar } from 'ui/Snackbar';
 import Button, { COLOR } from 'ui/Button';
 import GoBackButton from 'ui/GoBackButton';
-import AdminTemplate from 'admin/ui/AdminTemplate';
 import { SettingsBackupRestore } from 'ui/Icon';
+import AdminTemplate from 'admin/ui/AdminTemplate';
 
 import { EntitySection } from './EntitySection';
 import { DenyDialog } from './PublishingSection/DenyDialog';

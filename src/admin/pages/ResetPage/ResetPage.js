@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery, useMutation } from 'react-query';
 
-import { api } from 'utils/api2';
+import api from 'utils/api';
 import AlertBox from 'ui/AlertBox';
 import AuthTemplate from 'admin/ui/AuthTemplate';
 

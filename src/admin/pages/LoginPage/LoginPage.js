@@ -2,7 +2,7 @@ import React from 'react';
 import { useMutation } from 'react-query';
 
 import token from 'auth/token';
-import { api } from 'utils/api2';
+import api from 'utils/api';
 import { useAuth } from 'auth/hooks';
 import { ThreeRowTemplate } from 'ui/ThreeRowTemplate';
 

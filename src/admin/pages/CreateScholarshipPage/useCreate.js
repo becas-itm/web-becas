@@ -1,6 +1,5 @@
+import api from 'utils/api';
 import { useMutation } from 'react-query';
-
-import { api } from 'utils/api2';
 
 const CREATE_SCHOLARSHIP_ENDPOINT = '/api/publishing/scholarships/';
 

@@ -3,7 +3,7 @@ import * as yup from 'yup';
 import { Formik, Form } from 'formik';
 import { useMutation } from 'react-query';
 
-import { api } from 'utils/api2';
+import api from 'utils/api';
 import Input from 'ui/Input';
 import { FastField } from 'ui/formik';
 import Button, { COLOR } from 'ui/Button';

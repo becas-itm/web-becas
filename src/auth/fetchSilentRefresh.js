@@ -1,4 +1,4 @@
-import { api } from 'utils/api2';
+import api from 'utils/api';
 
 const HTTP_STATUS_UNAUTHORIZED = 401;
 

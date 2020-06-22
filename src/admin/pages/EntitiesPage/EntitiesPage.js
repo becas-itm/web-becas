@@ -1,9 +1,9 @@
 import React from 'react';
 import { useMutation } from 'react-query';
 
-import { api } from 'utils/api2';
 import Spinner from 'ui/Spinner';
-import { useGet, useToggle } from 'utils/hooks';
+import api, { useGet } from 'utils/api';
+import { useToggle } from 'utils/hooks';
 import { useSnackbar } from 'ui/Snackbar';
 import AdminTemplate from 'admin/ui/AdminTemplate';
 

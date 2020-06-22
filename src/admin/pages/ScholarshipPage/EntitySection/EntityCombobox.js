@@ -2,7 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { useField } from 'formik';
 
-import { useGet } from 'utils/hooks';
+import { useGet } from 'utils/api';
 
 import Combobox, {
   ComboboxInput,

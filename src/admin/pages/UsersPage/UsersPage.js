@@ -1,9 +1,9 @@
 import React from 'react';
-import { useGet } from 'utils/hooks';
+import { useGet } from 'utils/api';
 
-import { useToggle } from 'utils/hooks';
 import { Add } from 'ui/Icon';
 import Button from 'ui/Button';
+import { useToggle } from 'utils/hooks';
 import { useSnackbar } from 'ui/Snackbar';
 import GenderAvatar from 'ui/GenderAvatar';
 import AdminTemplate from 'admin/ui/AdminTemplate';

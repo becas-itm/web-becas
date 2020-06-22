@@ -2,7 +2,7 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 
-import { api } from 'utils/api2';
+import api from 'utils/api';
 import AppLogo from 'ui/AppLogo';
 import Spinner from 'ui/Spinner';
 import LinkButton from 'ui/LinkButton';

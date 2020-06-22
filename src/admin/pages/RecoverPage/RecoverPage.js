@@ -1,7 +1,7 @@
 import React from 'react';
 import { useMutation } from 'react-query';
 
-import { api } from 'utils/api2';
+import api from 'utils/api';
 import AlertBox from 'ui/AlertBox';
 import AuthTemplate from 'admin/ui/AuthTemplate';
 
