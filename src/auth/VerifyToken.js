@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { useQuery } from 'react-query';
 import { useLocation, matchPath } from 'react-router-dom';
 
+import token from './token';
 import { REFRESH_ENDPOINT } from './fetchSilentRefresh';
 
 export function VerifyToken({ fetcher, excludedRoutes = [], children }) {
@@ -30,6 +31,7 @@ export function VerifyToken({ fetcher, excludedRoutes = [], children }) {
       cacheTime: 0,
       retry: false,
       suspense: true,
+      onSuccess: token.processPayload,
     },
   );
 

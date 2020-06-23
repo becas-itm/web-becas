@@ -8,9 +8,11 @@ class Token {
     return !!this.token;
   }
 
-  processPayload = ({ token, expiresIn }) => {
-    this.token = token;
-    this.expiresIn = expiresIn;
+  processPayload = payload => {
+    if (payload) {
+      this.token = payload.token;
+      this.expiresIn = payload.expiresIn;
+    }
   };
 
   getToken() {
