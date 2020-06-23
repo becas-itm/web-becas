@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM node:12-alpine AS builder
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -11,3 +11,7 @@ RUN yarn install
 COPY . .
 
 CMD [ "yarn", "build" ]
+
+FROM alpine
+WORKDIR /usr/src/app
+COPY --from=builder /usr/src/app/build ./web
