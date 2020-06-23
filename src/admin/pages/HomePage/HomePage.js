@@ -35,7 +35,7 @@ const navItems = [
 
 export function HomePage() {
   const menu = useHamburger();
-  const { user, signOut } = useAuth();
+  const { user, logout } = useAuth();
 
   return (
     <>
@@ -46,7 +46,7 @@ export function HomePage() {
           <AppLogo>Admin</AppLogo>
 
           <div className="hidden sm:block">
-            <UserActions user={user} onLogout={signOut} />
+            <UserActions user={user} onLogout={logout} />
           </div>
 
           <MenuButton className="sm:hidden" {...menu.getToggleButtonProps()} />
@@ -54,7 +54,7 @@ export function HomePage() {
 
         <HamburgerMenu isOpen={menu.isOpen}>
           <div className="flex justify-center mt-4">
-            <UserActions user={user} onLogout={signOut} />
+            <UserActions user={user} onLogout={logout} />
           </div>
         </HamburgerMenu>
 

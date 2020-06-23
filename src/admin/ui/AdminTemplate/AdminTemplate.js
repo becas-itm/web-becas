@@ -17,7 +17,7 @@ const AdminTemplate = React.memo(function AdminTemplate({
   children,
   ...restProps
 }) {
-  const { user, signOut } = useAuth();
+  const { user, logout } = useAuth();
   const [showMenu, toggleMenu] = useToggle();
 
   return (
@@ -27,7 +27,7 @@ const AdminTemplate = React.memo(function AdminTemplate({
           <AppLogo>Admin</AppLogo>
           <div>
             <div className="hidden sm:block">
-              <UserActions user={user} onLogout={signOut} />
+              <UserActions user={user} onLogout={logout} />
             </div>
             <div className="sm:hidden">
               <IconButton onClick={toggleMenu} icon={Menu}>
@@ -58,7 +58,7 @@ const AdminTemplate = React.memo(function AdminTemplate({
       <AppFooter />
 
       {showMenu && (
-        <MenuDrawer user={user} onDismiss={toggleMenu} onLogout={signOut} />
+        <MenuDrawer user={user} onDismiss={toggleMenu} onLogout={logout} />
       )}
     </div>
   );
