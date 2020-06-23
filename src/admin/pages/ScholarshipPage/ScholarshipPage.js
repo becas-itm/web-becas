@@ -24,7 +24,7 @@ import { useArchive } from './useArchive';
 
 function PageFetcher() {
   const { id } = useParams();
-  const { data, refetch } = useGet(`/api/publishing/scholarships/${id}/`);
+  const { data, refetch } = useGet(`/publishing/scholarships/${id}/`);
 
   data.steps = data.sourceDetails?.steps;
 

@@ -11,7 +11,7 @@ import Combobox, {
 } from 'ui/Combobox';
 
 function EntityCombobox({ name, placeholder = 'Buscar', ...restProps }) {
-  const { data: entities } = useGet('/api/entities/');
+  const { data: entities } = useGet('/entities/');
 
   const [field, meta, helpers] = useField(name);
 

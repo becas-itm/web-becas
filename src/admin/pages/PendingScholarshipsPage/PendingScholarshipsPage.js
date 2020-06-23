@@ -7,7 +7,7 @@ const DEFAULT_FILTERS = { page: 1 };
 
 function PendingScholarshipsPage() {
   const [page, setPage] = React.useState(DEFAULT_FILTERS.page);
-  const searchUrl = `/api/publishing/scholarships/?page=${page}`;
+  const searchUrl = `/publishing/scholarships/?page=${page}`;
 
   return (
     <AdminTemplate>

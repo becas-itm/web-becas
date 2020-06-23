@@ -50,10 +50,7 @@ test('successful recover request', async () => {
 
   await waitFor(() => {
     expect(api.post).toHaveBeenCalledTimes(1);
-    expect(api.post.mock.calls).toContainEqual([
-      '/api/auth/recover/',
-      { email },
-    ]);
+    expect(api.post.mock.calls).toContainEqual(['/auth/recover/', { email }]);
   });
 
   const confirmationMessage = 'Te hemos enviado un enlace a';

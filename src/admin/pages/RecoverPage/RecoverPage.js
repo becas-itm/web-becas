@@ -11,7 +11,7 @@ import { RecoverRequestSent } from './RecoverRequestSent';
 export default function RecoverPage() {
   const [email, setEmail] = React.useState('');
   const [requestRecover, { status, error, reset }] = useMutation(
-    account => api.post('/api/auth/recover/', account),
+    account => api.post('/auth/recover/', account),
     { onSuccess: (_, { email }) => setEmail(email) },
   );
   const isLoading = status === 'loading';

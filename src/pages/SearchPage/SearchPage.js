@@ -28,7 +28,7 @@ function SearchPage() {
   );
 
   const search = useFilters(initialState);
-  const searchUrl = `/api/search/scholarships/${search.stringify()}`;
+  const searchUrl = `/search/scholarships/${search.stringify()}`;
 
   React.useEffect(() => {
     queryFilters.replace(search.state);

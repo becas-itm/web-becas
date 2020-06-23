@@ -28,7 +28,7 @@ function ScholarshipPage() {
 }
 
 function PageFetcher({ scholarshipId }) {
-  const { data } = useGet(`/api/search/scholarships/${scholarshipId}/`);
+  const { data } = useGet(`/search/scholarships/${scholarshipId}/`);
 
   if (!data) {
     return (

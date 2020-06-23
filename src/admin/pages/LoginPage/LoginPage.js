@@ -12,7 +12,7 @@ export default function LoginPage() {
   const auth = useAuth();
 
   const [handleSubmit, { status }] = useMutation(
-    credentials => api.post('/api/auth/', credentials),
+    credentials => api.post('/auth/', credentials),
     {
       onSuccess: payload => {
         auth.login(payload);

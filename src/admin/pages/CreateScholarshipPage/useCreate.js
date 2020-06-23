@@ -1,7 +1,7 @@
 import api from 'utils/api';
 import { useMutation } from 'react-query';
 
-const CREATE_SCHOLARSHIP_ENDPOINT = '/api/publishing/scholarships/';
+const CREATE_SCHOLARSHIP_ENDPOINT = '/publishing/scholarships/';
 
 export function useCreate() {
   const [mutate, { status }] = useMutation(data =>

@@ -22,7 +22,7 @@ const validationSchema = yup.object().shape({
 });
 
 function useInviteUser() {
-  const [invite, result] = useMutation(data => api.post('/api/users/', data));
+  const [invite, result] = useMutation(data => api.post('/users/', data));
   return {
     invite,
     isLoading: result.status === 'loading',

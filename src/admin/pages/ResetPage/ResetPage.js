@@ -11,14 +11,14 @@ import { TokenExpired } from './TokenExpired';
 import { PasswordReset } from './PasswordReset';
 
 function resetPassword({ token, ...data }) {
-  return api.put(`/api/auth/reset/${token}/`, data);
+  return api.put(`/auth/reset/${token}/`, data);
 }
 
 function ResetPage() {
   const { token } = useParams();
 
   const { data: user, error: errorToken } = useQuery(
-    ['/api/auth/reset/', token],
+    ['/auth/reset/', token],
     (url, token) => api.get(`${url}/${token}/`),
     { retry: false, suspense: false },
   );

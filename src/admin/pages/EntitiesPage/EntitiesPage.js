@@ -10,7 +10,7 @@ import AdminTemplate from 'admin/ui/AdminTemplate';
 import { EntitiesList } from './EntitiesList';
 import { EntityDialog } from './EntityDialog';
 
-const ENTITIES_ENDPOINT = '/api/entities/';
+const ENTITIES_ENDPOINT = '/entities/';
 
 function useCreateEntity(url) {
   const snack = useSnackbar();

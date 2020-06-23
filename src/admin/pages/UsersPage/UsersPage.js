@@ -11,7 +11,7 @@ import AdminTemplate from 'admin/ui/AdminTemplate';
 import { InviteUserDialog } from './InviteUserDialog';
 
 function useGetAllUsers() {
-  const { data, isFetching } = useGet('/api/users/');
+  const { data, isFetching } = useGet('/users/');
 
   return {
     isFetching,

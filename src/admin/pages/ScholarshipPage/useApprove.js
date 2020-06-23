@@ -2,7 +2,7 @@ import api from 'utils/api';
 import { useMutation } from 'react-query';
 
 export function useApprove(scholarshipId) {
-  const url = `/api/publishing/scholarships/${scholarshipId}/approve/`;
+  const url = `/publishing/scholarships/${scholarshipId}/approve/`;
   const [approve, approval] = useMutation(() => api.post(url));
   return {
     approve,
