@@ -10,7 +10,7 @@ RUN yarn install
 # Bundle app source
 COPY . .
 
-CMD [ "yarn", "build" ]
+RUN yarn build
 
 FROM alpine
 WORKDIR /usr/src/app
