@@ -5,7 +5,7 @@ import { PrivateRoute } from 'auth/PrivateRoute';
 const LoginPage = lazy(() => import('./pages/LoginPage'));
 const ResetPage = lazy(() => import('./pages/ResetPage'));
 const RecoverPage = lazy(() => import('./pages/RecoverPage'));
-const CompleteRegisterPage = lazy(() => import('./pages/CompleteRegisterPage'));
+const RegisterPage = lazy(() => import('./pages/RegisterPage'));
 
 const AdminPage = lazy(() => import('./pages/HomePage'));
 const UsersPage = lazy(() => import('./pages/UsersPage'));
@@ -41,11 +41,7 @@ function App() {
       <Route exact path={AUTH_ROUTES.auth} children={<LoginPage />} />
       <Route exact path="/recuperar" children={<RecoverPage />} />
       <Route exact path="/restablecer/:token" children={<ResetPage />} />
-      <Route
-        exact
-        path="/registro/:token"
-        children={<CompleteRegisterPage />}
-      />
+      <Route exact path="/registro/:token" children={<RegisterPage />} />
 
       <PrivateRoute exact path="/usuarios" children={<UsersPage />} />
 
@@ -53,21 +49,17 @@ function App() {
 
       <PrivateRoute exact path="/perfil" children={<ProfilePage />} />
 
-      <PrivateRoute
-        exact
-        path="/pendientes"
-        children={<PendingScholarshipsPage />}
-      />
-      <PrivateRoute
-        exact
-        path="/convocatorias/crear"
-        children={<CreateScholarshipPage />}
-      />
-      <PrivateRoute
-        exact
-        path="/convocatorias/:id"
-        children={<AdminScholarshipPage />}
-      />
+      <PrivateRoute exact path="/pendientes">
+        <PendingScholarshipsPage />
+      </PrivateRoute>
+
+      <PrivateRoute exact path="/convocatorias/crear">
+        <CreateScholarshipPage />
+      </PrivateRoute>
+
+      <PrivateRoute exact path="/convocatorias/:id">
+        <AdminScholarshipPage />
+      </PrivateRoute>
 
       <Route path="*" children={<div>No pudimos encontrar la página</div>} />
     </Switch>

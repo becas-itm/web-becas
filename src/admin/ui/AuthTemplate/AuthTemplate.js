@@ -6,7 +6,7 @@ function AuthTemplate({ title, alert, children }) {
   return (
     <ThreeRowTemplate>
       <div className="pt-6 flex flex-col items-center">
-        <div className="w-full max-w-sm">
+        <div className="w-full max-w-md">
           <header className="w-full flex items-center">
             <AppLogo children={null} />
             <div className="pl-3 text-lg" data-testid="pageTitle">
