@@ -1,34 +1,34 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+import { render, screen, fireEvent } from '@testing-library/react';
 import ErrorPage from './index';
 
-const renderPage = () => render(<ErrorPage />);
+const renderPage = () => render(<ErrorPage />, { wrapper: MemoryRouter });
 
 it('should have the App logo', () => {
-  const { queryByTitle } = renderPage();
-  const logo = queryByTitle('Logo ITM');
+  renderPage();
+  const logo = screen.queryByTestId('AppLogo');
   expect(logo).toBeInTheDocument();
 });
 
 it('should have a title', () => {
-  const { queryByText } = renderPage();
-  const title = queryByText('Algo salió mal');
-  expect(title).toBeInTheDocument();
+  renderPage();
+  expect(screen.queryByText('Algo salió mal')).toBeInTheDocument();
 });
 
 it('should have a description', () => {
-  const { queryByText } = renderPage();
-  const description = queryByText('No te preocupes, lo estamos arreglando.');
-  expect(description).toBeInTheDocument();
+  renderPage();
+  expect(
+    screen.queryByText('No te preocupes, lo estamos arreglando.'),
+  ).toBeInTheDocument();
 });
 
 describe('reload action button', () => {
   const buttonText = 'Recargar página';
 
   it('should be rendered', () => {
-    const { queryByText } = renderPage();
-    const button = queryByText(buttonText);
-    expect(button).toBeInTheDocument();
+    renderPage();
+    expect(screen.queryByText(buttonText)).toBeInTheDocument();
   });
 
   it('click should reload the current page', () => {
@@ -37,9 +37,8 @@ describe('reload action button', () => {
     delete window.location;
     window.location = { reload };
 
-    const { getByText } = renderPage();
-    const button = getByText(buttonText);
-    fireEvent.click(button);
+    renderPage();
+    fireEvent.click(screen.getByText(buttonText));
     expect(reload).toHaveBeenCalledTimes(1);
   });
 });
