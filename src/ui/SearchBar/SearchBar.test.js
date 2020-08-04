@@ -1,163 +1,71 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
-import SearchBar, { SearchBarButton } from './index';
+import userEvent from '@testing-library/user-event';
+import { render, screen } from '@testing-library/react';
+import { SearchBar } from './index';
 
 const barId = 'SearchBar';
 const inputId = 'SearchBar__input';
+const clearButtonId = 'SearchBar__clearButton';
 
-describe('Search Bar ', () => {
-  it('should render correctly', () => {
-    const { queryByTestId } = render(<SearchBar />);
-    expect(queryByTestId(barId)).toBeInTheDocument();
-  });
+const getInput = () => screen.queryByTestId(inputId);
 
-  it('should render a `form` element', () => {
-    const { getByTestId } = render(<SearchBar />);
-    expect(getByTestId(barId).tagName).toBe('FORM');
-  });
+const getClearButton = () => screen.queryByTestId(clearButtonId);
 
-  it('should render an input element', () => {
-    const { queryByTestId } = render(<SearchBar />);
-    expect(queryByTestId(inputId)).toBeInTheDocument();
-  });
+const renderSearchBar = (props = {}) => render(<SearchBar {...props} />);
 
-  describe('default value', () => {
-    it('should be empty by default', () => {
-      const { getByTestId } = render(<SearchBar />);
-      const input = getByTestId(inputId);
-      expect(input).toHaveValue('');
-    });
+it('should render correctly', () => {
+  renderSearchBar();
 
-    it('should be the given value', () => {
-      const defaultValue = 'foo';
-      const { getByTestId } = render(<SearchBar defaultValue={defaultValue} />);
-      const input = getByTestId(inputId);
-      expect(input).toHaveValue(defaultValue);
-    });
+  const input = getInput();
+  expect(input).toBeInTheDocument();
+  expect(input).toHaveValue('');
+  expect(input).toHaveProperty('placeholder', '');
 
-    it('`Escape` key should clear value', () => {
-      const { getByTestId } = render(<SearchBar defaultValue="bar" />);
-      const input = getByTestId(inputId);
-      fireEvent.keyDown(input, { key: 'Escape' });
-      expect(input).toHaveValue('');
-    });
-
-    it('`Escape` key should not trigger `onChange`', () => {
-      const onChangeSpy = jest.fn();
-      const { getByTestId } = render(<SearchBar onChange={onChangeSpy} />);
-      const input = getByTestId(inputId);
-
-      fireEvent.keyDown(input, { key: 'Escape' });
-
-      expect(onChangeSpy).not.toHaveBeenCalled();
-    });
-  });
-
-  it('`onChange` should be called on submit', () => {
-    const onChangeSpy = jest.fn();
-    const { getByTestId } = render(<SearchBar onChange={onChangeSpy} />);
-    const form = getByTestId(barId);
-    fireEvent.submit(form);
-    expect(onChangeSpy).toHaveBeenCalledTimes(1);
-  });
-
-  it('`onChange` should be called with the current input value', () => {
-    const value = 'bar';
-    const onChangeSpy = jest.fn();
-
-    const { getByTestId } = render(<SearchBar onChange={onChangeSpy} />);
-    const input = getByTestId(inputId);
-    fireEvent.change(input, { target: { value } });
-    fireEvent.submit(input);
-
-    expect(onChangeSpy).toHaveBeenCalledWith(value);
-  });
+  const searchBar = screen.queryByTestId(barId);
+  expect(searchBar).toBeInTheDocument();
 });
 
-describe('Clearable Button', () => {
-  const clearId = 'SearchBar__clearButton';
+test('default initial value', () => {
+  const value = 'foo';
+  const { rerender } = renderSearchBar({ defaultValue: value });
 
-  it('should only be visible when there is a value', () => {
-    const { getByTestId, queryByTestId } = render(
-      <SearchBar defaultValue="" />,
-    );
-    const input = getByTestId(inputId);
+  const input = getInput();
+  expect(input).toHaveValue(value);
 
-    // Initially hidden since `defaultValue` is empty
-    expect(queryByTestId(clearId)).not.toBeInTheDocument();
+  // ensure it only clears with the `Escape` key
+  userEvent.type(input, '{del}');
+  expect(input).toHaveValue(value);
+  userEvent.type(input, '{esc}');
+  expect(input).toHaveValue('');
 
-    fireEvent.change(input, { target: { value: 'foo' } });
-    expect(queryByTestId(clearId)).toBeInTheDocument();
-
-    fireEvent.change(input, { target: { value: '' } });
-    expect(queryByTestId(clearId)).not.toBeInTheDocument();
-  });
-
-  it('should clear value on click', () => {
-    const { getByTestId } = render(<SearchBar defaultValue="foo" />);
-    const input = getByTestId(inputId);
-    const clearButton = getByTestId(clearId);
-
-    fireEvent.click(clearButton);
-
-    expect(input.value).toBe('');
-  });
-
-  it('click should not trigger `onChange`', () => {
-    const onChangeSpy = jest.fn();
-    const { getByTestId } = render(<SearchBar defaultValue="bar" />);
-
-    fireEvent.click(getByTestId(clearId));
-
-    expect(onChangeSpy).not.toHaveBeenCalled();
-  });
-
-  it('click should return focus to input', () => {
-    const { getByTestId } = render(<SearchBar defaultValue="baz" />);
-    const input = getByTestId(inputId);
-    const clearButton = getByTestId(clearId);
-
-    fireEvent.click(clearButton);
-
-    expect(input).toHaveFocus();
-  });
-
-  it("should not be visible if it's not clearable", () => {
-    const { queryByTestId } = render(
-      <SearchBar clearable={false} defaultValue="foo" />,
-    );
-    expect(queryByTestId(clearId)).not.toBeInTheDocument();
-  });
+  rerender(<SearchBar defaultValue="bar" />);
+  expect(input).toHaveValue('bar');
 });
 
-describe('Start Icon', () => {
-  const startButton = 'SearchBar__startButton';
-
-  it('should render correctly', () => {
-    const { queryByTestId } = render(<SearchBar />);
-    expect(queryByTestId(startButton)).toBeInTheDocument();
-  });
-
-  it('should call `onChange` on click', () => {
-    const onChangeSpy = jest.fn();
-    const { getByTestId } = render(<SearchBar onChange={onChangeSpy} />);
-    const button = getByTestId(startButton);
-
-    fireEvent.click(button);
-
-    expect(onChangeSpy).toHaveBeenCalledTimes(1);
-  });
+it('should call `onSubmit` when `Enter` key is pressed', () => {
+  const onSubmit = jest.fn();
+  renderSearchBar({ onSubmit });
+  userEvent.type(getInput(), 'foo{enter}');
+  expect(onSubmit).toHaveBeenCalledWith('foo');
 });
 
-describe('End Icon', () => {
-  const endButton = 'SearchBar__endButton';
+test('clear button should only be visible if there is value', () => {
+  const { rerender } = renderSearchBar({ defaultValue: '' });
+  expect(getClearButton()).not.toBeInTheDocument();
 
-  it('should render correctly', () => {
-    const { queryByTestId } = render(
-      <SearchBar endIcon={<SearchBarButton icon="div">foo</SearchBarButton>} />,
-    );
-    const button = queryByTestId(endButton);
-    expect(button).toBeInTheDocument();
-    expect(button.tagName).toBe('BUTTON');
-  });
+  const input = getInput();
+  userEvent.type(input, 'foo');
+  expect(getClearButton()).toBeInTheDocument();
+
+  rerender(<SearchBar defaultValue="bar" />);
+  expect(getClearButton()).toBeInTheDocument();
+
+  userEvent.click(getClearButton());
+  expect(input).toHaveValue('');
+  expect(input).toHaveFocus();
+});
+
+test('should render placeholder', () => {
+  renderSearchBar({ placeholder: 'foo' });
+  expect(screen.queryByPlaceholderText('foo')).toBeInTheDocument();
 });

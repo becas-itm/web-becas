@@ -1,97 +1,75 @@
 import React from 'react';
-import propTypes from 'prop-types';
-import { Search, Close } from 'ui/Icon';
-import { SearchBarButton } from './SearchBarButton';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import { MdSearch } from 'react-icons/md';
 
-function SearchBar({
-  endIcon,
-  onChange,
-  isLarge = false,
-  clearable = true,
+import { useSearchBar } from './useSearchBar';
+import { ClearButton } from './ClearButton';
+
+export function SearchBar({
+  onSubmit,
+  placeholder,
   defaultValue = '',
-  placeholder = 'Buscar beca',
+  isLarge = false,
 }) {
-  const inputRef = React.useRef(null);
-  const [value, setValue] = React.useState(defaultValue);
+  const search = useSearchBar({ defaultValue, onSubmit });
 
-  const handleFormSubmit = event => {
-    event.preventDefault();
-    if (onChange) {
-      onChange(value);
-    }
-  };
-
-  const handleInputChange = event => setValue(event.target.value);
-
-  const handleInputKeyDown = event => {
-    if (event.key === 'Escape') {
-      setValue('');
-    }
-  };
-
-  const handleClearClick = event => {
-    event.preventDefault();
-    event.stopPropagation();
-    setValue('');
-    inputRef.current.focus();
-  };
+  const [isFocused, setFocused] = React.useState(false);
+  const handleFocus = () => setFocused(true);
+  const handleBlur = () => setFocused(false);
 
   return (
-    <form
-      onSubmit={handleFormSubmit}
-      data-testid="SearchBar"
-      className={`w-full bg-white rounded flex items-stretch ${
-        isLarge ? 'py-1 shadow-lg' : 'shadow'
-      }`}
-    >
-      <SearchBarButton
-        icon={Search}
-        type="submit"
-        data-testid="SearchBar__startButton"
-      >
-        Buscar
-      </SearchBarButton>
-
-      <input
-        value={value}
-        ref={inputRef}
-        placeholder={placeholder}
-        onChange={handleInputChange}
-        onKeyDown={handleInputKeyDown}
-        data-testid="SearchBar__input"
-        className={`w-full focus:outline-none bg-transparent ${
-          isLarge ? 'text-xl' : 'text-base'
-        }`}
-      />
-
-      {value && clearable && (
-        <div className="flex-shrink-0 px-3 flex items-center">
-          <button
-            type="button"
-            onClick={handleClearClick}
-            className="text-disabled hover:text-medium focus:text-medium"
-            data-testid="SearchBar__clearButton"
-          >
-            <Close />
-            <span className="sr-only">Limpiar búsqueda</span>
-          </button>
-        </div>
+    <div
+      className={classNames(
+        'flex bg-white w-full rounded-lg overflow-hidden',
+        'transition-shadow duration-150 ease-out',
+        isLarge
+          ? isFocused
+            ? 'shadow'
+            : 'shadow-lg'
+          : isFocused
+          ? 'shadow-sm'
+          : 'shadow',
       )}
-
-      {endIcon &&
-        React.cloneElement(endIcon, {
-          'data-testid': 'SearchBar__endButton',
-        })}
-    </form>
+      data-testid="SearchBar"
+    >
+      <div
+        style={{
+          width: isLarge ? 60 : 48,
+          height: isLarge ? 60 : 48,
+        }}
+        className="flex items-center justify-center text-primary flex-shrink-0"
+      >
+        <MdSearch size={isLarge ? 28 : 24} />
+      </div>
+      <input
+        value={search.value}
+        onChange={search.handleChange}
+        onKeyDown={search.handleKeyDown}
+        ref={search.inputRef}
+        placeholder={placeholder}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        data-testid="SearchBar__input"
+        className={classNames(
+          'outline-none flex-1',
+          isLarge ? 'text-lg' : 'text-base',
+        )}
+      />
+      <ClearButton
+        isLarge={isLarge}
+        isVisible={!!search.value}
+        onClick={search.handleClearClick}
+      />
+    </div>
   );
 }
 
 SearchBar.propTypes = {
-  isLarge: propTypes.bool,
-  clearable: propTypes.bool,
-  onChange: propTypes.func,
-  endIcon: propTypes.element,
-  defaultValue: propTypes.string,
+  defaultValue: PropTypes.string,
+  placeholder: PropTypes.string,
+  onSubmit: PropTypes.func,
+  isLarge: PropTypes.bool,
 };
 
 export default SearchBar;

@@ -1,6 +1,5 @@
 import React from 'react';
-import { Tune } from 'ui/Icon';
-import SearchBar, { SearchBarButton } from './index';
+import { SearchBar } from './index';
 import { action } from '@storybook/addon-actions';
 
 export default {
@@ -15,25 +14,14 @@ export default {
   ],
 };
 
-export const normal = () => <SearchBar onChange={action('onChange')} />;
-
-export const large = () => <SearchBar isLarge onChange={action('onChange')} />;
-
-export const withInitialValue = () => (
-  <SearchBar
-    isLarge
-    onChange={action('onChange')}
-    defaultValue="Initial value..."
-  />
+export const normal = () => (
+  <SearchBar onSubmit={action('onSubmit')} placeholder="Search" />
 );
 
-export const withEndIcon = () => (
-  <SearchBar
-    isLarge
-    endIcon={
-      <SearchBarButton onClick={action('Click')} icon={Tune}>
-        Filter
-      </SearchBarButton>
-    }
-  />
+export const withDefaultValue = () => (
+  <SearchBar onSubmit={action('onSubmit')} defaultValue="Initial value..." />
+);
+
+export const large = () => (
+  <SearchBar isLarge onSubmit={action('onSubmit')} placeholder="Search" />
 );

@@ -1,9 +1,8 @@
 import React from 'react';
 
-import { Tune } from 'ui/Icon';
 import Spinner from 'ui/Spinner';
+import { SearchBar } from 'ui/SearchBar';
 import { SiteTemplate } from 'ui/SiteTemplate';
-import SearchBar, { SearchBarButton } from 'ui/SearchBar';
 
 import pick from 'utils/pick';
 import { useToggle } from 'utils/hooks';
@@ -47,17 +46,7 @@ function SearchPage() {
   return (
     <SiteTemplate
       searchBar={
-        <SearchBar
-          defaultValue={search.state.term}
-          onChange={search.setTerm}
-          endIcon={
-            <div className="lg:hidden">
-              <SearchBarButton onClick={toggleFilters} icon={Tune}>
-                Abrir filtros
-              </SearchBarButton>
-            </div>
-          }
-        />
+        <SearchBar defaultValue={search.state.term} onSubmit={search.setTerm} />
       }
     >
       <div className="h-full flex-1">

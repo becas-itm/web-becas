@@ -2,8 +2,8 @@ import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import AppLogo from 'ui/AppLogo';
-import SearchBar from 'ui/SearchBar';
 import PageRibbon from 'ui/PageRibbon';
+import { SearchBar } from 'ui/SearchBar';
 import { ThreeRowTemplate } from 'ui/ThreeRowTemplate';
 
 import HamburgerMenu, {
@@ -23,7 +23,7 @@ function RedirectSearchBar() {
     }
   };
 
-  return <SearchBar onChange={handleSearch} />;
+  return <SearchBar onSubmit={handleSearch} />;
 }
 
 export function SiteTemplate({ searchBar, ...restProps }) {

@@ -94,6 +94,8 @@ module.exports = {
       },
     },
   },
-  variants: {},
+  variants: {
+    textColor: ['hover', 'focus', 'active'],
+  },
   plugins: [],
 };
