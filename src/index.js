@@ -14,14 +14,14 @@ import App from './App';
 const queryConfig = { refetchAllOnWindowFocus: false };
 
 ReactDOM.render(
-  <ErrorBoundary fallback={<ErrorPage />}>
-    <React.Suspense fallback={<SplashScreen />}>
-      <ReactQueryConfigProvider config={queryConfig}>
-        <BrowserRouter>
+  <BrowserRouter>
+    <ReactQueryConfigProvider config={queryConfig}>
+      <ErrorBoundary fallback={<ErrorPage />}>
+        <React.Suspense fallback={<SplashScreen />}>
           <App />
-        </BrowserRouter>
-      </ReactQueryConfigProvider>
-    </React.Suspense>
-  </ErrorBoundary>,
+        </React.Suspense>
+      </ErrorBoundary>
+    </ReactQueryConfigProvider>
+  </BrowserRouter>,
   document.getElementById('root'),
 );
