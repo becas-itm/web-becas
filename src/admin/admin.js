@@ -21,10 +21,10 @@ import App, { AUTH_ROUTES, PUBLIC_ROUTES } from './App';
 const queryConfig = { refetchAllOnWindowFocus: false };
 
 ReactDOM.render(
-  <ReactQueryConfigProvider config={queryConfig}>
-    <ErrorBoundary fallback={<ErrorPage />}>
-      <React.Suspense fallback={<SplashScreen />}>
-        <BrowserRouter basename="/admin">
+  <BrowserRouter basename="/admin">
+    <ReactQueryConfigProvider config={queryConfig}>
+      <ErrorBoundary fallback={<ErrorPage />}>
+        <React.Suspense fallback={<SplashScreen />}>
           <SnackbarProvider>
             <VerifyToken
               fetcher={fetchSilentRefresh}
@@ -41,9 +41,9 @@ ReactDOM.render(
               )}
             </VerifyToken>
           </SnackbarProvider>
-        </BrowserRouter>
-      </React.Suspense>
-    </ErrorBoundary>
-  </ReactQueryConfigProvider>,
+        </React.Suspense>
+      </ErrorBoundary>
+    </ReactQueryConfigProvider>
+  </BrowserRouter>,
   document.getElementById('root'),
 );
