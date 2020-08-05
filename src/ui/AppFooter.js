@@ -7,7 +7,7 @@ import { AiFillFacebook, AiFillGithub } from 'react-icons/ai';
 
 export function AppFooter() {
   return (
-    <footer className="py-10 border-t bg-white">
+    <footer className="py-10 border-t bg-white" data-testid="AppFooter">
       <div className="w-full max-w-xl lg:max-w-5xl mx-auto px-4">
         <div className="flex flex-wrap -mb-4">
           <div className="w-full sm:w-1/2 lg:w-1/3 mb-8">
@@ -40,7 +40,7 @@ export function AppFooter() {
                 className="text-disabled flex-shrink-0 mr-3 mt-1"
               />
               <a
-                href="mailto:#"
+                href="mailto:dcri@itm.edu.co"
                 className="text-primary hover:underline focus:underline"
               >
                 dcri@itm.edu.co
