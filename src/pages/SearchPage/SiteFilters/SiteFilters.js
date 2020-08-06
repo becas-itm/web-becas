@@ -1,13 +1,16 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { useFormik } from 'formik';
-import isEqual from 'react-fast-compare';
+
+import pick from 'utils/pick';
 import { checkboxGroup } from 'utils/forms';
 
 import { Checkbox } from 'ui/Checkbox';
 import Button, { COLOR } from 'ui/Button';
 import { ComboboxInput, ComboboxPopover } from 'ui/Combobox';
 import Combobox, { CountryComboboxMenu } from 'ui/CountryCombobox';
+
+import { useSearch } from '../SearchContext';
 
 import LanguageFilter from './LanguageFilter';
 
@@ -18,14 +21,21 @@ const DEFAULT_FILTERS = Object.freeze({
   academicLevel: ['UNDERGRADUATE', 'POSTGRADUATE', 'OTHERS'],
 });
 
-const SiteFilters = React.memo(function SiteFilters({
-  values,
-  onSubmit,
-  onReset,
-}) {
+function SiteFilters({ onSubmit, onReset }) {
+  const search = useSearch();
+
   const form = useFormik({
-    onSubmit,
-    initialValues: values,
+    onSubmit: values => {
+      search.setFilters(values);
+      onSubmit && onSubmit();
+    },
+    enableReinitialize: true,
+    initialValues: pick(search.state, [
+      'country',
+      'language',
+      'fundingType',
+      'academicLevel',
+    ]),
   });
 
   const academicLevelProps = checkboxGroup('academicLevel', form);
@@ -34,7 +44,8 @@ const SiteFilters = React.memo(function SiteFilters({
   const handleReset = event => {
     event.preventDefault();
     form.setValues(DEFAULT_FILTERS);
-    onReset(DEFAULT_FILTERS);
+    search.reset(DEFAULT_FILTERS);
+    onReset && onReset();
   };
 
   return (
@@ -125,16 +136,11 @@ const SiteFilters = React.memo(function SiteFilters({
       </div>
     </form>
   );
-},
-isEqual);
+}
 
 SiteFilters.propTypes = {
-  values: propTypes.exact({
-    country: propTypes.string.isRequired,
-    language: propTypes.string.isRequired,
-    fundingType: propTypes.arrayOf(propTypes.string.isRequired).isRequired,
-    academicLevel: propTypes.arrayOf(propTypes.string.isRequired).isRequired,
-  }).isRequired,
+  onSubmit: PropTypes.func,
+  onReset: PropTypes.func,
 };
 
 export { DEFAULT_FILTERS };

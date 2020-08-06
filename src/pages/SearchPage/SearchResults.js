@@ -7,6 +7,7 @@ import EmptyState from 'ui/EmptyState';
 import { SettingsBackupRestore } from 'ui/Icon';
 
 import ScholarshipPreview from './ScholarshipPreview';
+import { ToggleFiltersDialogButton } from './ToggleFiltersDialogButton';
 
 export default function SearchResults({ searchUrl, onPage }) {
   const { data } = useGet(searchUrl);
@@ -20,29 +21,40 @@ export default function SearchResults({ searchUrl, onPage }) {
         mood="sad"
       >
         <Button outline type="reset" form="filters">
-          Restablecer <SettingsBackupRestore className="ml-2" />
+          <span className="flex items-center">
+            Restablecer <SettingsBackupRestore className="ml-2" />
+          </span>
         </Button>
       </EmptyState>
     );
   }
 
   return (
-    <div className="w-full">
-      <h2 className="text-base text-medium mb-6 px-4">
-        <span>Resultados de búsqueda</span>
-        <span> — Página {pagination.currentPage}</span>
-      </h2>
+    <>
+      <div className="flex items-center justify-between mb-4 lg:mb-6">
+        <div className="text-medium text-sm lg:text-base">
+          <span className="font-semibold">{scholarships.length}</span> Resultado
+          {scholarships.length > 1 ? 's' : ''}
+        </div>
 
-      {scholarships.map(scholarship => (
-        <ScholarshipPreview {...scholarship} key={scholarship.id} />
-      ))}
-      <div className="max-w-lg mx-auto mt-4 px-4 md:px-0">
+        <div className="lg:hidden">
+          <ToggleFiltersDialogButton />
+        </div>
+      </div>
+
+      <div className="space-y-4 sm:space-y-6 lg:space-y-10">
+        {scholarships.map(scholarship => (
+          <ScholarshipPreview {...scholarship} key={scholarship.id} />
+        ))}
+      </div>
+
+      <div className="max-w-lg mx-auto mt-4 lg:mt-8 px-4 md:px-0">
         <Pagination
           page={pagination.currentPage}
           totalPages={pagination.totalPages}
           onPage={onPage}
         />
       </div>
-    </div>
+    </>
   );
 }

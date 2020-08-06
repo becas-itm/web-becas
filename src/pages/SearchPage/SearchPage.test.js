@@ -12,7 +12,7 @@ const data = {
   description: 'test description',
   deadline: '2020-08-06T17:08:12.817Z',
   entity: {
-    name: 'entity test',
+    fullName: 'entity test',
   },
 };
 
@@ -33,7 +33,7 @@ describe('Scholarship Preview', () => {
     renderPreview(data);
     expect(screen.queryByText(data.name)).toBeInTheDocument();
     expect(screen.queryByText(data.description)).toBeInTheDocument();
-    expect(screen.queryByText(data.entity.name)).toBeInTheDocument();
+    expect(screen.queryByText(data.entity.fullName)).toBeInTheDocument();
     expect(screen.queryByText('6 de agosto de 2020')).toBeInTheDocument();
   });
 

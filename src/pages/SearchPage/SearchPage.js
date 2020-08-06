@@ -1,15 +1,13 @@
 import React from 'react';
 
 import Spinner from 'ui/Spinner';
-import { SearchBar } from 'ui/SearchBar';
-import { SiteTemplate } from 'ui/SiteTemplate';
-
-import pick from 'utils/pick';
-import { useToggle } from 'utils/hooks';
+import PageRibbon from 'ui/PageRibbon';
+import { AppFooter } from 'ui/AppFooter';
 import { useFilters, mergeFilters, useQueryFilters } from 'utils/hooks/search';
 
 import SearchResults from './SearchResults';
-import FiltersDialog from './SiteFilters/FiltersDialog';
+import { SearchHeader } from './SearchHeader';
+import { SearchProvider } from './SearchContext';
 import SiteFilters, { DEFAULT_FILTERS } from './SiteFilters/SiteFilters';
 
 const INITIAL_FILTERS = {
@@ -29,65 +27,50 @@ function SearchPage() {
   const search = useFilters(initialState);
   const searchUrl = `/search/scholarships/${search.stringify()}`;
 
-  React.useEffect(() => {
-    queryFilters.replace(search.state);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [search.state]);
-
-  const [isFiltering, toggleFilters] = useToggle();
-
-  const currentFilters = pick(search.state, [
-    'country',
-    'language',
-    'fundingType',
-    'academicLevel',
-  ]);
-
   return (
-    <SiteTemplate
-      searchBar={
-        <SearchBar defaultValue={search.state.term} onSubmit={search.setTerm} />
-      }
-    >
-      <div className="h-full flex-1">
-        <div className="container mx-auto flex xl:px-8">
-          <aside className="hidden lg:block lg:mx-4 xl:mx-0 self-start w-64">
-            <h2 className="mb-5 text-base">Filtrar búsqueda</h2>
-            <SiteFilters
-              values={currentFilters}
-              onReset={search.reset}
-              onSubmit={search.setFilters}
-            />
-          </aside>
+    <SearchProvider value={search}>
+      <div
+        className="min-h-screen flex flex-col"
+        style={{ background: '#fafdff' }}
+      >
+        <PageRibbon />
 
-          <div className="flex-1 max-w-screen-md mx-auto">
-            <React.Suspense
-              fallback={
-                <div className="text-center mt-4">
-                  <Spinner />
-                </div>
-              }
-            >
-              <SearchResults onPage={search.setPage} searchUrl={searchUrl} />
-            </React.Suspense>
-          </div>
+        <div className="w-full max-w-xl lg:max-w-6xl mx-auto mt-2 lg:mt-8 px-4">
+          <SearchHeader />
         </div>
 
-        <FiltersDialog isOpen={isFiltering} onDismiss={toggleFilters}>
-          <SiteFilters
-            values={currentFilters}
-            onReset={values => {
-              toggleFilters();
-              search.reset(values);
-            }}
-            onSubmit={values => {
-              toggleFilters();
-              search.setFilters(values);
-            }}
-          />
-        </FiltersDialog>
+        <div className="flex-1">
+          <div className="w-full max-w-xl lg:max-w-6xl mx-auto mt-4 lg:mt-12 px-4 pb-8">
+            <div className="w-full">
+              <div className="flex">
+                <section className="hidden lg:block w-1/4 mr-12">
+                  <h1 className="text-base text-medium font-semibold mb-6">
+                    Filtros
+                  </h1>
+                  <SiteFilters />
+                </section>
+                <main className="w-full lg:w-3/4">
+                  <React.Suspense
+                    fallback={
+                      <div className="text-center mt-4">
+                        <Spinner />
+                      </div>
+                    }
+                  >
+                    <SearchResults
+                      onPage={search.setPage}
+                      searchUrl={searchUrl}
+                    />
+                  </React.Suspense>
+                </main>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </SiteTemplate>
+
+      <AppFooter />
+    </SearchProvider>
   );
 }
 
