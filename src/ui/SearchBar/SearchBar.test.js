@@ -19,7 +19,7 @@ it('should render correctly', () => {
   const input = getInput();
   expect(input).toBeInTheDocument();
   expect(input).toHaveValue('');
-  expect(input).toHaveProperty('placeholder', '');
+  expect(input).toHaveProperty('placeholder', 'Buscar');
 
   const searchBar = screen.queryByTestId(barId);
   expect(searchBar).toBeInTheDocument();

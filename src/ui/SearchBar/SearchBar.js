@@ -8,7 +8,7 @@ import { ClearButton } from './ClearButton';
 
 export function SearchBar({
   onSubmit,
-  placeholder,
+  placeholder = 'Buscar',
   defaultValue = '',
   isLarge = false,
 }) {
@@ -21,8 +21,9 @@ export function SearchBar({
   return (
     <div
       className={classNames(
-        'flex bg-white w-full rounded-lg overflow-hidden',
+        'flex bg-white w-full overflow-hidden',
         'transition-shadow duration-150 ease-out',
+        isLarge ? 'rounded-lg' : 'rounded',
         isLarge
           ? isFocused
             ? 'shadow'
