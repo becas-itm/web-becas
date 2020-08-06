@@ -2,18 +2,18 @@ import React from 'react';
 import EntityAvatar from 'ui/EntityAvatar';
 import { Field } from '../Field';
 
-export function Entity({ code, name }) {
+export function Entity({ code, fullName }) {
   return (
     <Field
       name="Publicada por"
-      isMissing={!code && !name}
+      isMissing={!code && !fullName}
       icon={
         <div className="mr-2">
-          <EntityAvatar code={code} name={name} />
+          <EntityAvatar code={code} name={fullName} />
         </div>
       }
     >
-      {name}
+      {fullName}
     </Field>
   );
 }
