@@ -1,20 +1,13 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import AppLogo from 'ui/AppLogo';
+import Spinner from 'ui/Spinner';
 import PageRibbon from 'ui/PageRibbon';
 import { SearchBar } from 'ui/SearchBar';
-import { ThreeRowTemplate } from 'ui/ThreeRowTemplate';
+import { AppFooter } from 'ui/AppFooter';
 
-import HamburgerMenu, {
-  MenuItem,
-  MenuButton,
-  useHamburger,
-} from 'ui/HamburgerMenu';
-
-import links from 'utils/siteLinks';
-
-function RedirectSearchBar() {
+export function SiteTemplate({ children }) {
   const history = useHistory();
 
   const handleSearch = term => {
@@ -23,72 +16,52 @@ function RedirectSearchBar() {
     }
   };
 
-  return <SearchBar onSubmit={handleSearch} />;
-}
-
-export function SiteTemplate({ searchBar, ...restProps }) {
-  const menu = useHamburger();
-
-  if (!searchBar) {
-    searchBar = <RedirectSearchBar />;
-  }
-
   return (
-    <ThreeRowTemplate
-      header={
-        <>
-          <PageRibbon />
-          <div className="p-4 lg:pt-10 pb-0 max-w-screen-xl mx-auto mb-8 sm:mb-12">
-            <header data-testid="AppHeader">
-              <div className="flex items-center justify-between">
-                <Link to="/" className="inline-flex items-center">
-                  <AppLogo />
-                </Link>
+    <>
+      <div
+        className="min-h-screen flex flex-col"
+        style={{ background: '#fafdff' }}
+      >
+        <PageRibbon />
 
-                <div className="flex-1 flex items-center justify-end">
-                  <div className="flex-1 flex items-center justify-center">
-                    <div className="hidden md:block mx-8 w-full max-w-lg">
-                      {searchBar}
-                    </div>
-                  </div>
+        <div className="w-full max-w-xl lg:max-w-6xl mx-auto mt-2 lg:mt-8 px-4">
+          <header className="flex items-center flex-wrap">
+            <div className="lg:w-full max-w-xs">
+              <AppLogo />
+            </div>
 
-                  <nav className="hidden sm:block">
-                    {links.map(link => (
-                      <Link
-                        to={link.href}
-                        key={link.href}
-                        className="py-4 px-6 hover:underline"
-                      >
-                        {link.text}
-                      </Link>
-                    ))}
-                  </nav>
+            <div className="w-full lg:max-w-sm mt-5 lg:mt-0 order-last lg:order-none">
+              <SearchBar onSubmit={handleSearch} />
+            </div>
 
-                  <MenuButton
-                    className="sm:hidden"
-                    {...menu.getToggleButtonProps()}
-                    data-testid="AppHeader__menuButton"
-                  />
-                </div>
-              </div>
-
-              <HamburgerMenu
-                isOpen={menu.isOpen}
-                data-testid="AppHeader__hamburger"
+            <div className="flex-1 flex justify-end">
+              <a
+                href="/admin"
+                rel="noopener noreferrer"
+                className="text-sm font-semibold text-primary px-3 py-2 uppercase hover:underline focus:underline"
               >
-                {links.map(link => (
-                  <MenuItem to={link.href} key={link.href}>
-                    {link.text}
-                  </MenuItem>
-                ))}
-              </HamburgerMenu>
+                Acceder
+              </a>
+            </div>
+          </header>
+        </div>
 
-              <div className="md:hidden mt-6">{searchBar}</div>
-            </header>
+        <div className="flex-1">
+          <div className="w-full max-w-xl lg:max-w-6xl mx-auto mt-4 sm:mt-8 px-4 pb-8">
+            <React.Suspense
+              fallback={
+                <div className="text-center">
+                  <Spinner />
+                </div>
+              }
+            >
+              {children}
+            </React.Suspense>
           </div>
-        </>
-      }
-      {...restProps}
-    />
+        </div>
+      </div>
+
+      <AppFooter />
+    </>
   );
 }

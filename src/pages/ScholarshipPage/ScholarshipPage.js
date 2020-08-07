@@ -2,7 +2,6 @@ import React from 'react';
 import { useGet } from 'utils/api';
 import { useParams } from 'react-router';
 
-import Spinner from 'ui/Spinner';
 import LinkButton from 'ui/LinkButton';
 import EmptyState from 'ui/EmptyState';
 import { SiteTemplate } from 'ui/SiteTemplate';
@@ -14,15 +13,7 @@ function ScholarshipPage() {
 
   return (
     <SiteTemplate>
-      <React.Suspense
-        fallback={
-          <div className="text-center">
-            <Spinner />
-          </div>
-        }
-      >
-        <PageFetcher scholarshipId={scholarshipId} />
-      </React.Suspense>
+      <PageFetcher scholarshipId={scholarshipId} />
     </SiteTemplate>
   );
 }
