@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 import Input from 'ui/Input';
 import Button from 'ui/Button';
-import { AppLogo } from 'ui/AppLogo';
 import { FastField } from 'ui/formik';
 
 const validationSchema = yup.object().shape({
@@ -31,9 +30,11 @@ function LoginCard({ onSubmit, isLoading = false }) {
         noValidate
         className="w-full max-w-sm pt-6 px-8 pb-8 bg-white rounded shadow"
       >
-        <header className="flex flex-col items-center mb-6">
-          <AppLogo children={null} />
-          <h1 className="block text-center text-xl">Iniciar sesión — Becas</h1>
+        <header className="mb-6">
+          <h1 className="text-3xl">Iniciar sesión</h1>
+          <p className="text-sm text-medium">
+            Ingresa al sistema de becas y convocatorias
+          </p>
         </header>
 
         <label className="block mb-6">
