@@ -1,5 +1,4 @@
 import React from 'react';
-import GoBackButton from 'ui/GoBackButton';
 
 import {
   Entity,
@@ -23,13 +22,8 @@ export function ScholarshipCard({
   sourceDetails,
 }) {
   return (
-    <main className="max-w-screen-md mx-auto p-6 bg-white shadow rounded sm:py-10 md:py-12">
+    <article className="w-full bg-white shadow rounded p-4 sm:p-8 md:px-12">
       <div className="max-w-xl mx-auto">
-        <div className="mb-3 flex items-center">
-          <GoBackButton />
-          <div className="pl-2">Convocatoria</div>
-        </div>
-
         <h1 className="text-xl sm:text-2xl font-semibold mb-3">{name}</h1>
 
         <div className="mt-4">
@@ -58,6 +52,6 @@ export function ScholarshipCard({
 
         <ScholarshipDetails {...sourceDetails} />
       </div>
-    </main>
+    </article>
   );
 }

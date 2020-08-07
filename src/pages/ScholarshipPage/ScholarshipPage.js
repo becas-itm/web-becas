@@ -4,6 +4,7 @@ import { useParams } from 'react-router';
 
 import LinkButton from 'ui/LinkButton';
 import EmptyState from 'ui/EmptyState';
+import GoBackButton from 'ui/GoBackButton';
 import { SiteTemplate } from 'ui/SiteTemplate';
 
 import { ScholarshipCard } from './ScholarshipCard';
@@ -34,7 +35,15 @@ function PageFetcher({ scholarshipId }) {
     );
   }
 
-  return <ScholarshipCard {...data} />;
+  return (
+    <main className="w-full max-w-screen-md mx-auto">
+      <div className="mb-4 lg:mb-8 flex items-center">
+        <GoBackButton />
+        <div className="pl-2 text-lg">Convocatoria</div>
+      </div>
+      <ScholarshipCard {...data} />
+    </main>
+  );
 }
 
 export default ScholarshipPage;
