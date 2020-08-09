@@ -51,7 +51,7 @@ export default function ScholarshipPreview({
       <div className="text-sm md:text-base">{formatDeadline(deadline)}</div>
       <footer className="flex items-start justify-between">
         <p className="text-sm italic text-medium mt-4 md:text-base lg:max-w-md">
-          {entity.fullName}
+          {entity.name}
         </p>
 
         <motion.div
@@ -79,5 +79,5 @@ ScholarshipPreview.propTypes = {
   deadline: propTypes.string,
   name: propTypes.string.isRequired,
   description: propTypes.string.isRequired,
-  entity: propTypes.shape({ fullName: propTypes.string.isRequired }).isRequired,
+  entity: propTypes.shape({ name: propTypes.string.isRequired }).isRequired,
 };
