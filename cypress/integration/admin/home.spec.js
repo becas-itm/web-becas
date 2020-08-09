@@ -33,11 +33,7 @@ describe('Admin Home', () => {
 
   describe('navigation items', () => {
     it('should have a scholarship item', () => {
-      cy.contains('Convocatorias').should(
-        'have.attr',
-        'href',
-        '/admin/pendientes',
-      );
+      cy.contains('Convocatorias').should('have.attr', 'href', '/admin/becas');
       cy.contains('Crear, aprobar y rechazar nuevas convocatorias');
     });
 

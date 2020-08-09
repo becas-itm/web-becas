@@ -18,7 +18,7 @@ export function AdminHeader() {
         <ul className="flex flex-wrap text-center text-medium">
           <li className="flex-1">
             <NavLink
-              to="/pendientes"
+              to="/becas"
               className="block px-2 py-3 hover:text-primary"
               activeClassName="font-semibold text-primary"
             >

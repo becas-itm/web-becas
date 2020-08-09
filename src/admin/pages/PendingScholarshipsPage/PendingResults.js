@@ -17,28 +17,49 @@ export function PendingResults({ searchUrl, onPage }) {
 
   return (
     <div className="w-full">
-      <header className="my-4 px-4 flex flex-wrap items-baseline justify-between">
-        <h1 className="text-xl font-semibold">Convocatorias</h1>
-        <LinkButton to="/convocatorias/crear">
-          Nueva <Add className="ml-2" />
-        </LinkButton>
+      <header
+        className="bg-white rounded-sm flex items-start justify-between shadow-sm p-4 md:p-6"
+        style={{
+          boxShadow: '1px 1px 1px rgba(0, 0, 0, 0.12)',
+        }}
+      >
+        <div>
+          <h1 className="text-2xl">Becas</h1>
+          <p className="text-base text-medium leading-tight mt-2">
+            Crea, aprueba y rechaza nuevas convocatorias.
+          </p>
+        </div>
+        <div className="ml-4">
+          <LinkButton to="/convocatorias/crear" outline={false}>
+            <span className="flex items-center">
+              <Add className="mr-1" /> Nueva
+            </span>
+          </LinkButton>
+        </div>
       </header>
 
-      <h2 className="text-base mb-8 px-4">
-        <span>Resultados de búsqueda</span>
-        <span> — Página {pagination.currentPage}</span>
-      </h2>
+      <div className="mt-8">
+        <div className="px-4">
+          <div className="mb-4 lg:mb-6">
+            <div className="text-medium text-sm lg:text-base">
+              <span className="font-semibold">{scholarships.length}</span>{' '}
+              Resultado
+              {scholarships.length > 1 ? 's' : ''}
+            </div>
+          </div>
+        </div>
 
-      {scholarships.map(scholarship => (
-        <ScholarshipPreview {...scholarship} key={scholarship.id} />
-      ))}
+        {scholarships.map(scholarship => (
+          <ScholarshipPreview {...scholarship} key={scholarship.id} />
+        ))}
 
-      <div className="max-w-lg mx-auto my-4 px-4 md:px-0">
-        <Pagination
-          page={pagination.currentPage}
-          totalPages={pagination.totalPages}
-          onPage={onPage}
-        />
+        <div className="max-w-lg mx-auto my-4 px-4 md:px-0">
+          <Pagination
+            page={pagination.currentPage}
+            totalPages={pagination.totalPages}
+            onPage={onPage}
+          />
+        </div>
       </div>
     </div>
   );

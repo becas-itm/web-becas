@@ -3,8 +3,6 @@ import propTypes from 'prop-types';
 
 import Pill, { COLOR } from 'ui/Pill';
 import LinkButton from 'ui/LinkButton';
-import EntityAvatar from 'ui/EntityAvatar';
-import { formatDeadline } from 'ui/ScholarshipFields';
 
 function PillStatus({ status }) {
   if (status === 'COMPLETE') {
@@ -18,26 +16,29 @@ function PillStatus({ status }) {
   return <Pill color={COLOR.gray}>Desconocido</Pill>;
 }
 
-export function ScholarshipPreview({ id, name, deadline, entity, fillStatus }) {
+export function ScholarshipPreview({ id, name, entity, fillStatus }) {
   return (
-    <article className="bg-white shadow rounded border border-transparent mb-5">
-      <div className="relative max-w-md mx-auto mt-4 mb-2 sm:mt-8 sm:mb-4 px-4 sm:px-0">
-        <EntityAvatar
-          code={entity.code}
-          name={entity.name}
-          size={54}
-          className="hidden md:block md:mr-8 absolute top-0 right-full mr-4"
-        />
-        <header>
-          <div className="max-w-md mx-auto mb-1">{entity.name}</div>
-          {deadline && <div>{formatDeadline(deadline)}</div>}
-          <h1 className="text-xl font-semibold mt-1">{name}</h1>
-        </header>
+    <article className="bg-white shadow-sm rounded-sm md:rounded p-6">
+      <header>
+        <h1 className="font-semibold leading-5 text-base md:text-lg lg:text-xl md:leading-6">
+          {name}
+        </h1>
+      </header>
 
-        <footer className="flex items-center justify-between mt-1">
-          <PillStatus status={fillStatus} />
-          <LinkButton to={`/convocatorias/${id}`}>Ver más</LinkButton>
-        </footer>
+      <div className="flex items-end justify-between">
+        <div className="w-full lg:max-w-xl">
+          <p className="mt-3 text-medium text-sm md:text-base">{entity.name}</p>
+
+          <footer className="mt-3">
+            <PillStatus status={fillStatus} />
+          </footer>
+        </div>
+
+        <div className="hidden md:block md:ml-4">
+          <LinkButton to={`/convocatorias/${id}`} className="uppercase">
+            Ver
+          </LinkButton>
+        </div>
       </div>
     </article>
   );
@@ -45,11 +46,7 @@ export function ScholarshipPreview({ id, name, deadline, entity, fillStatus }) {
 
 ScholarshipPreview.propTypes = {
   id: propTypes.string.isRequired,
-  deadline: propTypes.string,
   name: propTypes.string.isRequired,
   fillStatus: propTypes.string.isRequired,
-  entity: propTypes.shape({
-    code: propTypes.string.isRequired,
-    name: propTypes.string.isRequired,
-  }),
+  entity: propTypes.shape({ name: propTypes.string.isRequired }),
 };

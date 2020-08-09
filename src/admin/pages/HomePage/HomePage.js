@@ -14,7 +14,7 @@ import './HomePage.scss';
 
 const navItems = [
   {
-    to: '/pendientes',
+    to: '/becas',
     icon: Event,
     title: 'Convocatorias',
     description: 'Crear, aprobar y rechazar nuevas convocatorias',

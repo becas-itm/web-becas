@@ -49,7 +49,7 @@ function App() {
 
       <PrivateRoute exact path="/perfil" children={<ProfilePage />} />
 
-      <PrivateRoute exact path="/pendientes">
+      <PrivateRoute exact path="/becas">
         <PendingScholarshipsPage />
       </PrivateRoute>
 
