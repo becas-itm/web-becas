@@ -49,9 +49,11 @@ export function PendingResults({ searchUrl, onPage }) {
           </div>
         </div>
 
-        {scholarships.map(scholarship => (
-          <ScholarshipPreview {...scholarship} key={scholarship.id} />
-        ))}
+        <div className="space-y-4 sm:space-y-6">
+          {scholarships.map(scholarship => (
+            <ScholarshipPreview {...scholarship} key={scholarship.id} />
+          ))}
+        </div>
 
         <div className="max-w-lg mx-auto my-4 px-4 md:px-0">
           <Pagination
