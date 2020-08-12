@@ -35,3 +35,24 @@ input[type='search']::-webkit-search-results-button,
 input[type='search']::-webkit-search-results-decoration {
   display: none;
 }
+
+[data-reach-menu-item] {
+  padding: 0.75rem;
+  margin: 0 0.75rem;
+}
+
+[data-reach-menu-list],
+[data-reach-menu-items] {
+  font-size: 100%;
+}
+
+[data-reach-menu-item] {
+  border-radius: 0.25rem;
+  transition: all 75ms ease-in-out;
+}
+
+[data-reach-menu-item][data-selected] {
+  background: rgba(0, 0, 0, 0.08);
+  color: var(--text-emphasis-high);
+  font-weight: var(--weight-medium);
+}

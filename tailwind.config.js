@@ -82,6 +82,9 @@ module.exports = {
       full: '999px',
     },
     extend: {
+      screens: {
+        xs: '468px',
+      },
       textColor: {
         current: 'currentColor',
         active: 'rgba(0, 0, 0, 0.87)',
