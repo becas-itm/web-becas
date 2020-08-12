@@ -17,7 +17,9 @@ export default function UserActions({ user, onLogout }) {
       >
         <UserOverviewItem userName={userName} email={user.email} />
         <div className="mt-4" />
-        <MenuItem onSelect={() => {}}>Ver perfil</MenuItem>
+        <MenuLink to="perfil" as={Link}>
+          Ver perfil
+        </MenuLink>
         <MenuLink to="/" as={Link}>
           Panel de administración
         </MenuLink>
