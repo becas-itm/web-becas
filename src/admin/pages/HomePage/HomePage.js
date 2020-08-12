@@ -6,8 +6,6 @@ import PageRibbon from 'ui/PageRibbon';
 import UserActions from 'ui/UserActions';
 import { Event, SupervisorAccount, Business } from 'ui/Icon';
 
-import HamburgerMenu, { MenuButton, useHamburger } from 'ui/HamburgerMenu';
-
 import { greetUser } from './greetUser';
 import NavigationItem from './NavigationItem';
 import './HomePage.scss';
@@ -34,7 +32,6 @@ const navItems = [
 ];
 
 export function HomePage() {
-  const menu = useHamburger();
   const { user, logout } = useAuth();
 
   return (
@@ -45,18 +42,8 @@ export function HomePage() {
         <header className="flex items-center justify-between flex-wrap">
           <AppLogo>Admin</AppLogo>
 
-          <div className="hidden sm:block">
-            <UserActions user={user} onLogout={logout} />
-          </div>
-
-          <MenuButton className="sm:hidden" {...menu.getToggleButtonProps()} />
+          <UserActions user={user} onLogout={logout} />
         </header>
-
-        <HamburgerMenu isOpen={menu.isOpen}>
-          <div className="flex justify-center mt-4">
-            <UserActions user={user} onLogout={logout} />
-          </div>
-        </HamburgerMenu>
 
         <h1
           className="text-2xl sm:text-3xl mt-6 sm:mt-12 text-center"
