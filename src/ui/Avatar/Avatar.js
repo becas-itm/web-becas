@@ -18,7 +18,7 @@ function Avatar({ name, size, style, className, src, alt, ...restProps }) {
       {name || !src ? (
         <div
           title={name || 'Anónimo'}
-          className="w-full h-full text-white tracking-wide text-center flex items-center justify-center select-none"
+          className="w-full h-full font-semibold font-mont text-white tracking-wide text-center flex items-center justify-center select-none"
           data-testid="Avatar__initials"
           style={{ background: '#4285f4', fontSize: (size / 16) * 6 }}
         >
