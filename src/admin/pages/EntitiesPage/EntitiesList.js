@@ -13,30 +13,45 @@ export function EntitiesList({ entities = [], onNew, onEdit }) {
 
   return (
     <div data-testid="EntitiesList">
-      <header className="mb-4 mt-6 flex flex-wrap items-baseline justify-between">
-        <h1 className="text-xl font-semibold">Entidades</h1>
-        <Button
-          onClick={onNew}
-          outline
-          data-testid="EntitiesList__createButton"
-        >
-          <div className="flex flex-wrap items-center">
-            Nueva <Add className="ml-2" />
-          </div>
-        </Button>
+      <header
+        className="bg-white rounded-sm flex items-start justify-between shadow-sm p-4 md:p-6"
+        style={{
+          boxShadow: '1px 1px 1px rgba(0, 0, 0, 0.12)',
+        }}
+      >
+        <div>
+          <h1 className="text-2xl">Entidades</h1>
+          <p className="text-base text-medium leading-tight mt-2">
+            Agrega y edita entidades que ofertan becas y convocatorias.
+          </p>
+        </div>
+        <div className="ml-4">
+          <Button onClick={onNew} data-testid="EntitiesList__createButton">
+            <span className="flex items-center">
+              <Add className="mr-1" /> Nueva
+            </span>
+          </Button>
+        </div>
       </header>
 
-      <div className="flex flex-wrap justify-between lg:justify-around xl:justify-between mt-8">
-        {entities.map(entity => (
-          <div key={entity.code} className="mb-6 w-full lg:max-w-xs">
-            <EntityItem
-              name={entity.name}
-              website={entity.website}
-              onEdit={() => onEdit(entity)}
-              data-testid="EntityItem"
-            />
+      <div className="mt-8">
+        <div className="md:px-4">
+          <div className="flex flex-wrap -mb-6 md:-mx-4">
+            {entities.map(entity => (
+              <div
+                key={entity.code}
+                className="w-full mb-6 md:px-4 md:w-1/2 lg:w-1/3"
+              >
+                <EntityItem
+                  name={entity.name}
+                  website={entity.website}
+                  onEdit={() => onEdit(entity)}
+                  data-testid="EntityItem"
+                />
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );

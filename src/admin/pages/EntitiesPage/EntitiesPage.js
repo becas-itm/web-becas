@@ -1,7 +1,6 @@
 import React from 'react';
 import { useMutation } from 'react-query';
 
-import Spinner from 'ui/Spinner';
 import api, { useGet } from 'utils/api';
 import { useToggle } from 'utils/hooks';
 import { useSnackbar } from 'ui/Snackbar';
@@ -119,15 +118,7 @@ function EntitiesPageContent() {
 function EntitiesPage() {
   return (
     <AdminTemplate>
-      <React.Suspense
-        fallback={
-          <div className="text-center mt-8">
-            <Spinner />
-          </div>
-        }
-      >
-        <EntitiesPageContent />
-      </React.Suspense>
+      <EntitiesPageContent />
     </AdminTemplate>
   );
 }
