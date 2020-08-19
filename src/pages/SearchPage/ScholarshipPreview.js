@@ -34,7 +34,7 @@ export default function ScholarshipPreview({
   const detailLink = `/convocatoria/${id}`;
   return (
     <article className="bg-white shadow-sm rounded-sm md:rounded p-6 md:px-12 md:py-8 lg:py-12 lg:pr-16">
-      <h1 className="font-semibold leading-5 text-base md:text-lg lg:text-xl md:leading-6">
+      <h1 className="font-semibold text-2xl leading-none lg:text-3xl">
         <Link
           to={detailLink}
           className="hover:underline focus:underline focus:outline-none"
@@ -42,15 +42,16 @@ export default function ScholarshipPreview({
           {name}
         </Link>
       </h1>
-      <p className="text-sm leading-5 mt-2 md:mt-3 md:text-base">
-        {description}
-      </p>
-      <div className="text-xs text-medium leading-4 mt-3 md:mt-5 md:text-sm">
-        Abierta hasta
+
+      <p className="mt-4 lg:mt-6">{description}</p>
+
+      <div className="mt-4 md:mt-6">
+        <div className="text-medium mb-1 leading-none">Abierta hasta</div>
+        <div>{formatDeadline(deadline)}</div>
       </div>
-      <div className="text-sm md:text-base">{formatDeadline(deadline)}</div>
+
       <footer className="flex items-start justify-between">
-        <p className="text-sm italic text-medium mt-4 md:text-base lg:max-w-md">
+        <p className="text-sm italic text-medium mt-4 lg:max-w-md">
           {entity.name}
         </p>
 

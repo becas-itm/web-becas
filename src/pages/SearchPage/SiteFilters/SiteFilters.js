@@ -50,9 +50,7 @@ function SiteFilters({ onSubmit, onReset }) {
 
   return (
     <form onSubmit={form.handleSubmit} onReset={handleReset} id="filters">
-      <h4 className="text-sm font-semibold color-gray-500 uppercase">
-        Tipo de beca
-      </h4>
+      <h4 className="text-sm font-semibold color-gray-500">Tipo de beca</h4>
       <div className="flex flex-col mb-2">
         <Checkbox
           {...academicLevelProps('UNDERGRADUATE')}
@@ -77,7 +75,7 @@ function SiteFilters({ onSubmit, onReset }) {
         </Checkbox>
       </div>
 
-      <h4 className="text-sm font-semibold color-gray-500 uppercase">
+      <h4 className="text-sm font-semibold color-gray-500">
         Tipo de financiamiento
       </h4>
       <div className="flex flex-wrap mb-2">
@@ -99,7 +97,7 @@ function SiteFilters({ onSubmit, onReset }) {
 
       <label
         id="filter-language"
-        className="text-sm font-semibold color-gray-500 uppercase pb-1"
+        className="text-sm font-semibold color-gray-500 pb-1"
       >
         Idioma
       </label>
@@ -110,9 +108,7 @@ function SiteFilters({ onSubmit, onReset }) {
         />
       </div>
 
-      <h4 className="text-sm font-semibold color-gray-500 uppercase pb-1">
-        País
-      </h4>
+      <h4 className="text-sm font-semibold color-gray-500 pb-1">País</h4>
       <Combobox
         inputValue={form.values.country}
         onSelect={selected =>

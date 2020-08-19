@@ -44,7 +44,7 @@ function SearchPage() {
             <div className="w-full">
               <div className="flex">
                 <section className="hidden lg:block w-1/4 mr-12">
-                  <h1 className="text-base text-medium font-semibold mb-6">
+                  <h1 className="text-sm text-medium font-semibold mb-6 uppercase">
                     Filtros
                   </h1>
                   <SiteFilters />
