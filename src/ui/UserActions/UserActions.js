@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, MenuList, MenuItem, MenuLink } from '@reach/menu-button';
+import { Menu, MenuList, MenuLink } from '@reach/menu-button';
 
 import { UserOverviewItem } from './UserOverviewItem';
 import { UserActionsButton } from './UserActionsButton';
