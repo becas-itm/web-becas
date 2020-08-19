@@ -10,18 +10,19 @@ export function ScholarshipDetails({ steps, url }) {
 
   if (url) {
     return (
-      <div className="flex justify-center mt-2">
-        <Button
-          renderAs={'a'}
-          outline
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+      <Button
+        renderAs={'a'}
+        outline
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        wide
+      >
+        <div className="flex items-center">
           Ver detalles
           <OpenInNew auto className="inline-block ml-2 w-5 h-5" />
-        </Button>
-      </div>
+        </div>
+      </Button>
     );
   }
 

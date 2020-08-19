@@ -13,9 +13,9 @@ export function Field({ icon, name, children, isMissing }) {
 
   return (
     <div className="flex">
-      {icon && <div className="text-disabled mr-2 flex-shrink-0">{icon}</div>}
+      {icon && <div className="text-disabled mr-3 flex-shrink-0">{icon}</div>}
       <div className="w-full">
-        {name && <div className="text-sm text-medium">{name}</div>}
+        {name && <div className="text-medium">{name}</div>}
         {isMissing ? <span className="italic">Desconocido</span> : children}
       </div>
     </div>

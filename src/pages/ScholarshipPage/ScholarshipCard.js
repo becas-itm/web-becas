@@ -1,57 +1,23 @@
 import React from 'react';
+import { formatDeadline } from 'ui/ScholarshipFields';
 
-import {
-  Entity,
-  Country,
-  Deadline,
-  FundingType,
-  Description,
-  AcademicLevel,
-} from 'ui/ScholarshipFields';
-
-import { ScholarshipDetails } from './ScholarshipDetails';
-
-export function ScholarshipCard({
-  name,
-  description,
-  deadline,
-  academicLevel,
-  fundingType,
-  country,
-  entity,
-  sourceDetails,
-}) {
+export function ScholarshipCard({ name, description, deadline, entity }) {
   return (
-    <article className="w-full bg-white shadow rounded p-4 sm:p-8 md:px-12">
-      <div className="max-w-xl mx-auto">
-        <h1 className="text-xl sm:text-2xl font-semibold mb-3">{name}</h1>
-
-        <div className="mt-4">
-          <Description value={description} />
+    <article className="w-full bg-white shadow-sm rounded-sm p-6 sm:p-8 lg:p-12">
+      <h1 className="font-semibold text-2xl leading-none lg:text-4xl">
+        {name}
+      </h1>
+      <p className="mt-4 lg:mt-6">{description}</p>
+      <footer className="mt-8 space-y-6">
+        <div>
+          <div className="text-medium mb-1 leading-none">Abierta hasta</div>
+          <div>{formatDeadline(deadline)}</div>
         </div>
-
-        <div className="pl-8 mt-6">
-          <Deadline value={deadline} />
-
-          <div className="mt-4">
-            <AcademicLevel value={academicLevel} />
-          </div>
-
-          <div className="mt-4">
-            <FundingType value={fundingType} />
-          </div>
-
-          <div className="mt-4">
-            <Country {...(country || {})} />
-          </div>
-
-          <div className="flex -ml-8 mt-4">
-            <Entity code={entity.code} name={entity.name} />
-          </div>
+        <div>
+          <div className="text-medium mb-1 leading-none">Publicada por</div>
+          <div>{entity.name}</div>
         </div>
-
-        <ScholarshipDetails {...sourceDetails} />
-      </div>
+      </footer>
     </article>
   );
 }

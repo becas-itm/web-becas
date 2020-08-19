@@ -11,11 +11,9 @@ export default function ScholarshipDetailsDialog({ src }) {
 
   return (
     <>
-      <div className="flex justify-center mt-2">
-        <Button onClick={toggleDetails} outline>
-          Ver pasos
-        </Button>
-      </div>
+      <Button onClick={toggleDetails} outline wide>
+        Ver pasos
+      </Button>
       <Dialog
         isOpen={detailsOpened}
         onDismiss={toggleDetails}
