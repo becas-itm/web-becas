@@ -15,7 +15,7 @@ const AdminTemplate = React.memo(function AdminTemplate({ children }) {
       >
         <PageRibbon />
 
-        <div className="w-full max-w-2xl lg:max-w-6xl mx-auto mt-2 lg:mt-8 px-4">
+        <div className="w-full max-w-2xl lg:max-w-6xl mx-auto mt-2 lg:mt-8 px-4 mb-4">
           <AdminHeader />
         </div>
 

@@ -15,12 +15,12 @@ export function AdminHeader() {
       </div>
 
       <nav className="w-full lg:max-w-xs mt-2 lg:mt-0 order-last lg:order-none">
-        <ul className="flex flex-wrap text-center text-medium">
+        <ul className="flex flex-wrap text-center text-medium space-x-2">
           <li className="flex-1">
             <NavLink
               to="/becas"
-              className="block px-2 py-3 hover:text-primary"
-              activeClassName="font-semibold text-primary"
+              className="block px-1 py-3 hover:text-primary"
+              activeClassName="font-semibold text-primary border-b-2 border-primary"
             >
               Becas
             </NavLink>
@@ -28,8 +28,8 @@ export function AdminHeader() {
           <li className="flex-1">
             <NavLink
               to="/entidades"
-              className="block px-2 py-3 hover:text-primary"
-              activeClassName="font-semibold text-primary"
+              className="block px-1 py-3 hover:text-primary"
+              activeClassName="font-semibold text-primary border-b-2 border-primary"
             >
               Entidades
             </NavLink>
@@ -37,8 +37,8 @@ export function AdminHeader() {
           <li className="flex-1">
             <NavLink
               to="/usuarios"
-              className="block px-2 py-3 hover:text-primary"
-              activeClassName="font-semibold text-primary"
+              className="block px-1 py-3 hover:text-primary"
+              activeClassName="font-semibold text-primary border-b-2 border-primary"
             >
               Usuarios
             </NavLink>
