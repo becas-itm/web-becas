@@ -11,9 +11,7 @@ const AdminPage = lazy(() => import('./pages/HomePage'));
 const UsersPage = lazy(() => import('./pages/UsersPage'));
 const EntitiesPage = lazy(() => import('./pages/EntitiesPage'));
 const ProfilePage = lazy(() => import('./pages/ProfilePage'));
-const PendingScholarshipsPage = lazy(() =>
-  import('./pages/PendingScholarshipsPage'),
-);
+const ScholarshipsPage = lazy(() => import('./pages/ScholarshipsPage'));
 
 const AdminScholarshipPage = lazy(() => import('./pages/ScholarshipPage'));
 const CreateScholarshipPage = lazy(() =>
@@ -50,7 +48,7 @@ function App() {
       <PrivateRoute exact path="/perfil" children={<ProfilePage />} />
 
       <PrivateRoute exact path="/becas">
-        <PendingScholarshipsPage />
+        <ScholarshipsPage />
       </PrivateRoute>
 
       <PrivateRoute exact path="/convocatorias/crear">

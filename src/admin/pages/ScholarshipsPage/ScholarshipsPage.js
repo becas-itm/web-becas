@@ -4,7 +4,7 @@ import { PendingResults } from './PendingResults';
 
 const DEFAULT_FILTERS = { page: 1 };
 
-function PendingScholarshipsPage() {
+function ScholarshipsPage() {
   const [page, setPage] = React.useState(DEFAULT_FILTERS.page);
   const searchUrl = `/publishing/scholarships/?page=${page}`;
 
@@ -17,4 +17,4 @@ function PendingScholarshipsPage() {
   );
 }
 
-export default PendingScholarshipsPage;
+export default ScholarshipsPage;
