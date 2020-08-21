@@ -100,7 +100,7 @@ function EntitiesPageContent() {
   const editEntity = useEditEntity();
 
   return (
-    <div className="max-w-6xl mx-auto px-4">
+    <div className="max-w-2xl lg:max-w-6xl mx-auto p-4">
       <EntitiesList
         entities={entities}
         onNew={toggleCreate}
