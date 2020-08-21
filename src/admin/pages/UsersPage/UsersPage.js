@@ -5,9 +5,9 @@ import { Add } from 'ui/Icon';
 import Button from 'ui/Button';
 import { useToggle } from 'utils/hooks';
 import { useSnackbar } from 'ui/Snackbar';
-import GenderAvatar from 'ui/GenderAvatar';
 import AdminTemplate from 'admin/ui/AdminTemplate';
 
+import { UserItem } from './UserItem';
 import { InviteUserDialog } from './InviteUserDialog';
 
 function useGetAllUsers() {
@@ -29,35 +29,47 @@ export default function UsersPage() {
   };
 
   return (
-    <AdminTemplate className="relative">
-      <div className="max-w-5xl mx-auto py-4 px-6">
-        <header className="mb-4 flex flex-wrap items-baseline justify-between">
-          <h1 className="text-xl font-semibold">Usuarios</h1>
-          <Button onClick={toggleInvite} outline>
-            <div className="flex flex-wrap items-center">
-              Invitar <Add className="ml-2" />
-            </div>
-          </Button>
+    <AdminTemplate>
+      <div className="max-w-2xl lg:max-w-6xl mx-auto p-4">
+        <header
+          className="bg-white rounded-sm flex items-start justify-between shadow-sm p-4 md:p-6"
+          style={{
+            boxShadow: '1px 1px 1px rgba(0, 0, 0, 0.12)',
+          }}
+        >
+          <div>
+            <h1 className="text-2xl">Usuarios</h1>
+            <p className="text-base text-medium leading-tight mt-2">
+              Invita a otros administradores que hagan parte del sistema de
+              becas.
+            </p>
+          </div>
+          <div className="ml-4">
+            <Button
+              onClick={toggleInvite}
+              data-testid="EntitiesList__createButton"
+            >
+              <span className="flex items-center">
+                <Add className="mr-1" /> Invitar
+              </span>
+            </Button>
+          </div>
         </header>
 
-        <header className="flex flex-wrap sm:justify-around md:justify-start">
-          {users.map(user => (
-            <div
-              key={user.uid}
-              className="w-full sm:w-auto mt-4 mr-4 md:mt-8 md:mr-8"
-            >
-              <div className="p-4 pr-6 flex flex-wrap items-start rounded shadow bg-white">
-                <GenderAvatar alt={user.displayName} gender={user.gender} />
-                <div className="pl-3">
-                  <h3 className="text-lg font-semibold">{user.displayName}</h3>
-                  <div className="text-base text-medium max-w-xs overflow-hidden">
-                    {user.email}
-                  </div>
+        <div className="mt-8">
+          <div className="md:px-4">
+            <div className="flex flex-wrap -mb-6 md:-mx-4">
+              {users.map(user => (
+                <div
+                  key={user.uid}
+                  className="w-full mb-6 md:px-4 md:w-1/2 lg:w-1/3"
+                >
+                  <UserItem {...user} />
                 </div>
-              </div>
+              ))}
             </div>
-          ))}
-        </header>
+          </div>
+        </div>
       </div>
 
       <InviteUserDialog
