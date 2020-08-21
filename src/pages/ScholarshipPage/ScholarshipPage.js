@@ -1,10 +1,10 @@
 import React from 'react';
 import { useGet } from 'utils/api';
-import { useParams } from 'react-router';
+import { MdArrowBack } from 'react-icons/md';
+import { useHistory, useParams } from 'react-router-dom';
 
 import LinkButton from 'ui/LinkButton';
 import EmptyState from 'ui/EmptyState';
-import GoBackButton from 'ui/GoBackButton';
 import { SiteTemplate } from 'ui/SiteTemplate';
 
 import { ScholarshipCard } from './ScholarshipCard';
@@ -22,6 +22,7 @@ function ScholarshipPage() {
 }
 
 function PageFetcher({ scholarshipId }) {
+  const { goBack } = useHistory();
   const { data } = useGet(`/search/scholarships/${scholarshipId}/`);
 
   if (!data) {
@@ -37,9 +38,14 @@ function PageFetcher({ scholarshipId }) {
 
   return (
     <main className="max-w-xl lg:max-w-6xl mx-auto">
-      <div className="mb-4 lg:mb-6 flex items-center">
-        <GoBackButton />
-        <div className="pl-2 text-medium">Volver</div>
+      <div className="mb-4">
+        <button
+          onClick={goBack}
+          className="inline-flex items-center text-sm text-primary p-2"
+        >
+          <MdArrowBack size={20} aria-hidden className="mr-2" />
+          Atrás
+        </button>
       </div>
       <div className="flex justify-between flex-col flex-wrap lg:flex-row">
         <div className="flex-1 max-w-3xl">
