@@ -43,7 +43,7 @@ export function AppFooter() {
                 href="mailto:dcri@itm.edu.co"
                 className="text-primary hover:underline focus:underline"
               >
-                dcri@itm.edu.co
+                dcri@correo.itm.edu.co
               </a>
             </div>
           </div>
